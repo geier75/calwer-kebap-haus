@@ -1,40 +1,114 @@
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei';
-import { useRef } from 'react';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { OrbitControls, Stars, Sphere } from '@react-three/drei';
+import { useRef, Suspense } from 'react';
 import * as THREE from 'three';
+import { TextureLoader } from 'three';
 
-function AnimatedSphere() {
+function Earth() {
   const meshRef = useRef<THREE.Mesh>(null);
+  
+  // Create earth-like texture programmatically
+  const earthTexture = new THREE.CanvasTexture(createEarthTexture());
   
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.2;
-      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+      meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.1;
     }
   });
 
   return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Sphere ref={meshRef} args={[1, 100, 100]} scale={2.5}>
-        <MeshDistortMaterial
-          color="#10b981"
-          attach="material"
-          distort={0.5}
-          speed={2}
-          roughness={0.2}
-          metalness={0.8}
+    <group>
+      {/* Main Earth Sphere */}
+      <Sphere ref={meshRef} args={[2, 64, 64]}>
+        <meshStandardMaterial
+          map={earthTexture}
+          roughness={0.7}
+          metalness={0.2}
         />
       </Sphere>
-    </Float>
+      
+      {/* Atmosphere Glow */}
+      <Sphere args={[2.1, 64, 64]}>
+        <meshBasicMaterial
+          color="#10b981"
+          transparent
+          opacity={0.15}
+          side={THREE.BackSide}
+        />
+      </Sphere>
+      
+      {/* Outer Atmosphere */}
+      <Sphere args={[2.2, 64, 64]}>
+        <meshBasicMaterial
+          color="#34d399"
+          transparent
+          opacity={0.08}
+          side={THREE.BackSide}
+        />
+      </Sphere>
+    </group>
   );
 }
 
+function createEarthTexture(): HTMLCanvasElement {
+  const canvas = document.createElement('canvas');
+  canvas.width = 2048;
+  canvas.height = 1024;
+  const ctx = canvas.getContext('2d')!;
+  
+  // Base ocean color
+  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  gradient.addColorStop(0, '#0a4a3a');
+  gradient.addColorStop(0.5, '#0d5c4a');
+  gradient.addColorStop(1, '#0a4a3a');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Add continents (simplified)
+  ctx.fillStyle = '#10b981';
+  
+  // Africa-like shape
+  ctx.beginPath();
+  ctx.ellipse(1200, 500, 200, 300, 0.3, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Europe-like shape
+  ctx.beginPath();
+  ctx.ellipse(1100, 300, 150, 100, 0, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Asia-like shape
+  ctx.beginPath();
+  ctx.ellipse(1500, 400, 350, 250, 0.2, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Americas-like shape
+  ctx.beginPath();
+  ctx.ellipse(400, 400, 180, 400, 0.1, 0, Math.PI * 2);
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.ellipse(300, 700, 150, 200, -0.2, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Add some texture/noise
+  for (let i = 0; i < 5000; i++) {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const size = Math.random() * 3;
+    ctx.fillStyle = `rgba(16, 185, 129, ${Math.random() * 0.3})`;
+    ctx.fillRect(x, y, size, size);
+  }
+  
+  return canvas;
+}
+
 function ParticleField() {
-  const count = 5000;
+  const count = 8000;
   const positions = new Float32Array(count * 3);
   
   for (let i = 0; i < count * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 50;
+    positions[i] = (Math.random() - 0.5) * 60;
   }
 
   return (
@@ -49,11 +123,11 @@ function ParticleField() {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.05}
+        size={0.04}
         color="#34d399"
         sizeAttenuation
         transparent
-        opacity={0.6}
+        opacity={0.7}
       />
     </points>
   );
@@ -61,35 +135,51 @@ function ParticleField() {
 
 export default function Hero3D() {
   return (
-    <div className="relative w-full h-screen">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -5]} intensity={0.5} color="#f97316" />
+    <div className="relative w-full h-screen overflow-hidden">
+      <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
+        <ambientLight intensity={0.3} />
+        <directionalLight position={[5, 3, 5]} intensity={1.5} color="#ffffff" />
+        <pointLight position={[-5, -3, -5]} intensity={0.8} color="#f97316" />
+        <pointLight position={[3, 3, 3]} intensity={0.6} color="#10b981" />
         
-        <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+        <Stars radius={150} depth={60} count={7000} factor={5} saturation={0} fade speed={0.5} />
         <ParticleField />
-        <AnimatedSphere />
+        
+        <Suspense fallback={null}>
+          <Earth />
+        </Suspense>
         
         <OrbitControls
           enableZoom={false}
           enablePan={false}
           autoRotate
-          autoRotateSpeed={0.5}
+          autoRotateSpeed={0.3}
+          minPolarAngle={Math.PI / 3}
+          maxPolarAngle={Math.PI / 1.5}
         />
       </Canvas>
       
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center z-10">
-          <h1 className="text-7xl md:text-9xl font-bold mb-6 text-gradient-green">
+        <div className="text-center z-10 px-4">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gradient-green animate-fade-in">
             Calwer Kebap
           </h1>
-          <p className="text-2xl md:text-4xl text-accent font-bold">
+          <p className="text-3xl md:text-5xl text-accent font-bold mb-4 animate-fade-in-delay-1">
             Ultra Premium Lieferservice
           </p>
-          <p className="text-lg md:text-xl text-muted-foreground mt-4">
+          <p className="text-xl md:text-2xl text-muted-foreground animate-fade-in-delay-2">
             Inselgasse 3, 75365 Calw
           </p>
+          <p className="text-lg md:text-xl text-primary mt-4 animate-fade-in-delay-3 glow-green">
+            Weltklasse-Qualität • Schnelle Lieferung • 24/7 Service
+          </p>
+        </div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce pointer-events-none">
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2 glow-green">
+          <div className="w-1 h-3 bg-primary rounded-full animate-pulse"></div>
         </div>
       </div>
     </div>

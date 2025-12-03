@@ -84,9 +84,9 @@ export default function Menu() {
       </div>
 
       {/* Products Grid */}
-      <main className="container py-12">
+      <main className="container py-16">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -96,34 +96,58 @@ export default function Menu() {
               key={product.id}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.05, type: "spring", stiffness: 100 }}
-              whileHover={{ scale: 1.02 }}
-              className="glossy-card rounded-2xl overflow-hidden hover-lift group"
+              transition={{ delay: idx * 0.03, type: "spring", stiffness: 120, damping: 15 }}
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="glossy-card rounded-3xl overflow-hidden hover-lift group relative"
             >
+              {/* Premium Badge */}
+              <div className="absolute top-4 right-4 z-10 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-bold glow-green">
+                Premium
+              </div>
+              
               {product.imageUrl && (
-                <div className="aspect-square overflow-hidden relative">
+                <div className="aspect-[4/3] overflow-hidden relative">
                   <motion.img
                     src={product.imageUrl}
                     alt={product.name}
                     className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.15, rotate: 2 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                  
+                  {/* Quick View Button */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ scale: 0.8 }}
+                    whileHover={{ scale: 1 }}
+                  >
+                    <Button variant="outline" className="bg-background/90 backdrop-blur-sm">
+                      Schnellansicht
+                    </Button>
+                  </motion.div>
                 </div>
               )}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gradient-green">{product.name}</h3>
+              
+              <div className="p-5">
+                <h3 className="text-lg font-bold mb-2 text-gradient-green group-hover:scale-105 transition-transform duration-300">
+                  {product.name}
+                </h3>
                 {product.description && (
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{product.description}</p>
+                  <p className="text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
+                    {product.description}
+                  </p>
                 )}
-                <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-primary glow-green">
-                    {(product.basePrice / 100).toFixed(2)} €
-                  </span>
-                  <Button size="lg" className="glow-orange hover-lift">
-                    <Plus className="mr-2 h-5 w-5" />
-                    Hinzufügen
+                <div className="flex items-center justify-between mt-4">
+                  <div>
+                    <span className="text-2xl font-bold text-primary glow-green block">
+                      {(product.basePrice / 100).toFixed(2)} €
+                    </span>
+                    <span className="text-xs text-muted-foreground">inkl. MwSt.</span>
+                  </div>
+                  <Button size="lg" className="glow-orange hover-lift rounded-xl">
+                    <Plus className="mr-1 h-4 w-4" />
+                    Add
                   </Button>
                 </div>
               </div>

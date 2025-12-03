@@ -71,11 +71,11 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <button className="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--green-primary))]">
+              <a href="/menu" className="btn-primary rounded-full px-5 py-2.5 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--green-primary))]">
                 Online bestellen
-              </button>
+              </a>
               <a
-                href="#menu"
+                href="/menu"
                 className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-white/80 backdrop-blur-sm hover:border-white/40 hover:text-white transition-colors"
               >
                 Speisekarte ansehen
@@ -156,7 +156,7 @@ export default function Home() {
               Speisekarte – Auswahl
             </h2>
             <a
-              href="#"
+              href="/menu"
               className="text-xs neon-green hover:text-[rgb(var(--green-soft))] transition-colors"
             >
               komplette Karte ansehen →

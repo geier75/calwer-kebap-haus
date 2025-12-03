@@ -133,3 +133,31 @@
 - [x] Konsistenter Stil für alle Bilder
 - [x] Optimierung für Web (WebP, lazy loading)
 - [x] Alt-Texte für Barrierefreiheit
+
+
+## Neue Anforderungen - Komplette Speisekarte von Lieferando/Robincook
+
+### Recherche
+- [x] Lieferando: Calwer Pizza Kebap Haus - komplette Speisekarte
+- [x] Robincook: Calwer Kebap - komplette Speisekarte
+- [x] Google: Weitere Quellen für Speisekarte
+- [x] Alle Preise dokumentieren
+- [x] Alle Produktnamen dokumentieren
+- [x] Alle Kategorien dokumentieren
+- [x] Produktbeschreibungen dokumentieren
+- [x] Menüs und Kombinationen dokumentieren
+
+### Datenbank-Update
+- [x] Alle neuen Kategorien hinzufügen
+- [x] Alle neuen Produkte mit echten Preisen hinzufügen
+- [x] Produktbeschreibungen aktualisieren
+- [x] Menüs als separate Kategorie hinzufügen
+- [x] Extras und Beilagen hinzufügen
+- [x] Getränke hinzufügen
+
+### UI-Implementation
+- [x] Vollständige Speisekarten-Seite erstellen
+- [x] Kategorien-Navigation
+- [x] Produkt-Grid mit allen Artikeln
+- [x] Filter-Funktionen
+- [x] Such-Funktion

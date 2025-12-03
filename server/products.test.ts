@@ -104,12 +104,12 @@ describe("Products API", () => {
     const ctx = createPublicContext();
     const caller = appRouter.createCaller(ctx);
 
-    const product = await caller.products.bySlug({ slug: "doener-kebap" });
+    const product = await caller.products.bySlug({ slug: "doener-im-brot" });
     
     expect(product).toBeDefined();
     if (product) {
-      expect(product.slug).toBe("doener-kebap");
-      expect(product.name).toBeDefined();
+      expect(product.slug).toBe("doener-im-brot");
+      expect(product.name).toBe("Döner im Brot");
     }
   });
 

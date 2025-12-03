@@ -7,6 +7,19 @@ import { TextureLoader } from 'three';
 function Earth() {
   const meshRef = useRef<THREE.Mesh>(null);
   
+  // Calw coordinates: 48.7147° N, 8.7397° E
+  const calwLat = 48.7147;
+  const calwLon = 8.7397;
+
+  // Convert lat/lon to 3D coordinates on sphere
+  const latRad = (calwLat * Math.PI) / 180;
+  const lonRad = (calwLon * Math.PI) / 180;
+  const radius = 2.05; // Slightly above Earth surface
+
+  const markerX = radius * Math.cos(latRad) * Math.cos(lonRad);
+  const markerY = radius * Math.sin(latRad);
+  const markerZ = radius * Math.cos(latRad) * Math.sin(lonRad);
+  
   // Create earth-like texture programmatically
   const earthTexture = new THREE.CanvasTexture(createEarthTexture());
   
@@ -46,6 +59,27 @@ function Earth() {
           side={THREE.BackSide}
         />
       </Sphere>
+      
+      {/* Calw Location Marker */}
+      <mesh position={[markerX, markerY, markerZ]}>
+        <sphereGeometry args={[0.03, 16, 16]} />
+        <meshStandardMaterial
+          color="#f97316"
+          emissive="#f97316"
+          emissiveIntensity={3}
+        />
+      </mesh>
+      
+      {/* Marker Glow Ring */}
+      <mesh position={[markerX, markerY, markerZ]}>
+        <ringGeometry args={[0.04, 0.07, 32]} />
+        <meshBasicMaterial
+          color="#f97316"
+          transparent
+          opacity={0.8}
+          side={2}
+        />
+      </mesh>
     </group>
   );
 }

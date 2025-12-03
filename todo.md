@@ -96,3 +96,14 @@
 - [x] Batch 4: Salate, Beilagen, Getränke (inkl. 0,33L Cola-Dose)
 - [x] Alle Bilder in Datenbank aktualisieren
 - [x] KI-Chatbot bleibt aktiv und funktionsfähig
+
+
+## Korrekturen - Produktbilder & Standort
+- [x] Pide mit Käse - Korrektes Bild ohne Sucuk generieren
+- [x] Fanta 0,33L - Orangenes Getränkedosen-Bild
+- [x] Sprite 0,33L - Grünes Getränkedosen-Bild
+- [x] Wasser 0,33L - Wasserflasche-Bild
+- [x] Ayran - Türkisches Joghurt-Getränk-Bild
+- [x] 3D-Weltkarte: Calw-Standort-Marker hinzugefügt (Lat: 48.7147, Lon: 8.7397) - Orange leuchtender Marker
+- [x] Marker mit Glow-Ring für bessere Sichtbarkeit
+- [x] Produkt-Bild-Zuordnung in Datenbank korrigiert

@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE products SET imageUrl = '/images/pide-kaseli.jpg' WHERE slug = 'pide-mit-kase';\nUPDATE products SET imageUrl = '/images/fanta-dose.jpg' WHERE slug = 'fanta-033l';\nUPDATE products SET imageUrl = '/images/sprite-dose.jpg' WHERE slug = 'sprite-033l';\nUPDATE products SET imageUrl = '/images/wasser-flasche.jpg' WHERE slug = 'wasser-033l';\nUPDATE products SET imageUrl = '/images/ayran.jpg' WHERE slug = 'ayran';\nUPDATE products SET imageUrl = '/images/cola-dose.jpg' WHERE slug = 'cola-033l';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute UPDATE products SET imageUrl = '/images/pide-kaseli.jpg' WHERE slug = 'pide-mit-kase';\nUPDATE products SET imageUrl = '/images/fanta-dose.jpg' WHERE slug = 'fanta-033l';\nUPDATE products SET imageUrl = '/images/sprite-dose.jpg' WHERE slug = 'sprite-033l';\nUPDATE products SET imageUrl = '/images/wasser-flasche.jpg' WHERE slug = 'wasser-033l';\nUPDATE products SET imageUrl = '/images/ayran.jpg' WHERE slug = 'ayran';\nUPDATE products SET imageUrl = '/images/cola-dose.jpg' WHERE slug = 'cola-033l';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 113
+}

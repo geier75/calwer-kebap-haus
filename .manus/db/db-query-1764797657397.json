@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE products SET imageUrl = '/images/pide-kaseli-correct.jpg' WHERE name LIKE '%Pide%K%se%' OR name LIKE '%Pide%Käse%';\nUPDATE products SET imageUrl = '/images/pide-kiymali-correct.jpg' WHERE name LIKE '%Pide%Hackfleisch%' OR name LIKE '%Pide%K%ymal%';\nUPDATE products SET imageUrl = '/images/pizza-quattro-formaggi.jpg' WHERE name LIKE '%Quattro Formaggi%';\nUPDATE products SET imageUrl = '/images/pizza-vegetaria.jpg' WHERE name LIKE '%Vegetaria%';\nUPDATE products SET imageUrl = '/images/kofte-teller-premium.jpg' WHERE name LIKE '%K%fte%Teller%';\nUPDATE products SET imageUrl = '/images/sigara-boregi.jpg' WHERE name LIKE '%Sigara%';\nUPDATE products SET imageUrl = '/images/baklava.jpg' WHERE name LIKE '%Baklava%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute UPDATE products SET imageUrl = '/images/pide-kaseli-correct.jpg' WHERE name LIKE '%Pide%K%se%' OR name LIKE '%Pide%Käse%';\nUPDATE products SET imageUrl = '/images/pide-kiymali-correct.jpg' WHERE name LIKE '%Pide%Hackfleisch%' OR name LIKE '%Pide%K%ymal%';\nUPDATE products SET imageUrl = '/images/pizza-quattro-formaggi.jpg' WHERE name LIKE '%Quattro Formaggi%';\nUPDATE products SET imageUrl = '/images/pizza-vegetaria.jpg' WHERE name LIKE '%Vegetaria%';\nUPDATE products SET imageUrl = '/images/kofte-teller-premium.jpg' WHERE name LIKE '%K%fte%Teller%';\nUPDATE products SET imageUrl = '/images/sigara-boregi.jpg' WHERE name LIKE '%Sigara%';\nUPDATE products SET imageUrl = '/images/baklava.jpg' WHERE name LIKE '%Baklava%';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 101
+}

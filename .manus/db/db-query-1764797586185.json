@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, name, imageUrl FROM products WHERE imageUrl IS NULL OR imageUrl = '' OR imageUrl = '/images/placeholder.jpg';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, imageUrl FROM products WHERE imageUrl IS NULL OR imageUrl = '' OR imageUrl = '/images/placeholder.jpg';",
+  "rows": [
+    {
+      "id": "60010",
+      "name": "Dürüm",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60029",
+      "name": "Gemischter Salat klein",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60030",
+      "name": "Gemischter Salat groß",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60031",
+      "name": "Thunfisch Salat",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60032",
+      "name": "Schafskäse Salat",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60036",
+      "name": "Chicken Nuggets",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60040",
+      "name": "Wasser 0,5l",
+      "imageUrl": "NULL"
+    },
+    {
+      "id": "60041",
+      "name": "Ayran 0,25l",
+      "imageUrl": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\timageUrl\n60010\tDürüm\tNULL\n60029\tGemischter Salat klein\tNULL\n60030\tGemischter Salat groß\tNULL\n60031\tThunfisch Salat\tNULL\n60032\tSchafskäse Salat\tNULL\n60036\tChicken Nuggets\tNULL\n60040\tWasser 0,5l\tNULL\n60041\tAyran 0,25l\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 47
+}

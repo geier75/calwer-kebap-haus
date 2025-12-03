@@ -131,3 +131,12 @@
 - [x] Chatbot fragt nach Lieferadresse und Telefon
 - [x] Chatbot bestätigt Bestellung
 - [x] WhatsApp-Benachrichtigung bei Bestellung integriert
+
+
+## Produktbild-Korrekturen & Nicht existierende Produkte
+- [x] Pide mit Käse - Neues korrektes Bild nur mit Käse generiert
+- [x] Pide mit Hackfleisch - Korrektes Bild mit Hackfleisch generiert
+- [x] Adana Kebap - Aus Datenbank entfernt
+- [x] Şiş Kebap - Aus Datenbank entfernt
+- [x] Alle Produkte ohne Bild identifiziert (8 Produkte)
+- [x] Fehlende Produktbilder generiert (Pizza Quattro Formaggi, Pizza Vegetaria, Köfte Teller, Sigara Böreği, Baklava)

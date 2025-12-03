@@ -85,3 +85,51 @@
 - [ ] Dokumentation
 - [ ] User Guide
 - [ ] Admin Guide
+
+
+## Neue Anforderungen - Perfektionierung
+
+### Rechtliche Compliance
+- [x] DSGVO-Konformität (Cookie-Banner, Datenschutzerklärung)
+- [x] EU AI Act Compliance
+- [x] Impressum mit vollständigen Angaben
+- [ ] AGB für Lieferservice
+- [ ] Widerrufsbelehrung
+- [ ] Cookie-Consent-Management
+- [ ] Datenschutz-Einstellungen
+
+### Nachhaltigkeit & Grüner Finger
+- [ ] CO2-Fußabdruck-Anzeige für Lieferungen
+- [ ] Nachhaltigkeits-Badge für vegetarische/vegane Gerichte
+- [ ] Verpackungs-Informationen (recyclebar, biologisch abbaubar)
+- [ ] Regionale Zutaten hervorheben
+- [ ] Energieeffizienz-Optimierung
+
+### ISO-Normen & DACH-Region
+- [ ] ISO 27001 (Informationssicherheit)
+- [ ] ISO 9001 (Qualitätsmanagement)
+- [ ] Barrierefreiheit nach WCAG 2.1 AA
+- [ ] Deutsche Rechtschreibung und Formatierung
+- [ ] Währung in Euro (€)
+- [ ] Datums-/Zeitformat DE
+
+### Regionale Anpassung Calw
+- [x] Liefergebiet Calw und Umgebung definieren
+- [x] Lokale Zahlungsmethoden
+- [x] Öffnungszeiten korrekt darstellen
+- [x] Kontaktdaten verifizieren
+- [x] Google Maps Integration für Standort
+
+### Echte Daten von calwer-pizza.de
+- [x] Komplette Speisekarte mit echten Preisen übernehmen
+- [x] Produktbeschreibungen aktualisieren
+- [x] Kategorien anpassen
+- [ ] Allergene und Zusatzstoffe hinzufügen
+- [ ] Produktnummern übernehmen
+
+### Produktbilder
+- [x] KI-generierte Bilder für alle Produkte
+- [x] Hochwertige Food-Fotografie-Ästhetik
+- [x] Konsistenter Stil für alle Bilder
+- [x] Optimierung für Web (WebP, lazy loading)
+- [x] Alt-Texte für Barrierefreiheit

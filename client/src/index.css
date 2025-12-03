@@ -1,7 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -27,235 +25,206 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
-  /* Cyberpunk Green & Orange Theme */
-  --primary: oklch(0.55 0.18 145); /* Vibrant Green */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.65 0.22 45); /* Vibrant Orange */
-  --secondary-foreground: oklch(1 0 0);
-  --accent: oklch(0.65 0.25 145); /* Bright Green Accent */
+  /* Elite Design System - Döner SOTA */
+  --green-primary: 63 175 97;
+  --green-soft: 168 227 183;
+  --brown-primary: 75 46 31;
+  --brown-warm: 138 90 58;
+  --accent-cream: 250 244 232;
+  --accent-gold: 216 177 106;
+  
+  --primary: oklch(0.62 0.15 145);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.50 0.12 45);
+  --secondary-foreground: oklch(0.98 0 0);
+  --accent: oklch(0.75 0.08 75);
   --accent-foreground: oklch(0 0 0);
-  --radius: 0.5rem;
-  --background: oklch(0.08 0.01 240); /* Near Black */
-  --foreground: oklch(0.98 0 0); /* Off White */
-  --card: oklch(0.12 0.01 240); /* Dark Card */
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0.01 240);
-  --popover-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.18 0.01 240);
-  --muted-foreground: oklch(0.64 0 0);
-  --destructive: oklch(0.6 0.24 27);
+  --radius: 0.75rem;
+  --background: oklch(0.08 0.01 45);
+  --foreground: oklch(0.98 0.01 75);
+  --card: oklch(0.12 0.01 45);
+  --card-foreground: oklch(0.98 0.01 75);
+  --popover: oklch(0.15 0.01 45);
+  --popover-foreground: oklch(0.98 0.01 75);
+  --muted: oklch(0.18 0.01 45);
+  --muted-foreground: oklch(0.60 0.01 75);
+  --destructive: oklch(0.60 0.24 27);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.25 0.08 145); /* Green Border */
-  --input: oklch(0.18 0.01 240);
-  --ring: oklch(0.55 0.18 145);
-  --glow-green: oklch(0.65 0.25 145);
-  --glow-orange: oklch(0.65 0.22 45);
-  --sidebar: oklch(0.12 0.01 240);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.55 0.18 145);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.18 0.01 240);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.25 0.08 145);
-  --sidebar-ring: oklch(0.55 0.18 145);
-  --chart-1: oklch(0.55 0.18 145);
-  --chart-2: oklch(0.65 0.22 45);
-  --chart-3: oklch(0.45 0.15 145);
-  --chart-4: oklch(0.55 0.18 45);
-  --chart-5: oklch(0.35 0.12 145);
-}
-
-.dark {
-  /* Same as root - dark is default */
+  --border: oklch(0.98 0.01 75);
+  --input: oklch(0.18 0.01 45);
+  --ring: oklch(0.62 0.15 145);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border/8;
   }
+  
   body {
     @apply bg-background text-foreground;
-    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
+  
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
   }
+  
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  
   html {
     scroll-behavior: smooth;
   }
+  
   ::selection {
-    background: oklch(var(--glow-green) / 0.3);
-    color: oklch(var(--foreground));
-  }
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: oklch(var(--background));
-  }
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, oklch(var(--glow-green)) 0%, oklch(var(--glow-orange)) 100%);
-    border-radius: 5px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: oklch(var(--glow-green));
+    background: rgba(var(--green-primary), 0.3);
+    color: rgb(var(--accent-cream));
   }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
   }
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
   }
-}
-@layer utilities {
-  /* Metallic Text Effect */
-  .text-metallic {
-    background: linear-gradient(135deg, 
-      oklch(var(--foreground)) 0%, 
-      oklch(var(--glow-green)) 25%,
-      oklch(var(--foreground)) 50%,
-      oklch(var(--glow-orange)) 75%,
-      oklch(var(--foreground)) 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: metallic-shine 3s linear infinite;
+  
+  .flex {
+    min-height: 0;
+    min-width: 0;
   }
-
-  @keyframes metallic-shine {
-    to {
-      background-position: 200% center;
-    }
-  }
-
-  /* Glass Glow Effect */
-  .glass-glow {
-    background: rgba(18, 18, 24, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid oklch(var(--glow-green) / 0.2);
-    box-shadow: 
-      0 0 20px oklch(var(--glow-green) / 0.1),
-      0 0 40px oklch(var(--glow-orange) / 0.05),
-      inset 0 0 60px oklch(var(--glow-green) / 0.03);
-  }
-
-  .glass-glow-orange {
-    background: rgba(18, 18, 24, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid oklch(var(--glow-orange) / 0.2);
-    box-shadow: 
-      0 0 20px oklch(var(--glow-orange) / 0.1),
-      0 0 40px oklch(var(--glow-green) / 0.05),
-      inset 0 0 60px oklch(var(--glow-orange) / 0.03);
-  }
-
-  /* Neon Glow Text */
-  .neon-green {
-    color: oklch(var(--glow-green));
-    text-shadow: 
-      0 0 5px oklch(var(--glow-green) / 0.5),
-      0 0 10px oklch(var(--glow-green) / 0.3),
-      0 0 20px oklch(var(--glow-green) / 0.2);
-  }
-
-  .neon-orange {
-    color: oklch(var(--glow-orange));
-    text-shadow: 
-      0 0 5px oklch(var(--glow-orange) / 0.5),
-      0 0 10px oklch(var(--glow-orange) / 0.3),
-      0 0 20px oklch(var(--glow-orange) / 0.2);
-  }
-
-  /* Cyberpunk Grid Background */
-  .cyber-grid {
-    background-image: 
-      linear-gradient(oklch(var(--glow-green) / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(var(--glow-green) / 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* Cyberpunk Button Styles */
-  .btn-cyber {
+  
+  /* Metallic Card Effect */
+  .card-metal {
+    background: linear-gradient(135deg, oklch(0.12 0.01 45), oklch(0.15 0.01 45), oklch(0.12 0.01 45));
+    border: 1px solid oklch(0.98 0.01 75 / 0.04);
+    box-shadow:
+      0 0 0 1px oklch(0.98 0.01 75 / 0.02),
+      0 16px 40px rgba(0, 0, 0, 0.7);
     position: relative;
-    padding: 0.75rem 2rem;
-    font-family: 'Orbitron', monospace;
+    overflow: hidden;
+  }
+  
+  .card-metal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      oklch(0.98 0.01 75 / 0.08) 45%,
+      transparent 60%
+    );
+    opacity: 0.2;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+  
+  /* Premium Button with Glow */
+  .btn-primary {
+    background: linear-gradient(135deg, rgb(var(--green-primary)), rgb(var(--brown-warm)));
+    box-shadow:
+      0 0 14px rgba(var(--green-primary), 0.35),
+      0 0 24px rgba(var(--brown-warm), 0.35);
+    transition: all 0.2s ease;
+    font-family: 'League Spartan', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    overflow: hidden;
+    letter-spacing: 0.05em;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow:
+      0 0 18px rgba(var(--green-primary), 0.45),
+      0 0 30px rgba(var(--brown-warm), 0.45);
+  }
+  
+  /* Neon Text Effects */
+  .neon-green {
+    color: rgb(var(--green-soft));
+    text-shadow: 0 0 10px rgba(var(--green-primary), 0.5);
+  }
+  
+  .neon-orange {
+    color: rgb(var(--accent-gold));
+    text-shadow: 0 0 10px rgba(var(--brown-warm), 0.5);
+  }
+  
+  .text-metallic {
+    background: linear-gradient(135deg, rgb(var(--accent-cream)), rgb(var(--accent-gold)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Glass Glow Effects */
+  .glass-glow {
+    background: rgba(36, 23, 16, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.98 0.01 75 / 0.08);
+    box-shadow: 
+      0 0 20px rgba(var(--green-primary), 0.15),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  
+  .glass-glow-orange {
+    background: rgba(36, 23, 16, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.98 0.01 75 / 0.08);
+    box-shadow: 
+      0 0 20px rgba(var(--brown-warm), 0.15),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Card Hover Effect */
+  .card-hover {
     transition: all 0.3s ease;
   }
-
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 0 30px rgba(var(--green-primary), 0.25),
+      0 20px 60px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Cyber Button */
+  .btn-cyber {
+    position: relative;
+    overflow: hidden;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
   .btn-cyber::before {
     content: '';
     position: absolute;
@@ -266,67 +235,34 @@
     background: linear-gradient(
       90deg,
       transparent,
-      oklch(var(--glow-green) / 0.3),
+      rgba(var(--green-primary), 0.3),
       transparent
     );
     transition: left 0.5s ease;
   }
-
+  
   .btn-cyber:hover::before {
     left: 100%;
   }
+}
 
-  /* Card Hover Effect */
-  .card-hover {
-    transition: all 0.3s ease;
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
 
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 
-      0 0 30px oklch(var(--glow-green) / 0.2),
-      0 0 60px oklch(var(--glow-orange) / 0.1);
-  }
-
-  /* Pulse Animation */
-  .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px oklch(var(--glow-green) / 0.1);
-    }
-    50% {
-      box-shadow: 0 0 40px oklch(var(--glow-green) / 0.3);
-    }
-  }
-
-  /* Scan Line Effect */
-  .scan-line {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .scan-line::after {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      oklch(var(--glow-green)),
-      transparent
-    );
-    animation: scan 3s linear infinite;
-  }
-
-  @keyframes scan {
-    to {
-      top: 100%;
-    }
-  }
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid rgb(var(--green-primary));
+  outline-offset: 2px;
 }

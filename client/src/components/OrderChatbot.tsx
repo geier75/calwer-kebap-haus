@@ -42,10 +42,10 @@ export default function OrderChatbot() {
     setIsLoading(true);
 
     try {
-      const response = await chatMutation.mutateAsync({ message: input });
+      const response = await chatMutation.mutateAsync({ message: input, conversationHistory: messages });
       const assistantMessage: Message = {
         role: 'assistant',
-        content: response.reply
+        content: typeof response.message === 'string' ? response.message : JSON.stringify(response.message)
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {

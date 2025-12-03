@@ -24,9 +24,9 @@ describe("chat.sendMessage", () => {
       message: "Hallo, was gibt es heute?"
     });
 
-    expect(result).toHaveProperty("reply");
-    expect(typeof result.reply).toBe("string");
-    expect(result.reply.length).toBeGreaterThan(0);
+    expect(result).toHaveProperty("message");
+    expect(typeof result.message).toBe("string");
+    expect(result.message.length).toBeGreaterThan(0);
   });
 
   it("should handle product inquiries", async () => {
@@ -37,7 +37,7 @@ describe("chat.sendMessage", () => {
       message: "Wie viel kostet eine Cola?"
     });
 
-    expect(result).toHaveProperty("reply");
-    expect(typeof result.reply).toBe("string");
+    expect(result).toHaveProperty("message");
+    expect(typeof result.message).toBe("string");
   });
 });

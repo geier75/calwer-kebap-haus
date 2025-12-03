@@ -107,3 +107,27 @@
 - [x] 3D-Weltkarte: Calw-Standort-Marker hinzugefügt (Lat: 48.7147, Lon: 8.7397) - Orange leuchtender Marker
 - [x] Marker mit Glow-Ring für bessere Sichtbarkeit
 - [x] Produkt-Bild-Zuordnung in Datenbank korrigiert
+
+
+## Finale Korrekturen - Vollständige Speisekarte
+- [ ] Speisekarte mit Datenbank abgleichen - alle Produkte überprüfen
+- [ ] Fehlende Produktbilder identifizieren
+- [ ] Produktbilder für ALLE fehlenden Produkte generieren (exakt nach Produktname)
+- [ ] "Kebap" Produkt aus Datenbank entfernen (existiert nicht)
+- [ ] Andere nicht existierende Produkte entfernen
+- [ ] 3D-Weltkugel: Google Maps Calw als Textur verwenden
+- [ ] Calw-Karte auf der Kugel landkartenmäßig darstellen
+- [ ] Alle Produktbilder in Datenbank korrekt zuordnen
+
+
+## Fehlende Getränke & Chatbot-Agent
+- [x] Cola Zero 0,33L hinzugefügt mit Bild
+- [x] Mezzo Mix 0,33L hinzugefügt mit Bild
+- [x] Apfelschorle 0,5L PET-Flasche hinzugefügt mit Bild
+- [x] Sprite 0,33L überprüft (bereits vorhanden)
+- [x] Alle anderen fehlenden Getränke identifiziert
+- [x] Chatbot als höflichen Bestell-Agent umgebaut
+- [x] Chatbot kann komplette Bestellungen aufnehmen
+- [x] Chatbot fragt nach Lieferadresse und Telefon
+- [x] Chatbot bestätigt Bestellung
+- [x] WhatsApp-Benachrichtigung bei Bestellung integriert

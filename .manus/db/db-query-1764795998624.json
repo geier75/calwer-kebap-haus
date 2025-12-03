@@ -1,0 +1,605 @@
+{
+  "query": "SELECT id, name, slug, imageUrl, categoryId FROM products ORDER BY categoryId, name;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, imageUrl, categoryId FROM products ORDER BY categoryId, name;",
+  "rows": [
+    {
+      "id": "60002",
+      "name": "Menü 1 - Döner mit Pommes",
+      "slug": "menu-1-doener-pommes",
+      "imageUrl": "/images/doener-real.jpg",
+      "categoryId": "1"
+    },
+    {
+      "id": "60003",
+      "name": "Menü 2 - Yufka mit Pommes",
+      "slug": "menu-2-yufka-pommes",
+      "imageUrl": "/images/doener-wrap-real.jpg",
+      "categoryId": "1"
+    },
+    {
+      "id": "60004",
+      "name": "Menü 3 - Pizza mit Salat",
+      "slug": "menu-3-pizza-salat",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "1"
+    },
+    {
+      "id": "60005",
+      "name": "Döner Kebap",
+      "slug": "doener-kebap",
+      "imageUrl": "/images/doener-real.jpg",
+      "categoryId": "2"
+    },
+    {
+      "id": "60006",
+      "name": "Döner Kebap mit Käse",
+      "slug": "doener-kebap-kaese",
+      "imageUrl": "/images/doener-real.jpg",
+      "categoryId": "2"
+    },
+    {
+      "id": "60010",
+      "name": "Dürüm",
+      "slug": "dueruem",
+      "imageUrl": "NULL",
+      "categoryId": "2"
+    },
+    {
+      "id": "60008",
+      "name": "Yufka",
+      "slug": "yufka",
+      "imageUrl": "/images/doener-wrap-real.jpg",
+      "categoryId": "2"
+    },
+    {
+      "id": "60009",
+      "name": "Yufka mit Käse",
+      "slug": "yufka-kaese",
+      "imageUrl": "/images/doener-wrap-real.jpg",
+      "categoryId": "2"
+    },
+    {
+      "id": "60013",
+      "name": "Pizza Funghi 26cm",
+      "slug": "pizza-funghi-26cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "3"
+    },
+    {
+      "id": "60015",
+      "name": "Pizza Hawaii 26cm",
+      "slug": "pizza-hawaii-26cm",
+      "imageUrl": "/images/pizza-hawaii.jpg",
+      "categoryId": "3"
+    },
+    {
+      "id": "60011",
+      "name": "Pizza Margherita 26cm",
+      "slug": "pizza-margherita-26cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "3"
+    },
+    {
+      "id": "60012",
+      "name": "Pizza Salami 26cm",
+      "slug": "pizza-salami-26cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "3"
+    },
+    {
+      "id": "60014",
+      "name": "Pizza Tonno 26cm",
+      "slug": "pizza-tonno-26cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "3"
+    },
+    {
+      "id": "60018",
+      "name": "Pizza Funghi 30cm",
+      "slug": "pizza-funghi-30cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "4"
+    },
+    {
+      "id": "60020",
+      "name": "Pizza Hawaii 30cm",
+      "slug": "pizza-hawaii-30cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "4"
+    },
+    {
+      "id": "60016",
+      "name": "Pizza Margherita 30cm",
+      "slug": "pizza-margherita-30cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "4"
+    },
+    {
+      "id": "60017",
+      "name": "Pizza Salami 30cm",
+      "slug": "pizza-salami-30cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "4"
+    },
+    {
+      "id": "60019",
+      "name": "Pizza Tonno 30cm",
+      "slug": "pizza-tonno-30cm",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "4"
+    },
+    {
+      "id": "60025",
+      "name": "Köfte",
+      "slug": "koefte",
+      "imageUrl": "/images/kofte-teller.jpg",
+      "categoryId": "5"
+    },
+    {
+      "id": "60028",
+      "name": "Falafel Box",
+      "slug": "falafel-box",
+      "imageUrl": "/images/falafel.jpg",
+      "categoryId": "6"
+    },
+    {
+      "id": "60027",
+      "name": "Falafel Wrap",
+      "slug": "falafel-wrap",
+      "imageUrl": "/images/falafel.jpg",
+      "categoryId": "6"
+    },
+    {
+      "id": "60030",
+      "name": "Gemischter Salat groß",
+      "slug": "gemischter-salat-gross",
+      "imageUrl": "NULL",
+      "categoryId": "7"
+    },
+    {
+      "id": "60029",
+      "name": "Gemischter Salat klein",
+      "slug": "gemischter-salat-klein",
+      "imageUrl": "NULL",
+      "categoryId": "7"
+    },
+    {
+      "id": "60032",
+      "name": "Schafskäse Salat",
+      "slug": "schafskaese-salat",
+      "imageUrl": "NULL",
+      "categoryId": "7"
+    },
+    {
+      "id": "60031",
+      "name": "Thunfisch Salat",
+      "slug": "thunfisch-salat",
+      "imageUrl": "NULL",
+      "categoryId": "7"
+    },
+    {
+      "id": "60036",
+      "name": "Chicken Nuggets",
+      "slug": "chicken-nuggets",
+      "imageUrl": "NULL",
+      "categoryId": "8"
+    },
+    {
+      "id": "60034",
+      "name": "Pommes Frites groß",
+      "slug": "pommes-frites-gross",
+      "imageUrl": "/images/pommes-frites.jpg",
+      "categoryId": "8"
+    },
+    {
+      "id": "60033",
+      "name": "Pommes Frites klein",
+      "slug": "pommes-frites-klein",
+      "imageUrl": "/images/pommes-frites.jpg",
+      "categoryId": "8"
+    },
+    {
+      "id": "60041",
+      "name": "Ayran 0,25l",
+      "slug": "ayran-025l",
+      "imageUrl": "NULL",
+      "categoryId": "9"
+    },
+    {
+      "id": "60037",
+      "name": "Coca Cola 0,33l",
+      "slug": "coca-cola-033l",
+      "imageUrl": "/images/cola-dose-033.jpg",
+      "categoryId": "9"
+    },
+    {
+      "id": "60038",
+      "name": "Fanta 0,33l",
+      "slug": "fanta-033l",
+      "imageUrl": "/images/fanta-dose.jpg",
+      "categoryId": "9"
+    },
+    {
+      "id": "60039",
+      "name": "Sprite 0,33l",
+      "slug": "sprite-033l",
+      "imageUrl": "/images/sprite-dose.jpg",
+      "categoryId": "9"
+    },
+    {
+      "id": "60040",
+      "name": "Wasser 0,5l",
+      "slug": "wasser-05l",
+      "imageUrl": "NULL",
+      "categoryId": "9"
+    },
+    {
+      "id": "30006",
+      "name": "Kinder-Menü",
+      "slug": "kinder-menu",
+      "imageUrl": "/images/menu-kinder.jpg",
+      "categoryId": "30008"
+    },
+    {
+      "id": "30002",
+      "name": "Menü 1 - Döner",
+      "slug": "menu-1-doener",
+      "imageUrl": "/images/doener-kebap-premium.jpg",
+      "categoryId": "30008"
+    },
+    {
+      "id": "30003",
+      "name": "Menü 2 - Pizza",
+      "slug": "menu-2-pizza",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30008"
+    },
+    {
+      "id": "30004",
+      "name": "Menü 3 - Pizza Klein",
+      "slug": "menu-3-pizza-klein",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30008"
+    },
+    {
+      "id": "30005",
+      "name": "Yufka Menü",
+      "slug": "yufka-menu",
+      "imageUrl": "/images/yufka-durum.jpg",
+      "categoryId": "30008"
+    },
+    {
+      "id": "30007",
+      "name": "Döner im Brot",
+      "slug": "doener-im-brot",
+      "imageUrl": "/images/doener-real.jpg",
+      "categoryId": "30009"
+    },
+    {
+      "id": "30012",
+      "name": "Döner Teller",
+      "slug": "doener-teller",
+      "imageUrl": "/images/doener-real.jpg",
+      "categoryId": "30009"
+    },
+    {
+      "id": "30008",
+      "name": "Schüler Döner",
+      "slug": "schueler-doener",
+      "imageUrl": "/images/doener-real.jpg",
+      "categoryId": "30009"
+    },
+    {
+      "id": "30009",
+      "name": "Vegetarischer Döner",
+      "slug": "vegetarischer-doener",
+      "imageUrl": "/images/vegetarischer-doener.jpg",
+      "categoryId": "30009"
+    },
+    {
+      "id": "30011",
+      "name": "Vegetarischer Yufka",
+      "slug": "vegetarischer-yufka",
+      "imageUrl": "/images/vegetarischer-doener.jpg",
+      "categoryId": "30009"
+    },
+    {
+      "id": "30010",
+      "name": "Yufka Döner (Dürüm)",
+      "slug": "yufka-doener",
+      "imageUrl": "/images/doener-wrap-real.jpg",
+      "categoryId": "30009"
+    },
+    {
+      "id": "30020",
+      "name": "Calwer Spezial Pizza",
+      "slug": "calwer-spezial-26",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30019",
+      "name": "Pizza Calzone",
+      "slug": "pizza-calzone-26",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30016",
+      "name": "Pizza Funghi",
+      "slug": "pizza-funghi-26",
+      "imageUrl": "/images/pizza-funghi.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30013",
+      "name": "Pizza Margherita",
+      "slug": "pizza-margherita-26",
+      "imageUrl": "/images/pizza-margherita-premium.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30014",
+      "name": "Pizza Salami",
+      "slug": "pizza-salami-26",
+      "imageUrl": "/images/pizza-salami.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30015",
+      "name": "Pizza Schinken",
+      "slug": "pizza-schinken-26",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30017",
+      "name": "Pizza Tonno",
+      "slug": "pizza-tonno-26",
+      "imageUrl": "/images/pizza-tonno.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30018",
+      "name": "Pizza Vegetaria",
+      "slug": "pizza-vegetaria-26",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30010"
+    },
+    {
+      "id": "30027",
+      "name": "Calwer Spezial Pizza (30cm)",
+      "slug": "calwer-spezial-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30024",
+      "name": "Pizza Funghi (30cm)",
+      "slug": "pizza-funghi-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30021",
+      "name": "Pizza Margherita (30cm)",
+      "slug": "pizza-margherita-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30022",
+      "name": "Pizza Salami (30cm)",
+      "slug": "pizza-salami-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30023",
+      "name": "Pizza Schinken (30cm)",
+      "slug": "pizza-schinken-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30025",
+      "name": "Pizza Tonno (30cm)",
+      "slug": "pizza-tonno-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30026",
+      "name": "Pizza Vegetaria (30cm)",
+      "slug": "pizza-vegetaria-30",
+      "imageUrl": "/images/pizza-margherita-real.jpg",
+      "categoryId": "30011"
+    },
+    {
+      "id": "30032",
+      "name": "Adana Kebap",
+      "slug": "adana-kebap",
+      "imageUrl": "/images/adana-kebap.jpg",
+      "categoryId": "30012"
+    },
+    {
+      "id": "30028",
+      "name": "Lahmacun",
+      "slug": "lahmacun",
+      "imageUrl": "/images/lahmacun-premium.jpg",
+      "categoryId": "30012"
+    },
+    {
+      "id": "30030",
+      "name": "Pide mit Hackfleisch",
+      "slug": "pide-hackfleisch",
+      "imageUrl": "/images/adana-kebap.jpg",
+      "categoryId": "30012"
+    },
+    {
+      "id": "30029",
+      "name": "Pide mit Käse",
+      "slug": "pide-kaese",
+      "imageUrl": "/images/pide-sucuklu.jpg",
+      "categoryId": "30012"
+    },
+    {
+      "id": "30031",
+      "name": "Pide mit Sucuk",
+      "slug": "pide-sucuk",
+      "imageUrl": "/images/adana-kebap.jpg",
+      "categoryId": "30012"
+    },
+    {
+      "id": "30033",
+      "name": "Şiş Kebap",
+      "slug": "sis-kebap",
+      "imageUrl": "/images/adana-kebap.jpg",
+      "categoryId": "30012"
+    },
+    {
+      "id": "30034",
+      "name": "Falafel im Brot",
+      "slug": "falafel-im-brot",
+      "imageUrl": "/images/falafel-teller.jpg",
+      "categoryId": "30013"
+    },
+    {
+      "id": "30035",
+      "name": "Falafel Teller",
+      "slug": "falafel-teller",
+      "imageUrl": "/images/falafel.jpg",
+      "categoryId": "30013"
+    },
+    {
+      "id": "30038",
+      "name": "Bauernsalat",
+      "slug": "bauernsalat",
+      "imageUrl": "/images/salad.jpg",
+      "categoryId": "30014"
+    },
+    {
+      "id": "30039",
+      "name": "Beilagensalat",
+      "slug": "beilagensalat",
+      "imageUrl": "/images/salad.jpg",
+      "categoryId": "30014"
+    },
+    {
+      "id": "30037",
+      "name": "Gemischter Salat",
+      "slug": "gemischter-salat",
+      "imageUrl": "/images/salad.jpg",
+      "categoryId": "30014"
+    },
+    {
+      "id": "30036",
+      "name": "Salat Nizza",
+      "slug": "salat-nizza",
+      "imageUrl": "/images/gemischter-salat.jpg",
+      "categoryId": "30014"
+    },
+    {
+      "id": "30041",
+      "name": "Pommes Frites groß",
+      "slug": "pommes-gross",
+      "imageUrl": "/images/pommes.jpg",
+      "categoryId": "30015"
+    },
+    {
+      "id": "30040",
+      "name": "Pommes Frites klein",
+      "slug": "pommes-klein",
+      "imageUrl": "/images/pommes-frites-premium.jpg",
+      "categoryId": "30015"
+    },
+    {
+      "id": "30042",
+      "name": "Pommes mit Käse",
+      "slug": "pommes-kaese",
+      "imageUrl": "/images/pommes-frites.jpg",
+      "categoryId": "30015"
+    },
+    {
+      "id": "30043",
+      "name": "Reis",
+      "slug": "reis",
+      "imageUrl": "/images/rice.jpg",
+      "categoryId": "30015"
+    },
+    {
+      "id": "30052",
+      "name": "Ayran 0,25l",
+      "slug": "ayran-025",
+      "imageUrl": "/images/drink.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30044",
+      "name": "Cola 0,33l",
+      "slug": "cola-033",
+      "imageUrl": "/images/cola-dose.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30045",
+      "name": "Cola Zero 0,33l",
+      "slug": "cola-zero-033",
+      "imageUrl": "/images/cola-dose-033.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30046",
+      "name": "Fanta 0,33l",
+      "slug": "fanta-033",
+      "imageUrl": "/images/fanta-dose-033.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30049",
+      "name": "Getränk 1,0l",
+      "slug": "getraenk-1l",
+      "imageUrl": "/images/drink.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30050",
+      "name": "Getränk 1,25l",
+      "slug": "getraenk-125l",
+      "imageUrl": "/images/drink.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30048",
+      "name": "Mezzo Mix 0,33l",
+      "slug": "mezzo-mix-033",
+      "imageUrl": "/images/drink.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30047",
+      "name": "Sprite 0,33l",
+      "slug": "sprite-033",
+      "imageUrl": "/images/fanta-dose-033.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30053",
+      "name": "Uludag 0,33l",
+      "slug": "uludag-033",
+      "imageUrl": "/images/drink.jpg",
+      "categoryId": "30016"
+    },
+    {
+      "id": "30051",
+      "name": "Wasser 0,5l",
+      "slug": "wasser-05",
+      "imageUrl": "/images/drink.jpg",
+      "categoryId": "30016"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\timageUrl\tcategoryId\n60002\tMenü 1 - Döner mit Pommes\tmenu-1-doener-pommes\t/images/doener-real.jpg\t1\n60003\tMenü 2 - Yufka mit Pommes\tmenu-2-yufka-pommes\t/images/doener-wrap-real.jpg\t1\n60004\tMenü 3 - Pizza mit Salat\tmenu-3-pizza-salat\t/images/pizza-margherita-real.jpg\t1\n60005\tDöner Kebap\tdoener-kebap\t/images/doener-real.jpg\t2\n60006\tDöner Kebap mit Käse\tdoener-kebap-kaese\t/images/doener-real.jpg\t2\n60010\tDürüm\tdueruem\tNULL\t2\n60008\tYufka\tyufka\t/images/doener-wrap-real.jpg\t2\n60009\tYufka mit Käse\tyufka-kaese\t/images/doener-wrap-real.jpg\t2\n60013\tPizza Funghi 26cm\tpizza-funghi-26cm\t/images/pizza-margherita-real.jpg\t3\n60015\tPizza Hawaii 26cm\tpizza-hawaii-26cm\t/images/pizza-hawaii.jpg\t3\n60011\tPizza Margherita 26cm\tpizza-margherita-26cm\t/images/pizza-margherita-real.jpg\t3\n60012\tPizza Salami 26cm\tpizza-salami-26cm\t/images/pizza-margherita-real.jpg\t3\n60014\tPizza Tonno 26cm\tpizza-tonno-26cm\t/images/pizza-margherita-real.jpg\t3\n60018\tPizza Funghi 30cm\tpizza-funghi-30cm\t/images/pizza-margherita-real.jpg\t4\n60020\tPizza Hawaii 30cm\tpizza-hawaii-30cm\t/images/pizza-margherita-real.jpg\t4\n60016\tPizza Margherita 30cm\tpizza-margherita-30cm\t/images/pizza-margherita-real.jpg\t4\n60017\tPizza Salami 30cm\tpizza-salami-30cm\t/images/pizza-margherita-real.jpg\t4\n60019\tPizza Tonno 30cm\tpizza-tonno-30cm\t/images/pizza-margherita-real.jpg\t4\n60025\tKöfte\tkoefte\t/images/kofte-teller.jpg\t5\n60028\tFalafel Box\tfalafel-box\t/images/falafel.jpg\t6\n60027\tFalafel Wrap\tfalafel-wrap\t/images/falafel.jpg\t6\n60030\tGemischter Salat groß\tgemischter-salat-gross\tNULL\t7\n60029\tGemischter Salat klein\tgemischter-salat-klein\tNULL\t7\n60032\tSchafskäse Salat\tschafskaese-salat\tNULL\t7\n60031\tThunfisch Salat\tthunfisch-salat\tNULL\t7\n60036\tChicken Nuggets\tchicken-nuggets\tNULL\t8\n60034\tPommes Frites groß\tpommes-frites-gross\t/images/pommes-frites.jpg\t8\n60033\tPommes Frites klein\tpommes-frites-klein\t/images/pommes-frites.jpg\t8\n60041\tAyran 0,25l\tayran-025l\tNULL\t9\n60037\tCoca Cola 0,33l\tcoca-cola-033l\t/images/cola-dose-033.jpg\t9\n60038\tFanta 0,33l\tfanta-033l\t/images/fanta-dose.jpg\t9\n60039\tSprite 0,33l\tsprite-033l\t/images/sprite-dose.jpg\t9\n60040\tWasser 0,5l\twasser-05l\tNULL\t9\n30006\tKinder-Menü\tkinder-menu\t/images/menu-kinder.jpg\t30008\n30002\tMenü 1 - Döner\tmenu-1-doener\t/images/doener-kebap-premium.jpg\t30008\n30003\tMenü 2 - Pizza\tmenu-2-pizza\t/images/pizza-margherita-real.jpg\t30008\n30004\tMenü 3 - Pizza Klein\tmenu-3-pizza-klein\t/images/pizza-margherita-real.jpg\t30008\n30005\tYufka Menü\tyufka-menu\t/images/yufka-durum.jpg\t30008\n30007\tDöner im Brot\tdoener-im-brot\t/images/doener-real.jpg\t30009\n30012\tDöner Teller\tdoener-teller\t/images/doener-real.jpg\t30009\n30008\tSchüler Döner\tschueler-doener\t/images/doener-real.jpg\t30009\n30009\tVegetarischer Döner\tvegetarischer-doener\t/images/vegetarischer-doener.jpg\t30009\n30011\tVegetarischer Yufka\tvegetarischer-yufka\t/images/vegetarischer-doener.jpg\t30009\n30010\tYufka Döner (Dürüm)\tyufka-doener\t/images/doener-wrap-real.jpg\t30009\n30020\tCalwer Spezial Pizza\tcalwer-spezial-26\t/images/pizza-margherita-real.jpg\t30010\n30019\tPizza Calzone\tpizza-calzone-26\t/images/pizza-margherita-real.jpg\t30010\n30016\tPizza Funghi\tpizza-funghi-26\t/images/pizza-funghi.jpg\t30010\n30013\tPizza Margherita\tpizza-margherita-26\t/images/pizza-margherita-premium.jpg\t30010\n30014\tPizza Salami\tpizza-salami-26\t/images/pizza-salami.jpg\t30010\n30015\tPizza Schinken\tpizza-schinken-26\t/images/pizza-margherita-real.jpg\t30010\n30017\tPizza Tonno\tpizza-tonno-26\t/images/pizza-tonno.jpg\t30010\n30018\tPizza Vegetaria\tpizza-vegetaria-26\t/images/pizza-margherita-real.jpg\t30010\n30027\tCalwer Spezial Pizza (30cm)\tcalwer-spezial-30\t/images/pizza-margherita-real.jpg\t30011\n30024\tPizza Funghi (30cm)\tpizza-funghi-30\t/images/pizza-margherita-real.jpg\t30011\n30021\tPizza Margherita (30cm)\tpizza-margherita-30\t/images/pizza-margherita-real.jpg\t30011\n30022\tPizza Salami (30cm)\tpizza-salami-30\t/images/pizza-margherita-real.jpg\t30011\n30023\tPizza Schinken (30cm)\tpizza-schinken-30\t/images/pizza-margherita-real.jpg\t30011\n30025\tPizza Tonno (30cm)\tpizza-tonno-30\t/images/pizza-margherita-real.jpg\t30011\n30026\tPizza Vegetaria (30cm)\tpizza-vegetaria-30\t/images/pizza-margherita-real.jpg\t30011\n30032\tAdana Kebap\tadana-kebap\t/images/adana-kebap.jpg\t30012\n30028\tLahmacun\tlahmacun\t/images/lahmacun-premium.jpg\t30012\n30030\tPide mit Hackfleisch\tpide-hackfleisch\t/images/adana-kebap.jpg\t30012\n30029\tPide mit Käse\tpide-kaese\t/images/pide-sucuklu.jpg\t30012\n30031\tPide mit Sucuk\tpide-sucuk\t/images/adana-kebap.jpg\t30012\n30033\tŞiş Kebap\tsis-kebap\t/images/adana-kebap.jpg\t30012\n30034\tFalafel im Brot\tfalafel-im-brot\t/images/falafel-teller.jpg\t30013\n30035\tFalafel Teller\tfalafel-teller\t/images/falafel.jpg\t30013\n30038\tBauernsalat\tbauernsalat\t/images/salad.jpg\t30014\n30039\tBeilagensalat\tbeilagensalat\t/images/salad.jpg\t30014\n30037\tGemischter Salat\tgemischter-salat\t/images/salad.jpg\t30014\n30036\tSalat Nizza\tsalat-nizza\t/images/gemischter-salat.jpg\t30014\n30041\tPommes Frites groß\tpommes-gross\t/images/pommes.jpg\t30015\n30040\tPommes Frites klein\tpommes-klein\t/images/pommes-frites-premium.jpg\t30015\n30042\tPommes mit Käse\tpommes-kaese\t/images/pommes-frites.jpg\t30015\n30043\tReis\treis\t/images/rice.jpg\t30015\n30052\tAyran 0,25l\tayran-025\t/images/drink.jpg\t30016\n30044\tCola 0,33l\tcola-033\t/images/cola-dose.jpg\t30016\n30045\tCola Zero 0,33l\tcola-zero-033\t/images/cola-dose-033.jpg\t30016\n30046\tFanta 0,33l\tfanta-033\t/images/fanta-dose-033.jpg\t30016\n30049\tGetränk 1,0l\tgetraenk-1l\t/images/drink.jpg\t30016\n30050\tGetränk 1,25l\tgetraenk-125l\t/images/drink.jpg\t30016\n30048\tMezzo Mix 0,33l\tmezzo-mix-033\t/images/drink.jpg\t30016\n30047\tSprite 0,33l\tsprite-033\t/images/fanta-dose-033.jpg\t30016\n30053\tUludag 0,33l\tuludag-033\t/images/drink.jpg\t30016\n30051\tWasser 0,5l\twasser-05\t/images/drink.jpg\t30016\n",
+  "stderr": "",
+  "execution_time_ms": 80
+}

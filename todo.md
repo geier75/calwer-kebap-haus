@@ -69,3 +69,14 @@
 - [x] Optimiertes Menü-Layout (4-Spalten Grid)
 - [x] Mehr Premium-Effekte (Badges, Schnellansicht)
 - [x] Bessere Produktpräsentation (Hover-Effekte, Rotation)
+
+
+## Neue Anforderungen - Gamification & Echte Bilder
+- [x] Gamification-System für Menü-Auswahl
+- [x] Punkte sammeln bei Produktauswahl
+- [x] Achievements/Badges anzeigen
+- [x] Interaktive Produktauswahl mit Varianten
+- [x] Extras und Größen wählbar machen (Mengenselektor)
+- [x] Echte Produktbilder recherchieren
+- [x] Getränke-Bilder speziell anpassen
+- [x] Alle Produktbilder in Datenbank aktualisieren

@@ -1,5 +1,34 @@
 {
   "version": "7",
   "dialect": "mysql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1764761204903,
+      "tag": "0000_productive_james_howlett",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1764761302349,
+      "tag": "0001_pale_bloodstorm",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1764771503035,
+      "tag": "0002_closed_morbius",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1764771575512,
+      "tag": "0003_stormy_golden_guardian",
+      "breakpoints": true
+    }
+  ]
 }

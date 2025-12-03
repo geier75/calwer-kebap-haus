@@ -5,6 +5,8 @@ import { publicProcedure, router } from "./_core/trpc";
 import { drizzle } from "drizzle-orm/mysql2";
 import { categories, products } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
+import { invokeLLM } from "./_core/llm";
+import { z } from "zod";
 
 const db = drizzle(process.env.DATABASE_URL!);
 
@@ -28,6 +30,32 @@ export const appRouter = router({
     products: publicProcedure.query(async () => {
       return await db.select().from(products).where(eq(products.isAvailable, true)).orderBy(products.sortOrder);
     }),
+  }),
+
+  chat: router({
+    sendMessage: publicProcedure
+      .input(z.object({ message: z.string() }))
+      .mutation(async ({ input }) => {
+        const allProducts = await db.select().from(products).where(eq(products.isAvailable, true));
+        const productList = allProducts.map(p => `${p.name} - ${(p.basePrice / 100).toFixed(2)}€`).join('\n');
+        
+        const response = await invokeLLM({
+          messages: [
+            {
+              role: 'system',
+              content: `Du bist ein freundlicher KI-Assistent für das Calwer Kebap Restaurant. Hilf Kunden bei der Bestellung.\n\nVerfügbare Produkte:\n${productList}\n\nBeantworte Fragen zu Produkten, Preisen und nimm Bestellungen entgegen. Sei freundlich und hilfsbereit.`
+            },
+            {
+              role: 'user',
+              content: input.message
+            }
+          ]
+        });
+        
+        const content = response.choices[0]?.message?.content;
+        const reply = typeof content === 'string' ? content : 'Entschuldigung, ich konnte Ihre Anfrage nicht verarbeiten.';
+        return { reply };
+      }),
   }),
 });
 

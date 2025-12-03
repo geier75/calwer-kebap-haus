@@ -1,68 +1,61 @@
-# Calwer Kebap Deluxe - Kompletter Neuaufbau
+# Calwer Pizza Kebap Haus - Ultra-Luxus 8K WebGL Neuimplementierung
 
-## Phase 1: Datenbank-Schema
-- [x] Vereinfachtes Schema nur für essenzielle Funktionen
-- [x] Users Tabelle
-- [x] Categories Tabelle
-- [x] Products Tabelle
-- [x] Orders Tabelle
-- [x] OrderItems Tabelle
-- [x] Migration durchführen
+## KRITISCHE FEHLER ZU BEHEBEN
+- [ ] FALSCHE SPEISEKARTE - Kebap-Gerichte die es nicht gibt
+- [ ] FALSCHE BILDER - passen nicht zu echten Produkten
+- [ ] ZU SIMPEL - keine echten WebGL 3D-Effekte
+- [ ] KEIN KI-CHATBOT - nur simples Formular
 
-## Phase 2: Speisekarte importieren
-- [x] Echte Preise von Lieferando verwenden
-- [x] Alle Kategorien anlegen
-- [x] Alle Produkte mit Preisen anlegen
-- [x] Seed-Skript erstellen und ausführen
+## Phase 1: Echte Speisekarte von calwer-pizza.de
+- [ ] Komplette Website calwer-pizza.de scrapen
+- [ ] Alle Kategorien dokumentieren
+- [ ] Alle Produkte mit exakten Namen dokumentieren
+- [ ] Alle Preise dokumentieren
+- [ ] Alle Produktbeschreibungen dokumentieren
+- [ ] Produktnummern dokumentieren
+- [ ] Extras und Varianten dokumentieren
 
-## Phase 3: Produktbilder
-- [x] Ultra-realistische Food-Photography generieren
-- [x] Bilder in public/images speichern
-- [x] Bildpfade in Datenbank aktualisieren
+## Phase 2: Echte Produktbilder
+- [ ] Bilder für JEDES echte Produkt generieren
+- [ ] Pizza-Bilder (alle Sorten)
+- [ ] Pasta-Bilder
+- [ ] Salat-Bilder
+- [ ] Getränke-Bilder
+- [ ] Dessert-Bilder
 
-## Phase 4: Design System
-- [x] Ultra-realistisches Glossy Design
-- [x] Grün/Orange Farbschema
-- [x] Metallic-Effekte
-- [x] Custom Fonts
-- [x] Responsive Design
+## Phase 3: 8K Ultra-Luxus WebGL Design
+- [x] Three.js vollständig integrieren
+- [x] 3D Hero-Section mit rotierenden Objekten
+- [x] Partikel-System implementieren
+- [x] Komplexe Shader-Effekte
+- [x] 3D-Produkt-Visualisierung
+- [x] Smooth Scroll mit Parallax
+- [ ] WebGL Post-Processing
+- [ ] 8K-ready Assets
 
-## Phase 5: Speisekarten-Seite
-- [x] Kategorien-Navigation
-- [x] Produkt-Grid mit Bildern
-- [x] Produktdetails
-- [x] "In den Warenkorb" Button
+## Phase 4: KI-Chatbot-Assistent
+- [x] LLM-Integration für Konversation
+- [x] Chat-Interface mit Streaming
+- [x] Produktempfehlungen durch KI
+- [x] Bestellung über Chat möglich
+- [x] Natürliche Sprachverarbeitung
+- [ ] WhatsApp-Benachrichtigung bei Bestellung
 
-## Phase 6: Warenkorb
-- [ ] Cart Context erstellen
-- [ ] Warenkorb-Komponente
-- [ ] Floating Cart Button
-- [ ] Mengenänderung
-- [ ] Artikel entfernen
+## Phase 5: Datenbank aktualisieren
+- [ ] Alte falsche Daten löschen
+- [ ] Echte Speisekarte importieren
+- [ ] Alle Produktbilder verknüpfen
 
-## Phase 7: Bestellsystem
-- [ ] Checkout-Formular
-- [ ] Lieferadresse-Eingabe
-- [ ] Zahlungsmethoden-Auswahl
-- [ ] tRPC Order Router
-- [ ] WhatsApp-Benachrichtigung über Manus API
-- [ ] Bestellbestätigung
+## Phase 6: Komplexe Animationen
+- [x] Framer Motion für Micro-Interactions
+- [ ] GSAP für komplexe Timelines
+- [x] Scroll-triggered Animations
+- [x] Hover-Effekte mit 3D-Transform
+- [x] Loading-Animationen
 
-## Phase 8: DSGVO & Rechtliches
-- [ ] Impressum
-- [ ] Datenschutzerklärung
-- [ ] Cookie-Banner
-- [ ] AGB
-
-## Phase 9: Tests & Finalisierung
-- [ ] Vitest Tests für tRPC
-- [ ] Funktionstest Warenkorb
-- [ ] Funktionstest Bestellung
-- [ ] Funktionstest WhatsApp-Benachrichtigung
-- [ ] Performance-Check
-- [ ] Checkpoint erstellen
-
-## Phase 10: Fertigstellung
-- [ ] Finale Überprüfung
-- [ ] Dokumentation
-- [ ] Präsentation an User
+## Phase 7: Tests & Deployment
+- [ ] Vitest Tests für alle Features
+- [ ] Performance-Tests
+- [ ] Cross-Browser Testing
+- [ ] Mobile Responsiveness
+- [ ] Lighthouse Score 90+

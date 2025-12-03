@@ -1,7 +1,8 @@
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Store } from "lucide-react";
 import { useState } from "react";
+import VirtualStore from "@/components/VirtualStore";
 import Hero3D from "@/components/Hero3D";
 import OrderChatbot from "@/components/OrderChatbot";
 import ProductCard from "@/components/ProductCard";
@@ -18,6 +19,7 @@ export default function Menu() {
   const { data: products, isLoading: productsLoading } = trpc.menu.products.useQuery();
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [showVirtualStore, setShowVirtualStore] = useState(false);
   
   const handleAddToCart = (product: any, quantity: number) => {
     setCart(prev => {
@@ -64,10 +66,21 @@ export default function Menu() {
               <h2 className="text-2xl font-bold text-primary">Unsere Speisekarte</h2>
               <p className="text-sm text-muted-foreground">Tel: +49 7051 927587</p>
             </div>
-            <Button size="lg" className="glow-green hover-lift">
-              <ShoppingCart className="mr-2 h-5 w-5" />
-              Warenkorb ({totalItems})
-            </Button>
+            <div className="flex gap-3">
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => setShowVirtualStore(true)}
+                className="glow-green hover-lift"
+              >
+                <Store className="mr-2 h-5 w-5" />
+                Virtueller Rundgang
+              </Button>
+              <Button size="lg" className="glow-green hover-lift">
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                Warenkorb ({totalItems})
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -129,6 +142,11 @@ export default function Menu() {
 
       {/* KI Chatbot */}
       <OrderChatbot />
+
+      {/* Virtual Store */}
+      {showVirtualStore && (
+        <VirtualStore onClose={() => setShowVirtualStore(false)} />
+      )}
 
       {/* Footer */}
       <footer className="border-t border-border/50 mt-16 glass-glow">

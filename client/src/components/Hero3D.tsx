@@ -1,11 +1,12 @@
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Stars, Sphere } from '@react-three/drei';
-import { useRef, Suspense } from 'react';
+import { useRef, Suspense, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { TextureLoader } from 'three';
 
 function Earth() {
   const meshRef = useRef<THREE.Mesh>(null);
+  const [mapTexture, setMapTexture] = useState<THREE.Texture | null>(null);
   
   // Calw coordinates: 48.7147° N, 8.7397° E
   const calwLat = 48.7147;
@@ -20,8 +21,26 @@ function Earth() {
   const markerY = radius * Math.sin(latRad);
   const markerZ = radius * Math.cos(latRad) * Math.sin(lonRad);
   
-  // Create earth-like texture programmatically
-  const earthTexture = new THREE.CanvasTexture(createEarthTexture());
+  // Load Calw map texture
+  useEffect(() => {
+    const loader = new TextureLoader();
+    loader.load(
+      '/images/calw-google-maps-2.png',
+      (texture) => {
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        setMapTexture(texture);
+      },
+      undefined,
+      () => {
+        // Fallback to programmatic texture
+        const fallbackTexture = new THREE.CanvasTexture(createEarthTexture());
+        setMapTexture(fallbackTexture);
+      }
+    );
+  }, []);
+  
+  const earthTexture = mapTexture || new THREE.CanvasTexture(createEarthTexture());
   
   useFrame((state) => {
     if (meshRef.current) {

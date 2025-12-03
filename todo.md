@@ -140,3 +140,18 @@
 - [x] Şiş Kebap - Aus Datenbank entfernt
 - [x] Alle Produkte ohne Bild identifiziert (8 Produkte)
 - [x] Fehlende Produktbilder generiert (Pizza Quattro Formaggi, Pizza Vegetaria, Köfte Teller, Sigara Böreği, Baklava)
+
+
+## Neue Features - Virtual Store & Google Maps Integration
+- [x] Google Maps Karte von Calw auf 3D-Erdkugel integrieren
+- [x] Calw Restaurant-Standort auf der Kugel anzeigen
+- [x] Virtual Store 360°-Panorama-Ansicht mit echtem Laden-Foto
+- [x] Interaktive Steuerung im Virtual Store (Drag, Zoom)
+- [x] "Virtueller Rundgang" Button im Menü-Header
+- [x] Vollbild-Modus für Virtual Store
+- [x] Ansicht zurücksetzen-Funktion
+
+## KORREKTUREN - Echte Google Maps Karte
+- [x] ECHTE Google Maps Karte von Calw verwenden (nicht generiert)
+- [x] Screenshot-Karte als Textur auf 3D-Kugel anwenden
+- [x] Calw Stadtgebiet korrekt auf Kugel positionieren

@@ -80,3 +80,19 @@
 - [x] Echte Produktbilder recherchieren
 - [x] Getränke-Bilder speziell anpassen
 - [x] Alle Produktbilder in Datenbank aktualisieren
+
+
+## Korrekturen - Produktbilder und Daten
+- [ ] Getränke-Bilder: 0,33L Dosen statt 1L Flaschen generieren
+- [ ] Vegetarischer Döner: Bild ohne Fleisch, nur Gemüse/Falafel
+- [ ] Produktbeschreibungen überprüfen und korrigieren
+- [ ] Alle Bilder in Datenbank aktualisieren
+
+
+## Hyper-realistische Produktbilder - Komplette Speisekarte
+- [x] Batch 1: Döner-Produkte (Döner Kebap, Yufka, Vegetarisch, etc.)
+- [x] Batch 2: Pizza-Produkte (Margherita, Salami, Funghi, etc.)
+- [x] Batch 3: Türkische Spezialitäten (Lahmacun, Pide, Adana, etc.)
+- [x] Batch 4: Salate, Beilagen, Getränke (inkl. 0,33L Cola-Dose)
+- [x] Alle Bilder in Datenbank aktualisieren
+- [x] KI-Chatbot bleibt aktiv und funktionsfähig

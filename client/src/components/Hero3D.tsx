@@ -19,13 +19,14 @@ export default function Hero3D() {
           <h1 className="text-7xl md:text-9xl font-black mb-2" style={{
             fontFamily: '"Montserrat", "Arial Black", sans-serif',
             color: 'transparent',
-            WebkitTextStroke: '3px #c0c0c0',
+            WebkitTextStroke: '6px #c0c0c0',
             textShadow: `
-              0 0 20px rgba(192, 192, 192, 0.8),
-              0 0 40px rgba(255, 255, 255, 0.6),
-              0 4px 8px rgba(0, 0, 0, 0.9)
+              0 0 30px rgba(192, 192, 192, 1),
+              0 0 60px rgba(255, 255, 255, 0.8),
+              0 0 90px rgba(192, 192, 192, 0.6),
+              0 6px 12px rgba(0, 0, 0, 0.9)
             `,
-            filter: 'drop-shadow(0 0 15px rgba(192, 192, 192, 0.7))',
+            filter: 'drop-shadow(0 0 25px rgba(192, 192, 192, 0.9)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.5))',
             letterSpacing: '0.02em',
             fontWeight: 900
           }}>
@@ -34,13 +35,14 @@ export default function Hero3D() {
           <h2 className="text-6xl md:text-8xl font-black" style={{
             fontFamily: '"Montserrat", "Arial Black", sans-serif',
             color: 'transparent',
-            WebkitTextStroke: '3px #c0c0c0',
+            WebkitTextStroke: '6px #c0c0c0',
             textShadow: `
-              0 0 20px rgba(192, 192, 192, 0.8),
-              0 0 40px rgba(255, 255, 255, 0.6),
-              0 4px 8px rgba(0, 0, 0, 0.9)
+              0 0 30px rgba(192, 192, 192, 1),
+              0 0 60px rgba(255, 255, 255, 0.8),
+              0 0 90px rgba(192, 192, 192, 0.6),
+              0 6px 12px rgba(0, 0, 0, 0.9)
             `,
-            filter: 'drop-shadow(0 0 15px rgba(192, 192, 192, 0.7))',
+            filter: 'drop-shadow(0 0 25px rgba(192, 192, 192, 0.9)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.5))',
             letterSpacing: '0.02em',
             fontWeight: 900
           }}>

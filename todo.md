@@ -336,3 +336,13 @@
   - [x] Silber-Glow-Effekte
 - [x] Chatbot-Avatar: Grünen Border entfernen
 - [x] Nur Foto ohne farbigen Kreis (border-2 border-green-500/30 entfernt)
+
+
+## Silber-Outline Verstärkung
+- [x] Dickere Silber-Umrandung (6px statt 3px)
+- [x] Stärkere Silber-Glow-Effekte
+  - [x] 3-Layer textShadow (30px, 60px, 90px)
+  - [x] 2-Layer drop-shadow Filter
+  - [x] Höhere Opacity (1.0, 0.8, 0.6)
+- [x] Bessere Lesbarkeit
+- [x] Durchsichtig bleibt erhalten

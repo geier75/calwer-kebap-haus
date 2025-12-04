@@ -397,3 +397,16 @@
   - [x] Versandkostenfrei ab 20€ Hinweis
   - [x] Glassmorphism-Design
 - [x] Alle Features getestet
+
+## Interaktives Öffnungszeiten-Widget
+- [x] Klick auf Widget öffnet Modal
+- [x] Modal zeigt vollständige Öffnungszeiten (Mo-So)
+  - [x] Montag - Sonntag: 10:00 - 22:00
+  - [x] Grüne Glassmorphism-Boxen pro Tag
+  - [x] Monospace-Font für Uhrzeiten
+- [x] Schönes Glassmorphism-Design
+  - [x] Schwarzer Hintergrund mit Blur
+  - [x] Grüner Border & Glow
+  - [x] Smooth Animationen
+- [x] ESC & Backdrop-Klick zum Schließen
+- [x] Kontaktinfo im Footer (Tel + Adresse)

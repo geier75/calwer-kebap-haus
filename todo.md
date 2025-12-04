@@ -534,3 +534,13 @@
   - [x] Professionelle Food-Photography auf Holztisch
 - [x] Bild in Datenbank für "Menü 2" verknüpft (/images/menu-2.jpg)
 - [x] Auf Website verifiziert - Bild wird korrekt angezeigt
+
+
+## Menü 3 - Pizza Bild erstellen - FERTIG ✅
+- [x] Produktbild generiert (1x Pizza 26cm + 1x Salat + 1x Getränk 0,33L)
+  - [x] Zeigt 1x mittelgroße Pizza (26cm) mit Salami, Champignons, Basilikum
+  - [x] 1x frischer Beilagensalat in weißer Schale mit Tomaten, Gurken, Zwiebeln
+  - [x] 1x Coca-Cola Dose (0,33L)
+  - [x] Professionelle Food-Photography auf Holztisch mit Serviette
+- [x] Bild in Datenbank für "Menü 3" verknüpft (/images/menu-3.jpg)
+- [x] Auf Website verifiziert

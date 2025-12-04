@@ -301,3 +301,20 @@
 - [x] Entferne "Ultra-Premium Lieferservice"
 - [x] Schlichtere, authentischere Beschreibung
 - [x] Neue Tagline: "Frisch zubereitet • Schnelle Lieferung • Beste Qualität"
+
+
+## Visuelle Optimierungen - Premium Look
+- [x] Namen professioneller & visueller gestalten
+  - [x] Montserrat Font (900 weight)
+  - [x] Gradient Text (Grün: #22c55e → #15803d, Braun: #92400e → #451a03)
+  - [x] Multi-Layer Glow-Effekte
+  - [x] Drop-Shadow für Tiefe
+- [x] Glassmorphism (Glossy Glass) für Buttons
+  - [x] Backdrop-Blur (12px)
+  - [x] Semi-transparenter Hintergrund (25% opacity)
+  - [x] Border mit Gradient-Farben
+  - [x] Inset-Shadows für 3D-Effekt
+  - [x] White Gradient Overlay
+- [x] Hintergrund heller machen (Laden besser sichtbar)
+  - [x] Overlay reduziert: 30-40% (vorher 50-60%)
+  - [x] Laden-Details deutlich erkennbar

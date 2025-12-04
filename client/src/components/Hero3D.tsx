@@ -9,40 +9,44 @@ export default function Hero3D() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Subtle dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+      {/* Lighter overlay for better store visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
       
       {/* Main Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
-        {/* Restaurant Name - Clean Typography */}
+        {/* Restaurant Name - Professional & Visual */}
         <div className="text-center mb-8">
-          <h1 className="text-6xl md:text-8xl font-bold mb-4" style={{
-            fontFamily: '"Bebas Neue", "Arial Black", sans-serif',
-            color: '#22c55e',
+          <h1 className="text-7xl md:text-9xl font-black mb-2" style={{
+            fontFamily: '"Montserrat", "Arial Black", sans-serif',
+            background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             textShadow: `
-              3px 3px 0px #000,
-              -1px -1px 0px #000,
-              1px -1px 0px #000,
-              -1px 1px 0px #000,
-              1px 1px 0px #000,
-              0 0 20px rgba(34, 197, 94, 0.5)
+              0 0 40px rgba(34, 197, 94, 0.6),
+              0 0 80px rgba(34, 197, 94, 0.4),
+              0 8px 16px rgba(0, 0, 0, 0.8)
             `,
-            letterSpacing: '0.05em'
+            filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 30px rgba(34, 197, 94, 0.5))',
+            letterSpacing: '0.02em',
+            fontWeight: 900
           }}>
             CALWER
           </h1>
-          <h2 className="text-5xl md:text-7xl font-bold" style={{
-            fontFamily: '"Bebas Neue", "Arial Black", sans-serif',
-            color: '#78350f',
+          <h2 className="text-6xl md:text-8xl font-black" style={{
+            fontFamily: '"Montserrat", "Arial Black", sans-serif',
+            background: 'linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
             textShadow: `
-              3px 3px 0px #000,
-              -1px -1px 0px #000,
-              1px -1px 0px #000,
-              -1px 1px 0px #000,
-              1px 1px 0px #000,
-              0 0 20px rgba(120, 53, 15, 0.5)
+              0 0 40px rgba(146, 64, 14, 0.6),
+              0 0 80px rgba(146, 64, 14, 0.4),
+              0 8px 16px rgba(0, 0, 0, 0.8)
             `,
-            letterSpacing: '0.05em'
+            filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 30px rgba(146, 64, 14, 0.5))',
+            letterSpacing: '0.02em',
+            fontWeight: 900
           }}>
             KEBAPHAUS
           </h2>
@@ -50,43 +54,76 @@ export default function Hero3D() {
 
         {/* Subtitle */}
         <div className="text-center mb-8">
-          <p className="text-white/90 text-xl md:text-2xl mb-4 drop-shadow-md">
+          <p className="text-white text-xl md:text-2xl mb-4 font-semibold drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
             Inselgasse 3, 75365 Calw
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-green-400 text-sm md:text-base font-medium">
-            <span className="drop-shadow-md">Frisch zubereitet</span>
+          <div className="flex flex-wrap justify-center gap-4 text-green-300 text-sm md:text-base font-semibold">
+            <span className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">Frisch zubereitet</span>
             <span>•</span>
-            <span className="drop-shadow-md">Schnelle Lieferung</span>
+            <span className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">Schnelle Lieferung</span>
             <span>•</span>
-            <span className="drop-shadow-md">Beste Qualität</span>
+            <span className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">Beste Qualität</span>
           </div>
         </div>
         
-        {/* CTA Buttons */}
+        {/* CTA Buttons with Glassmorphism */}
         <div className="flex flex-wrap justify-center gap-4 mt-8">
           <a 
             href="#menu" 
-            className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-lg 
-                     hover:from-green-500 hover:to-green-600 transform hover:scale-105 transition-all duration-300
-                     shadow-lg hover:shadow-xl"
+            className="group relative px-10 py-5 font-bold rounded-2xl overflow-hidden
+                     transform hover:scale-105 transition-all duration-300"
+            style={{
+              background: 'rgba(34, 197, 94, 0.25)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '2px solid rgba(34, 197, 94, 0.4)',
+              boxShadow: `
+                0 8px 32px rgba(34, 197, 94, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2)
+              `
+            }}
           >
-            🍕 Jetzt bestellen
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-50"></div>
+            <span className="relative text-white text-lg drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              🍕 Jetzt bestellen
+            </span>
           </a>
           <a 
             href="tel:07051927587" 
-            className="px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-800 text-white font-bold rounded-lg 
-                     hover:from-amber-600 hover:to-amber-700 transform hover:scale-105 transition-all duration-300
-                     shadow-lg hover:shadow-xl"
+            className="group relative px-10 py-5 font-bold rounded-2xl overflow-hidden
+                     transform hover:scale-105 transition-all duration-300"
+            style={{
+              background: 'rgba(217, 119, 6, 0.25)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '2px solid rgba(217, 119, 6, 0.4)',
+              boxShadow: `
+                0 8px 32px rgba(217, 119, 6, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2)
+              `
+            }}
           >
-            📞 Anrufen
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-50"></div>
+            <span className="relative text-white text-lg drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              📞 Anrufen
+            </span>
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator with Glassmorphism */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-green-500 rounded-full flex justify-center pt-2 bg-black/30 backdrop-blur-sm">
-          <div className="w-1 h-3 bg-green-500 rounded-full animate-pulse"></div>
+        <div 
+          className="w-6 h-10 border-2 border-green-400/60 rounded-full flex justify-center pt-2"
+          style={{
+            background: 'rgba(0, 0, 0, 0.2)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)'
+          }}
+        >
+          <div className="w-1 h-3 bg-green-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div>
         </div>
       </div>
     </div>

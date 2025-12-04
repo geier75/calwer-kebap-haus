@@ -34,7 +34,7 @@ function DonerKebab() {
   // Smooth rotation
   useFrame((state, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.5; // Rotating like a real döner
+      groupRef.current.rotation.y += delta * 0.15; // Slow rotation like a real döner
     }
   });
 
@@ -174,7 +174,7 @@ export default function Hero3D() {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-center space-y-4 px-4 max-w-4xl">
           <h1 className="text-6xl md:text-8xl font-bold text-emerald-400 drop-shadow-2xl animate-fade-in">
-            Calwer Kebap
+            CALWER KEBAPHAUS
           </h1>
           <p className="text-3xl md:text-4xl font-semibold text-orange-500 drop-shadow-lg">
             Ultra Premium Lieferservice

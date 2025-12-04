@@ -239,3 +239,9 @@
 - [x] Blur-Effekt für Tiefenschärfe (backdrop-blur-sm)
 - [x] Döner-Spieß im Vordergrund
 - [x] Overlay für bessere Text-Lesbarkeit (black/60-70)
+
+
+## UI-Anpassungen
+- [x] Entferne "Virtueller Rundgang"-Button aus Menü
+- [x] Verlangsame Döner-Spieß Rotation (0.5 → 0.15)
+- [x] Ändere Namen zu "CALWER KEBAPHAUS"

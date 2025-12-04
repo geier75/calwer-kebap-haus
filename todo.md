@@ -425,3 +425,10 @@
     - [x] Lieferadresse mit Etage
     - [x] Produktliste mit Mengen
     - [x] Gesamtpreis & Zahlungsmethode
+
+## WhatsApp-Button entfernen
+- [x] WhatsApp-Button von Startseite/Menü entfernt
+  - [x] Import aus Menu.tsx entfernt
+  - [x] Komponente aus Menu.tsx entfernt
+  - [x] Rechts unten jetzt frei
+- [ ] Button später im Checkout als Extra-Option einbauen ("Nachricht an Koch")

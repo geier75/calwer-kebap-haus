@@ -6,7 +6,7 @@ import { useState } from "react";
 import Hero3D from "@/components/Hero3D";
 import OrderChatbot from "@/components/OrderChatbot";
 import ProductCard from "@/components/ProductCard";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
 import OpeningHoursWidget from "@/components/OpeningHoursWidget";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
@@ -161,9 +161,6 @@ export default function Menu() {
 
       {/* KI Chatbot */}
       <OrderChatbot />
-
-      {/* WhatsApp Direct Button */}
-      <WhatsAppButton />
 
       {/* Opening Hours Widget */}
       <OpeningHoursWidget />

@@ -346,3 +346,13 @@
   - [x] Höhere Opacity (1.0, 0.8, 0.6)
 - [x] Bessere Lesbarkeit
 - [x] Durchsichtig bleibt erhalten
+
+## Logo-Redesign: Sichtbare Farben statt Durchsichtig
+- [x] Durchsichtiger Glass-Effekt entfernen (nicht lesbar)
+- [x] Sichtbare Farben verwenden: Grün (#22c55e) und Braun (#78350f)
+- [x] Starker Kontrast zum Hintergrund
+  - [x] Schwarze Text-Outlines (4-Richtungen)
+  - [x] Grün/Braun Glow-Effekte
+  - [x] Schwarze Schatten für Tiefe
+- [x] Silber-Metallic-Outline beibehalten (3px #c0c0c0)
+- [x] Immersiv und impulsiv aber lesbar

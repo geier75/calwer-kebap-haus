@@ -498,3 +498,9 @@
 - [ ] Menü-Bild generieren (2x Döner auf Tellern + Pommes + Coca-Cola 1,25L)
 - [ ] Menü-Bild in Datenbank verknüpfen
 - [ ] Kompletten Menü-Flow testen (Ende-zu-Ende)
+
+
+## Menü 1 Bild aktualisieren
+- [x] Generiertes Menü-Bild gefunden (2x Döner + Pommes + Coca-Cola)
+- [x] Bild-Pfad in Datenbank für "Menü 1" aktualisiert (/images/menu-1.jpg)
+- [x] Auf Website verifiziert - Bild wird korrekt angezeigt

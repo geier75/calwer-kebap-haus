@@ -523,3 +523,14 @@
   - [x] Getränk-Auswahl (1,25L)
 - [x] ProductCard aktualisiert für dynamische Item-Namen
 - [x] Auf Website verifiziert - Yufka-Menü wird korrekt angezeigt
+
+
+## Menü 2 - Pizza Bild erstellen - FERTIG ✅
+- [x] Produktbild generiert (2x Pizza 30cm + 2x Salate + 2x Getränke 0,33L + Saucen)
+  - [x] Zeigt 2x große Pizzen auf Holzbrettern (Salami & Gemüse)
+  - [x] 2x frische Beilagensalate in weißen Schalen
+  - [x] 2x Getränkedosen (Coca-Cola & Fanta 0,33L)
+  - [x] 3x Sauce-Dips (Ketchup, Mayo, Knoblauch)
+  - [x] Professionelle Food-Photography auf Holztisch
+- [x] Bild in Datenbank für "Menü 2" verknüpft (/images/menu-2.jpg)
+- [x] Auf Website verifiziert - Bild wird korrekt angezeigt

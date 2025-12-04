@@ -25,7 +25,7 @@ function Earth() {
   useEffect(() => {
     const loader = new TextureLoader();
     loader.load(
-      '/images/calw-google-maps-2.png',
+      '/images/calw-satellite-map.png',
       (texture) => {
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.ClampToEdgeWrapping;

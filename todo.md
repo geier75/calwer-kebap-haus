@@ -164,3 +164,8 @@
 - [ ] Fehlende Produkte hinzufügen (Hirtensalat, Jumbo Döner, Döner-Box, etc.)
 - [ ] Getränke-Preise aktualisieren
 - [ ] Alle Preise in Datenbank aktualisieren
+
+
+## Erdkugel-Textur Update
+- [x] Satelliten-Ansicht von Calw als Textur verwenden
+- [x] Restaurant-Marker auf Karte sichtbar

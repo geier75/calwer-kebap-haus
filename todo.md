@@ -365,3 +365,11 @@
   - [x] Opacity von 0.9/0.6 auf 0.4 reduziert
   - [x] drop-shadow von 30px auf 10px reduziert
 - [x] Farben bleiben im Buchstaben (kein starkes Ausstrahlen mehr)
+
+## Hintergrund-Bild ersetzen
+- [x] Neues Restaurant-Foto kopieren (store-interior-new.jpg)
+- [x] Hero3D.tsx aktualisieren
+- [x] Altes Bild durch neues ersetzen
+- [x] Hellere, professionellere Atmosphäre
+- [x] Menü-Boards deutlich sichtbar
+- [x] Getränkekühlschränke im Fokus

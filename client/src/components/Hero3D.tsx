@@ -3,7 +3,7 @@ export default function Hero3D() {
     <div 
       className="relative w-full h-screen overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/store-interior.jpg)',
+        backgroundImage: 'url(/images/store-interior-new.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

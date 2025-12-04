@@ -245,3 +245,9 @@
 - [x] Entferne "Virtueller Rundgang"-Button aus Menü
 - [x] Verlangsame Döner-Spieß Rotation (0.5 → 0.15)
 - [x] Ändere Namen zu "CALWER KEBAPHAUS"
+
+
+## Hintergrund-Schärfe
+- [x] Entferne Backdrop-Blur vom Laden-Foto
+- [x] Laden deutlich erkennbar
+- [x] Behalte Dark Overlay für Text-Lesbarkeit

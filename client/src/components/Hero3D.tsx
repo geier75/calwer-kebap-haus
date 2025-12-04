@@ -124,7 +124,7 @@ export default function Hero3D() {
       }}
     >
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       <Canvas
         camera={{ position: [0, 0, 6], fov: 50 }}
         gl={{

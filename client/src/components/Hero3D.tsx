@@ -36,9 +36,9 @@ function Earth() {
         texture.generateMipmaps = true;
         texture.needsUpdate = true;
         
-        // Center Calw on the globe - adjust UV mapping
-        texture.offset.set(0.45, 0.48); // Fine-tuned for Calw center
-        texture.repeat.set(0.15, 0.15); // Zoom in on Calw region
+        // Display full Calw region map on globe
+        texture.offset.set(0, 0); // No offset - show full map
+        texture.repeat.set(1, 1); // Full texture coverage
         
         setMapTexture(texture);
       },

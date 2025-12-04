@@ -184,6 +184,7 @@ ${input.notes ? `**Anmerkungen:** ${input.notes}` : ''}
           quantity: z.number(),
           priceAtOrder: z.number(),
           variant: z.string().nullable().optional(),
+          extras: z.array(z.string()).optional(),
         })),
         totalAmount: z.number(),
       }))
@@ -233,9 +234,14 @@ ${input.notes ? `**Anmerkungen:** ${input.notes}` : ''}
         }
 
         // Send WhatsApp notification
-        const itemsList = input.items.map((item, idx) => 
-          `${idx + 1}. ${item.quantity}x Produkt #${item.productId}${item.variant ? ` (${item.variant})` : ""}`
-        ).join("\n");
+        const itemsList = await Promise.all(input.items.map(async (item, idx) => {
+          const [product] = await db.select().from(products).where(eq(products.id, item.productId)).limit(1);
+          const productName = product?.name || `Produkt #${item.productId}`;
+          const variantInfo = item.variant ? ` (${item.variant})` : "";
+          const extrasInfo = item.extras && item.extras.length > 0 ? `\n   Extras: ${item.extras.join(", ")}` : "";
+          return `${idx + 1}. ${item.quantity}x ${productName}${variantInfo}${extrasInfo}`;
+        }));
+        const itemsListStr = itemsList.join("\n");
 
         const notificationMessage = `🍕 NEUE BESTELLUNG #${orderNumber}\n\n` +
           `👤 Kunde: ${input.customerName}\n` +
@@ -243,7 +249,7 @@ ${input.notes ? `**Anmerkungen:** ${input.notes}` : ''}
           `📍 Adresse: ${input.deliveryStreet} ${input.deliveryHouseNumber}, ${input.deliveryPostalCode} ${input.deliveryCity}\n` +
           (input.deliveryFloor ? `🏢 Etage: ${input.deliveryFloor}\n` : "") +
           (input.deliveryNotes ? `📝 Hinweise: ${input.deliveryNotes}\n` : "") +
-          `\n📦 Bestellung:\n${itemsList}\n\n` +
+          `\n📦 Bestellung:\n${itemsListStr}\n\n` +
           `💰 Gesamt: ${(input.totalAmount / 100).toFixed(2)} €\n` +
           `💳 Zahlung: ${input.paymentMethod === "cash" ? "Bar bei Lieferung" : "PayPal"}`;
 

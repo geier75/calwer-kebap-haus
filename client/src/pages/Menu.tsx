@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import Hero3D from "@/components/Hero3D";
 import OrderChatbot from "@/components/OrderChatbot";
-import ProductCard from "@/components/ProductCard";
+import { ProductCard } from "@/components/ProductCard";
 
 import OpeningHoursWidget from "@/components/OpeningHoursWidget";
 import { motion } from "framer-motion";
@@ -20,23 +20,32 @@ export default function Menu() {
 
   const { addItem, getTotalItems, setIsOpen } = useCart();
   
-  const handleAddToCart = (product: any, quantity: number) => {
+  const handleAddToCart = (product: any, quantity: number, selectedExtras?: string[], selectedVariantIndex?: number) => {
     // Get selected variant price if exists
-    const price = product.hasVariants && product.variants?.[0]
-      ? product.variants[0].price
+    const price = selectedVariantIndex !== undefined && product.hasVariants && product.variants?.[selectedVariantIndex]
+      ? product.variants[selectedVariantIndex].price
       : product.basePrice;
     
-    const variant = product.hasVariants && product.variants?.[0]
-      ? product.variants[0].size
+    const variant = selectedVariantIndex !== undefined && product.hasVariants && product.variants?.[selectedVariantIndex]
+      ? product.variants[selectedVariantIndex].name
       : undefined;
+    
+    // Calculate extras price
+    const extrasPrice = selectedExtras?.reduce((sum, extraName) => {
+      const extra = product.variants?.find((v: any) => v.name === extraName);
+      return sum + (extra?.price || 0);
+    }, 0) || 0;
+    
+    const totalPrice = price + extrasPrice;
     
     for (let i = 0; i < quantity; i++) {
       addItem({
         id: product.id,
         name: product.name,
-        price,
+        price: totalPrice,
         imageUrl: product.imageUrl,
         variant,
+        extras: selectedExtras,
       });
     }
     toast.success(`${product.name} wurde zum Warenkorb hinzugefügt!`);

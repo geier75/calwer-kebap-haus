@@ -1,38 +1,38 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Plus, Minus, Star, Award, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
+import { Plus, Minus, X, Star, Zap, Info } from 'lucide-react';
+import { Button } from './ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
+import { Checkbox } from './ui/checkbox';
 
 interface Product {
   id: number;
   name: string;
-  description: string | null;
+  slug: string;
+  description: string;
   basePrice: number;
-  imageUrl: string | null;
-  categoryId: number;
-  hasVariants?: boolean;
-  variants?: Array<{name: string; price: number}>;
+  imageUrl: string;
+  hasVariants: boolean;
+  variants: Array<{ name: string; price: number }> | null;
+  isFeatured: boolean;
 }
 
 interface ProductCardProps {
   product: Product;
   index: number;
-  onAddToCart: (product: Product, quantity: number) => void;
+  onAddToCart: (product: Product, quantity: number, selectedExtras?: string[], selectedVariantIndex?: number) => void;
 }
 
-export default function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
-  const [quantity, setQuantity] = useState(1);
+export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
   const [showDialog, setShowDialog] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState(0);
+  const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
   const [showPoints, setShowPoints] = useState(false);
   const [points, setPoints] = useState(0);
-  const [selectedVariant, setSelectedVariant] = useState(0); // Index of selected size
+
+  const hasExtras = product.hasVariants && product.variants && product.variants.length > 0 && 
+    product.variants.some(v => v.name.startsWith('ohne') || v.name.startsWith('mit'));
 
   const handleAddToCart = () => {
     // Get current price (variant or base)
@@ -40,18 +40,47 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
       ? product.variants[selectedVariant].price
       : product.basePrice;
     
+    // Calculate extras price
+    const extrasPrice = selectedExtras.reduce((sum, extraName) => {
+      const extra = product.variants?.find(v => v.name === extraName);
+      return sum + (extra?.price || 0);
+    }, 0);
+    
     // Gamification: Award points based on price
-    const earnedPoints = Math.floor(currentPrice / 100);
+    const earnedPoints = Math.floor((currentPrice + extrasPrice) / 100);
     setPoints(earnedPoints);
     setShowPoints(true);
     
-    onAddToCart(product, quantity);
+    onAddToCart(product, quantity, selectedExtras, hasExtras ? undefined : selectedVariant);
     
     setTimeout(() => {
       setShowPoints(false);
       setShowDialog(false);
       setQuantity(1);
+      setSelectedExtras([]);
     }, 2000);
+  };
+
+  const toggleExtra = (extraName: string) => {
+    setSelectedExtras(prev =>
+      prev.includes(extraName)
+        ? prev.filter(e => e !== extraName)
+        : [...prev, extraName]
+    );
+  };
+
+  const getCurrentPrice = () => {
+    let price = product.hasVariants && product.variants?.[selectedVariant] && !hasExtras
+      ? product.variants[selectedVariant].price
+      : product.basePrice;
+    
+    // Add extras price
+    const extrasPrice = selectedExtras.reduce((sum, extraName) => {
+      const extra = product.variants?.find(v => v.name === extraName);
+      return sum + (extra?.price || 0);
+    }, 0);
+    
+    return price + extrasPrice;
   };
 
   return (
@@ -78,47 +107,30 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
         
         {product.imageUrl && (
           <div className="aspect-[4/3] overflow-hidden relative">
-            <motion.img
+            <img
               src={product.imageUrl}
               alt={product.name}
-              className="w-full h-full object-cover"
-              whileHover={{ scale: 1.15, rotate: 2 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-            
-            {/* Quick View Button */}
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              initial={{ scale: 0.8 }}
-              whileHover={{ scale: 1 }}
-            >
-              <Button variant="outline" className="bg-background/90 backdrop-blur-sm glow-green">
-                Schnellansicht
-              </Button>
-            </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
         )}
         
-        <div className="p-5">
-          <h3 className="text-lg font-bold mb-2 text-gradient-green group-hover:scale-105 transition-transform duration-300">
+        <div className="p-6">
+          <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
             {product.name}
           </h3>
-          {product.description && (
-            <p className="text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
-              {product.description}
-            </p>
-          )}
-          <div className="flex items-center justify-between mt-4">
-            <div>
-              <span className="text-2xl font-bold text-primary glow-green block">
-                {(product.basePrice / 100).toFixed(2)} €
-              </span>
-              <span className="text-xs text-muted-foreground">inkl. MwSt.</span>
-            </div>
-            <Button 
-              size="lg" 
-              className="glow-orange hover-lift rounded-xl"
+          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+            {product.description}
+          </p>
+          
+          <div className="flex items-center justify-between">
+            <span className="text-3xl font-black text-primary glow-green">
+              {(product.basePrice / 100).toFixed(2)} €
+            </span>
+            <Button
+              size="sm"
+              className="glossy-button bg-primary hover:bg-primary/90 text-primary-foreground glow-green"
               onClick={(e) => {
                 e.stopPropagation();
                 setShowDialog(true);
@@ -128,21 +140,39 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
               Add
             </Button>
           </div>
+          
+          {product.hasVariants && !hasExtras && (
+            <div className="mt-3 text-xs text-muted-foreground">
+              ab {(product.basePrice / 100).toFixed(2)} €
+            </div>
+          )}
+        </div>
+        
+        {/* Schnellansicht Badge */}
+        <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-muted-foreground flex items-center gap-1">
+          <Info className="w-3 h-3" />
+          Schnellansicht
         </div>
       </motion.div>
 
       {/* Product Dialog */}
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
-        <DialogContent className="sm:max-w-[600px] glossy-card">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto glossy-card border-primary/20">
           <DialogHeader>
-            <DialogTitle className="text-2xl text-gradient-green">{product.name}</DialogTitle>
-            <DialogDescription>
-              {product.description || 'Wählen Sie Ihre Optionen'}
-            </DialogDescription>
+            <DialogTitle className="text-3xl font-bold text-primary glow-green flex items-center gap-2">
+              {product.name}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-auto"
+                onClick={() => setShowDialog(false)}
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            </DialogTitle>
           </DialogHeader>
           
           <div className="space-y-6">
-            {/* Product Image */}
             {product.imageUrl && (
               <div className="aspect-video overflow-hidden rounded-2xl">
                 <img
@@ -153,151 +183,124 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
               </div>
             )}
             
-            {/* Size Selector (for pizzas) or Extras (for döner) */}
-            {product.hasVariants && product.variants && product.variants.length > 0 && (
-              <div className="space-y-2">
-                {/* Check if this is a size variant (has 'cm' in name) or extras */}
-                {product.variants[0].name.includes('Ø') ? (
-                  // Size selector for pizzas
-                  <>
-                    <label className="text-sm font-medium">Größe wählen</label>
-                    <div className="grid grid-cols-2 gap-3">
-                      {product.variants.map((variant, idx) => (
-                        <Button
-                          key={idx}
-                          variant={selectedVariant === idx ? "default" : "outline"}
-                          className={`h-16 text-lg font-bold ${
-                            selectedVariant === idx ? 'glow-green' : ''
-                          }`}
-                          onClick={() => setSelectedVariant(idx)}
-                        >
-                          <div className="text-center">
-                            <div>{variant.name}</div>
-                            <div className="text-sm font-normal">
-                              {(variant.price / 100).toFixed(2)} €
-                            </div>
-                          </div>
-                        </Button>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  // Extras checkboxes for döner
-                  <>
-                    <label className="text-sm font-medium">Extras wählen</label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {product.variants.map((extra, idx) => (
-                        <label
-                          key={idx}
-                          className="flex items-center gap-2 p-2 border rounded cursor-pointer hover:bg-accent/10"
-                        >
-                          <input
-                            type="checkbox"
-                            className="w-4 h-4"
-                            defaultChecked={extra.price === 0}
-                          />
-                          <span className="text-sm">
-                            {extra.name}
-                            {extra.price > 0 && (
-                              <span className="text-xs text-muted-foreground ml-1">
-                                (+{(extra.price / 100).toFixed(2)} €)
-                              </span>
-                            )}
-                          </span>
-                        </label>
-                      ))}
-                    </div>
-                  </>
-                )}
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              {product.description}
+            </p>
+            
+            {/* Größenauswahl (für Pizza) */}
+            {product.hasVariants && !hasExtras && product.variants && (
+              <div className="space-y-3">
+                <h4 className="font-semibold text-lg">Größe wählen:</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {product.variants.map((variant, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedVariant(idx)}
+                      className={`p-4 rounded-xl border-2 transition-all ${
+                        selectedVariant === idx
+                          ? 'border-primary bg-primary/10 glow-green'
+                          : 'border-border hover:border-primary/50'
+                      }`}
+                    >
+                      <div className="font-bold text-lg">{variant.name}</div>
+                      <div className="text-primary font-black text-xl mt-1">
+                        {(variant.price / 100).toFixed(2)} €
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
             
-            {/* Quantity Selector */}
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Menge</label>
+            {/* Extras-Auswahl (für Döner) */}
+            {hasExtras && product.variants && (
+              <div className="space-y-4">
+                <h4 className="font-semibold text-lg">Extras wählen:</h4>
+                <div className="space-y-2">
+                  {product.variants.map((extra, idx) => (
+                    <label
+                      key={idx}
+                      className="flex items-center gap-3 p-3 rounded-xl border border-border hover:border-primary/50 cursor-pointer transition-all"
+                    >
+                      <Checkbox
+                        checked={selectedExtras.includes(extra.name)}
+                        onCheckedChange={() => toggleExtra(extra.name)}
+                      />
+                      <span className="flex-1">{extra.name}</span>
+                      {extra.price > 0 && (
+                        <span className="text-primary font-bold">
+                          +{(extra.price / 100).toFixed(2)} €
+                        </span>
+                      )}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* Menge */}
+            <div className="flex items-center justify-between p-4 rounded-xl bg-muted/50">
+              <span className="font-semibold text-lg">Menge:</span>
               <div className="flex items-center gap-4">
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="h-12 w-12 rounded-xl"
+                  disabled={quantity <= 1}
                 >
                   <Minus className="h-4 w-4" />
                 </Button>
-                <span className="text-3xl font-bold text-primary glow-green w-16 text-center">
-                  {quantity}
-                </span>
+                <span className="text-2xl font-bold w-12 text-center">{quantity}</span>
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="h-12 w-12 rounded-xl"
                 >
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
             </div>
             
-            {/* Points Info */}
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 flex items-center gap-3">
-              <Award className="w-8 h-8 text-accent" />
-              <div>
-                <p className="font-bold text-accent">
-                  +{Math.floor(product.basePrice / 100) * quantity} Punkte sammeln
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  Bei dieser Bestellung erhalten Sie Treuepunkte!
-                </p>
-              </div>
-            </div>
-            
-            {/* Add to Cart Button */}
+            {/* Gesamtpreis & Add Button */}
             <div className="flex items-center justify-between pt-4 border-t">
               <div>
-                <p className="text-sm text-muted-foreground">Gesamtpreis</p>
-                <p className="text-3xl font-bold text-primary glow-green">
-                  {(
-                    ((product.hasVariants && product.variants?.[selectedVariant]
-                      ? product.variants[selectedVariant].price
-                      : product.basePrice) * quantity) / 100
-                  ).toFixed(2)} €
-                </p>
+                <div className="text-sm text-muted-foreground">Gesamtpreis</div>
+                <div className="text-4xl font-black text-primary glow-green">
+                  {((getCurrentPrice() * quantity) / 100).toFixed(2)} €
+                </div>
               </div>
               <Button
                 size="lg"
-                className="glow-orange hover-lift px-8"
+                className="glossy-button bg-primary hover:bg-primary/90 text-primary-foreground glow-green text-lg px-8"
                 onClick={handleAddToCart}
               >
                 <Plus className="mr-2 h-5 w-5" />
                 In den Warenkorb
               </Button>
             </div>
+            
+            {/* Points Animation */}
+            <AnimatePresence>
+              {showPoints && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.5, y: -20 }}
+                  className="fixed inset-0 flex items-center justify-center pointer-events-none z-50"
+                >
+                  <div className="bg-accent/95 backdrop-blur-sm text-accent-foreground px-8 py-6 rounded-3xl glow-orange shadow-2xl">
+                    <div className="flex items-center gap-3">
+                      <Zap className="w-12 h-12 fill-current" />
+                      <div>
+                        <div className="text-sm font-medium">Punkte verdient!</div>
+                        <div className="text-4xl font-black">+{points}</div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-          
-          {/* Points Animation */}
-          <AnimatePresence>
-            {showPoints && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: 50 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.5, y: -50 }}
-                className="absolute inset-0 flex items-center justify-center bg-background/90 backdrop-blur-sm rounded-lg"
-              >
-                <div className="text-center">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  >
-                    <Award className="w-24 h-24 text-accent mx-auto mb-4" />
-                  </motion.div>
-                  <p className="text-4xl font-bold text-accent glow-orange">
-                    +{points} Punkte!
-                  </p>
-                  <p className="text-muted-foreground mt-2">Zum Warenkorb hinzugefügt</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </DialogContent>
       </Dialog>
     </>

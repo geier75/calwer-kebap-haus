@@ -86,6 +86,11 @@ export default function CartSidebar() {
                             Größe: {item.variant}
                           </p>
                         )}
+                        {item.extras && item.extras.length > 0 && (
+                          <div className="text-xs text-muted-foreground mt-1">
+                            <span className="font-semibold">Extras:</span> {item.extras.join(', ')}
+                          </div>
+                        )}
                         <p className="text-lg font-bold text-primary glow-green mt-1">
                           {(item.price / 100).toFixed(2)} €
                         </p>

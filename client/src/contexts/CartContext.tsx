@@ -7,6 +7,7 @@ interface CartItem {
   quantity: number;
   imageUrl: string | null;
   variant?: string; // e.g., "26cm" or "30cm" for pizzas
+  extras?: string[]; // e.g., ["ohne Zwiebeln", "mit Käse"] for döner
 }
 
 interface CartContextType {

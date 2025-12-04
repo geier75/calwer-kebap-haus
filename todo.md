@@ -447,3 +447,20 @@
 - [x] Saucen / Dips verfügbar
   - [x] Ketchup (0,50€), Mayonnaise (0,50€), Cocktailsauce (1,00€), Joghurtsauce (1,00€), Scharfe Sauce (1,00€)
 - [x] Speisekarte getestet und funktioniert
+
+## Extras-Anzeige im Warenkorb und WhatsApp
+- [x] Extras-Auswahl-Dialog implementieren
+  - [x] Checkboxen für Döner-Extras (ohne Zwiebeln, ohne Rotkohl, etc.)
+  - [x] Kostenpflichtige Extras (mit Käse +0,50€, mit Schafskäse +1,00€)
+  - [x] Preisberechnung mit Extras
+- [x] Extras im Warenkorb speichern
+  - [x] CartItem Interface erweitert mit extras: string[]
+  - [x] Extras werden beim addToCart übergeben
+- [x] Extras im Warenkorb anzeigen
+  - [x] Extras-Liste unter Produktname in CartSidebar
+  - [x] Format: "Extras: ohne Zwiebeln, mit Käse"
+- [x] Extras in WhatsApp-Benachrichtigung anzeigen
+  - [x] Extras-Schema zu Checkout hinzugefügt
+  - [x] Extras in itemsList formatiert
+  - [x] Format: "1. 2x Döner\n   Extras: ohne Zwiebeln, mit Käse"
+- [x] Kompletten Flow getestet (Auswahl → Warenkorb → WhatsApp)

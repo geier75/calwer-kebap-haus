@@ -155,3 +155,12 @@
 - [x] ECHTE Google Maps Karte von Calw verwenden (nicht generiert)
 - [x] Screenshot-Karte als Textur auf 3D-Kugel anwenden
 - [x] Calw Stadtgebiet korrekt auf Kugel positionieren
+
+
+## Speisekarten-Update - Korrekte Preise & Pizza-Größen
+- [x] Vollständige Speisekarte aus Menü-Dokument übernehmen
+- [x] Alle Pizza-Preise korrigieren (26cm und 30cm Varianten)
+- [x] Pizza-Größenauswahl im ProductCard implementieren
+- [ ] Fehlende Produkte hinzufügen (Hirtensalat, Jumbo Döner, Döner-Box, etc.)
+- [ ] Getränke-Preise aktualisieren
+- [ ] Alle Preise in Datenbank aktualisieren

@@ -132,7 +132,7 @@ export default function Menu() {
           {filteredProducts?.map((product, idx) => (
             <ProductCard
               key={product.id}
-              product={product}
+              product={product as any}
               index={idx}
               onAddToCart={handleAddToCart}
             />

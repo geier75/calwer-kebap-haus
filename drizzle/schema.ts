@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, boolean } from "drizzle-orm/mysql-core";
+import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, boolean, json } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -47,6 +47,8 @@ export const products = mysqlTable("products", {
   description: text("description"),
   basePrice: int("basePrice").notNull(), // in cents
   imageUrl: text("imageUrl"),
+  hasVariants: boolean("hasVariants").default(false).notNull(), // e.g., pizza sizes
+  variants: json("variants"), // JSON array of {name, price, size}
   isAvailable: boolean("isAvailable").default(true).notNull(),
   isFeatured: boolean("isFeatured").default(false).notNull(),
   sortOrder: int("sortOrder").default(0).notNull(),

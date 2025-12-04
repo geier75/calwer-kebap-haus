@@ -29,6 +29,13 @@
       "when": 1764771575512,
       "tag": "0003_stormy_golden_guardian",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1764800217802,
+      "tag": "0004_aromatic_juggernaut",
+      "breakpoints": true
     }
   ]
 }

@@ -17,6 +17,8 @@ interface Product {
   basePrice: number;
   imageUrl: string | null;
   categoryId: number;
+  hasVariants?: boolean;
+  variants?: Array<{size: string; price: number}>;
 }
 
 interface ProductCardProps {
@@ -30,10 +32,16 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
   const [showDialog, setShowDialog] = useState(false);
   const [showPoints, setShowPoints] = useState(false);
   const [points, setPoints] = useState(0);
+  const [selectedVariant, setSelectedVariant] = useState(0); // Index of selected size
 
   const handleAddToCart = () => {
+    // Get current price (variant or base)
+    const currentPrice = product.hasVariants && product.variants?.[selectedVariant]
+      ? product.variants[selectedVariant].price
+      : product.basePrice;
+    
     // Gamification: Award points based on price
-    const earnedPoints = Math.floor(product.basePrice / 100);
+    const earnedPoints = Math.floor(currentPrice / 100);
     setPoints(earnedPoints);
     setShowPoints(true);
     
@@ -145,6 +153,32 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
               </div>
             )}
             
+            {/* Size Selector (for pizzas) */}
+            {product.hasVariants && product.variants && product.variants.length > 0 && (
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Größe wählen</label>
+                <div className="grid grid-cols-2 gap-3">
+                  {product.variants.map((variant, idx) => (
+                    <Button
+                      key={idx}
+                      variant={selectedVariant === idx ? "default" : "outline"}
+                      className={`h-16 text-lg font-bold ${
+                        selectedVariant === idx ? 'glow-green' : ''
+                      }`}
+                      onClick={() => setSelectedVariant(idx)}
+                    >
+                      <div className="text-center">
+                        <div>{variant.size}</div>
+                        <div className="text-sm font-normal">
+                          {(variant.price / 100).toFixed(2)} €
+                        </div>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             {/* Quantity Selector */}
             <div className="space-y-2">
               <label className="text-sm font-medium">Menge</label>
@@ -189,7 +223,11 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
               <div>
                 <p className="text-sm text-muted-foreground">Gesamtpreis</p>
                 <p className="text-3xl font-bold text-primary glow-green">
-                  {((product.basePrice * quantity) / 100).toFixed(2)} €
+                  {(
+                    ((product.hasVariants && product.variants?.[selectedVariant]
+                      ? product.variants[selectedVariant].price
+                      : product.basePrice) * quantity) / 100
+                  ).toFixed(2)} €
                 </p>
               </div>
               <Button

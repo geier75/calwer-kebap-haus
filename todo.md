@@ -464,3 +464,37 @@
   - [x] Extras in itemsList formatiert
   - [x] Format: "1. 2x Döner\n   Extras: ohne Zwiebeln, mit Käse"
 - [x] Kompletten Flow getestet (Auswahl → Warenkorb → WhatsApp)
+
+## Menü-Konfigurator für Menü 1
+- [ ] Menü-Bild generieren (2x Döner + 1x große Pommes + 1x Getränk 1,25l)
+- [ ] Menü-Konfigurations-Dialog implementieren
+- [ ] Döner 1 konfigurieren (Extras + Sauce)
+- [ ] Döner 2 konfigurieren (Extras + Sauce)
+- [ ] Pommes-Sauce-Auswahl (Ketchup oder Mayo)
+- [ ] Getränk-Auswahl (1,25l Optionen)
+- [ ] Konfiguriertes Menü im Warenkorb speichern
+- [ ] Kompletten Menü-Flow testen
+
+
+## Menü-Konfigurator für Menü 1 - IMPLEMENTIERT ✅
+- [x] MenuConfigDialog-Komponente erstellt
+  - [x] 4-Schritt-Wizard (Döner 1 → Döner 2 → Pommes → Getränk)
+  - [x] Vor/Zurück-Navigation mit Validierung
+  - [x] Fortschrittsanzeige (Schritt X/4)
+  - [x] Sauce-Auswahl (Pflicht): Ketchup, Mayonnaise, Cocktailsauce, Joghurtsauce, Scharfe Sauce
+  - [x] Extras (Optional): ohne Zwiebeln, ohne Rotkohl, ohne Eisbergsalat, ohne Peperoni, ohne Tomaten, ohne Mais
+  - [x] Kostenpflichtige Extras: mit Käse (+0,50€), mit Schafskäse (+1,00€)
+- [x] Döner 1 konfigurieren (Sauce + Extras)
+- [x] Döner 2 konfigurieren (Sauce + Extras)
+- [x] Pommes-Sauce-Auswahl (Ketchup oder Mayo)
+- [x] Getränk-Auswahl (1,25l: Coca-Cola, Fanta, Sprite, Mezzo Mix, Wasser)
+- [x] Konfiguriertes Menü im Warenkorb speichern
+  - [x] Alle Konfigurationen als Extras formatiert
+  - [x] Format: "Döner 1: Joghurtsauce, ohne Zwiebeln, mit Käse"
+- [x] ProductCard Integration
+  - [x] Erkennt Menü-Produkte automatisch (name.startsWith("Menü"))
+  - [x] Öffnet MenuConfigDialog statt direkt in Warenkorb
+  - [x] handleMenuConfigComplete speichert komplettes Menü
+- [ ] Menü-Bild generieren (2x Döner auf Tellern + Pommes + Coca-Cola 1,25L)
+- [ ] Menü-Bild in Datenbank verknüpfen
+- [ ] Kompletten Menü-Flow testen (Ende-zu-Ende)

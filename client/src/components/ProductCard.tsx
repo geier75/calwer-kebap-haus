@@ -4,6 +4,7 @@ import { Plus, Minus, X, Star, Zap, Info } from 'lucide-react';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Checkbox } from './ui/checkbox';
+import { MenuConfigDialog } from './MenuConfigDialog';
 
 interface Product {
   id: number;
@@ -25,14 +26,28 @@ interface ProductCardProps {
 
 export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
   const [showDialog, setShowDialog] = useState(false);
+  const [showMenuConfig, setShowMenuConfig] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
   const [showPoints, setShowPoints] = useState(false);
   const [points, setPoints] = useState(0);
 
+  const isMenu = product.slug.startsWith('menu-');
+
   const hasExtras = product.hasVariants && product.variants && product.variants.length > 0 && 
     product.variants.some(v => v.name.startsWith('ohne') || v.name.startsWith('mit'));
+
+  const handleMenuConfigComplete = (config: any) => {
+    // Format menu configuration for cart
+    const menuExtras = [
+      `Döner 1: ${config.doner1.sauce}${config.doner1.extras.length > 0 ? ', ' + config.doner1.extras.join(', ') : ''}`,
+      `Döner 2: ${config.doner2.sauce}${config.doner2.extras.length > 0 ? ', ' + config.doner2.extras.join(', ') : ''}`,
+      `Pommes: ${config.pommesSauce}`,
+      `Getränk: ${config.drink}`
+    ];
+    onAddToCart(product, 1, menuExtras, 0);
+  };
 
   const handleAddToCart = () => {
     // Get current price (variant or base)
@@ -51,7 +66,11 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
     setPoints(earnedPoints);
     setShowPoints(true);
     
-    onAddToCart(product, quantity, selectedExtras, hasExtras ? undefined : selectedVariant);
+    if (isMenu) {
+      setShowMenuConfig(true);
+    } else {
+      onAddToCart(product, quantity, selectedExtras, selectedVariant);
+    }
     
     setTimeout(() => {
       setShowPoints(false);
@@ -303,6 +322,14 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Menu Configuration Dialog */}
+      <MenuConfigDialog
+        open={showMenuConfig}
+        onClose={() => setShowMenuConfig(false)}
+        onComplete={handleMenuConfigComplete}
+        menuName={product.name}
+      />
     </>
   );
 }

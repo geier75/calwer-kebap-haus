@@ -356,3 +356,12 @@
   - [x] Schwarze Schatten für Tiefe
 - [x] Silber-Metallic-Outline beibehalten (3px #c0c0c0)
 - [x] Immersiv und impulsiv aber lesbar
+
+## Logo-Farbanpassung
+- [x] Grün weniger neon (dunkler/gedämpfter) - #16a34a statt #22c55e
+- [x] Braun heller machen - #b45309 statt #78350f
+- [x] Glow-Effekte reduziert
+  - [x] textShadow von 40px/80px auf 15px reduziert
+  - [x] Opacity von 0.9/0.6 auf 0.4 reduziert
+  - [x] drop-shadow von 30px auf 10px reduziert
+- [x] Farben bleiben im Buchstaben (kein starkes Ausstrahlen mehr)

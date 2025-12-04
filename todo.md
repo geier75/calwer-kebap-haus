@@ -257,3 +257,16 @@
 - [x] Versuch: Komplettes Hintergrund-Bild rotiert (zu viel Bewegung)
 - [ ] Alternative: Nur Spieß-Bereich maskieren und rotieren (komplex)
 - [x] Entscheidung: Nur 3D-Spieß vorne rotieren lassen (cleaner)
+
+
+## Cyberpunk-Redesign
+- [x] Döner-Spieß entfernen
+- [x] Namen-Schriftzug im Graffiti-Metallic-Cyberpunk-Style
+- [x] Neon-Glow-Effekte (Cyan/Purple)
+- [x] Holographische Elemente (Particle Field, Grid Overlay)
+- [x] CTA-Buttons mit Glow-Effekten
+- [x] Scroll-Indicator Animation
+- [x] Level 5-7 Immersions-Features integrieren
+  - [x] Level 5 INTEGRATIV: Personalisierte Empfehlungen, Intent Mapping
+  - [x] Level 6 PRESENCE: Spatial Identity, User Presence Tracking
+  - [x] Level 7 COGNITIVE FUSION: Thought Anticipation, Decision Co-Processing

@@ -221,3 +221,14 @@
 - [x] Gezoomte Calw-Karte mit Restaurant zentral
 - [x] Orange "H" Marker deutlich sichtbar
 - [x] Umliegende Städte (Hirsau, Alzenberg, Wimberg) erkennbar
+
+
+## 3D-Döner-Spieß statt Erdkugel
+- [x] Zylindrische Geometrie für Döner-Spieß
+- [x] Calw-Karte als Textur auf Spieß
+- [x] Vertikale Rotation (um Y-Achse)
+- [x] Realistische Döner-Farben und Schichtung
+- [x] Metallstange oben und unten
+- [x] Glow-Effekt für Grill-Atmosphäre
+- [x] Point Lights für Grill-Beleuchtung
+- [x] Orange/Red Glow für Wärme-Effekt

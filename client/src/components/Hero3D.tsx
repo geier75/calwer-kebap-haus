@@ -1,27 +1,14 @@
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { OrbitControls, Stars, Sphere, useTexture } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Stars } from '@react-three/drei';
 import { useRef, Suspense, useEffect, useState, useMemo } from 'react';
 import * as THREE from 'three';
 import { TextureLoader } from 'three';
 
-function Earth() {
-  const meshRef = useRef<THREE.Mesh>(null);
+function DonerKebab() {
+  const groupRef = useRef<THREE.Group>(null);
   const [mapTexture, setMapTexture] = useState<THREE.Texture | null>(null);
   
-  // Calw coordinates: 48.7147° N, 8.7397° E
-  const calwLat = 48.7147;
-  const calwLon = 8.7397;
-
-  // Convert lat/lon to 3D coordinates on sphere
-  const latRad = (calwLat * Math.PI) / 180;
-  const lonRad = (calwLon * Math.PI) / 180;
-  const radius = 2.05; // Slightly above Earth surface
-
-  const markerX = radius * Math.cos(latRad) * Math.cos(lonRad);
-  const markerY = radius * Math.sin(latRad);
-  const markerZ = radius * Math.cos(latRad) * Math.sin(lonRad);
-  
-  // Load high-resolution Calw satellite texture with optimization
+  // Load high-resolution Calw satellite texture
   useEffect(() => {
     const loader = new TextureLoader();
     loader.load(
@@ -32,270 +19,184 @@ function Earth() {
         texture.wrapT = THREE.RepeatWrapping;
         texture.minFilter = THREE.LinearMipmapLinearFilter;
         texture.magFilter = THREE.LinearFilter;
-        texture.anisotropy = 16; // Maximum anisotropic filtering
+        texture.anisotropy = 16;
         texture.generateMipmaps = true;
         texture.needsUpdate = true;
-        
-        // Display full Calw region map on globe
-        texture.offset.set(0, 0); // No offset - show full map
-        texture.repeat.set(1, 1); // Full texture coverage
-        
         setMapTexture(texture);
       },
       undefined,
       (error) => {
         console.error('Texture loading error:', error);
-        // Fallback to programmatic texture
-        const fallbackTexture = new THREE.CanvasTexture(createEarthTexture());
-        setMapTexture(fallbackTexture);
       }
     );
   }, []);
   
-  const earthTexture = mapTexture || new THREE.CanvasTexture(createEarthTexture());
-  
-  // Smooth rotation with performance optimization
+  // Smooth rotation
   useFrame((state, delta) => {
-    if (meshRef.current) {
-      // Rotate to show Calw prominently
-      meshRef.current.rotation.y += delta * 0.08; // Slower, smoother rotation
-      meshRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.05; // Subtle wobble
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.5; // Rotating like a real döner
     }
   });
 
-  // Memoize geometry for performance
-  const sphereGeometry = useMemo(() => new THREE.SphereGeometry(2, 128, 128), []);
+  // Memoize geometries
+  const cylinderGeometry = useMemo(() => new THREE.CylinderGeometry(0.8, 0.7, 4, 64, 32), []);
+  const rodGeometry = useMemo(() => new THREE.CylinderGeometry(0.05, 0.05, 5.5, 16), []);
 
   return (
-    <group>
-      {/* Main Earth Sphere with HD texture */}
-      <mesh ref={meshRef} geometry={sphereGeometry}>
+    <group ref={groupRef}>
+      {/* Metal Rod (Spieß) */}
+      <mesh geometry={rodGeometry} position={[0, 0, 0]}>
         <meshStandardMaterial
-          map={earthTexture}
-          roughness={0.6}
-          metalness={0.3}
-          envMapIntensity={1.2}
+          color="#8B8B8B"
+          metalness={0.9}
+          roughness={0.2}
+          envMapIntensity={1.5}
+        />
+      </mesh>
+
+      {/* Döner Meat with Calw Map Texture */}
+      <mesh geometry={cylinderGeometry} position={[0, 0, 0]}>
+        <meshStandardMaterial
+          map={mapTexture}
+          roughness={0.7}
+          metalness={0.1}
+          envMapIntensity={1.0}
           toneMapped={false}
         />
       </mesh>
-      
-      {/* Inner Atmosphere Glow - Emerald */}
-      <Sphere args={[2.08, 64, 64]}>
-        <meshBasicMaterial
-          color="#10b981"
-          transparent
-          opacity={0.25}
-          side={THREE.BackSide}
-          blending={THREE.AdditiveBlending}
-        />
-      </Sphere>
-      
-      {/* Outer Atmosphere Glow */}
-      <Sphere args={[2.15, 64, 64]}>
-        <meshBasicMaterial
-          color="#34d399"
-          transparent
-          opacity={0.12}
-          side={THREE.BackSide}
-          blending={THREE.AdditiveBlending}
-        />
-      </Sphere>
-      
-      {/* Calw Location Marker - Pulsing */}
-      <mesh position={[markerX, markerY, markerZ]}>
-        <sphereGeometry args={[0.04, 32, 32]} />
-        <meshStandardMaterial
-          color="#f97316"
-          emissive="#f97316"
-          emissiveIntensity={4}
-          toneMapped={false}
-        />
-      </mesh>
-      
-      {/* Animated Marker Ring */}
-      <mesh position={[markerX, markerY, markerZ]} rotation={[Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[0.05, 0.09, 64]} />
+
+      {/* Inner Glow - Warm Orange (Grill Effect) */}
+      <mesh geometry={cylinderGeometry} position={[0, 0, 0]} scale={[1.05, 1.02, 1.05]}>
         <meshBasicMaterial
           color="#ff6b35"
           transparent
-          opacity={0.9}
-          side={THREE.DoubleSide}
+          opacity={0.3}
+          side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
-      
-      {/* Outer Marker Pulse */}
-      <mesh position={[markerX, markerY, markerZ]} rotation={[Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[0.1, 0.14, 64]} />
+
+      {/* Outer Glow - Warm Red */}
+      <mesh geometry={cylinderGeometry} position={[0, 0, 0]} scale={[1.12, 1.05, 1.12]}>
         <meshBasicMaterial
-          color="#f97316"
+          color="#ff4500"
           transparent
-          opacity={0.5}
-          side={THREE.DoubleSide}
+          opacity={0.15}
+          side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
+
+      {/* Point lights for grill effect */}
+      <pointLight position={[2, 0, 0]} intensity={0.8} color="#ff6b35" distance={5} />
+      <pointLight position={[-2, 0, 0]} intensity={0.8} color="#ff6b35" distance={5} />
+      <pointLight position={[0, 2, 2]} intensity={0.6} color="#ffa500" distance={4} />
     </group>
   );
 }
 
-function createEarthTexture(): HTMLCanvasElement {
+function createEarthTexture() {
   const canvas = document.createElement('canvas');
-  canvas.width = 4096; // 4K resolution
-  canvas.height = 2048;
-  const ctx = canvas.getContext('2d', { alpha: false })!;
+  canvas.width = 2048;
+  canvas.height = 1024;
+  const ctx = canvas.getContext('2d')!;
   
-  // High-quality gradient for ocean
+  // Gradient background
   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  gradient.addColorStop(0, '#0a4a3a');
-  gradient.addColorStop(0.3, '#0d6855');
-  gradient.addColorStop(0.5, '#10b981');
-  gradient.addColorStop(0.7, '#0d6855');
-  gradient.addColorStop(1, '#0a4a3a');
+  gradient.addColorStop(0, '#1a4d2e');
+  gradient.addColorStop(0.5, '#2d5f3f');
+  gradient.addColorStop(1, '#1a4d2e');
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  // Add detailed continents
-  ctx.fillStyle = '#34d399';
-  ctx.globalAlpha = 0.9;
-  
-  // Europe (centered for Calw)
-  ctx.beginPath();
-  ctx.ellipse(2000, 800, 400, 300, 0.2, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Add texture detail
-  ctx.globalAlpha = 1;
-  for (let i = 0; i < 15000; i++) {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height;
-    const size = Math.random() * 2 + 1;
-    const alpha = Math.random() * 0.4;
-    ctx.fillStyle = `rgba(52, 211, 153, ${alpha})`;
-    ctx.fillRect(x, y, size, size);
-  }
   
   return canvas;
 }
 
-// High-performance particle field
-function ParticleField() {
-  const count = 12000; // Increased particle count
-  const particlesRef = useRef<THREE.Points>(null);
-  
-  const positions = useMemo(() => {
-    const pos = new Float32Array(count * 3);
-    for (let i = 0; i < count * 3; i++) {
-      pos[i] = (Math.random() - 0.5) * 70;
-    }
-    return pos;
-  }, []);
-
-  useFrame((state) => {
-    if (particlesRef.current) {
-      particlesRef.current.rotation.y = state.clock.getElapsedTime() * 0.02;
-      particlesRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.1) * 0.1;
-    }
-  });
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
-          args={[positions, 3]}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.05}
-        color="#34d399"
-        sizeAttenuation
-        transparent
-        opacity={0.8}
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  );
-}
-
 export default function Hero3D() {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      <Canvas 
-        camera={{ position: [0, 0, 6], fov: 55 }}
-        gl={{ 
-          antialias: true, 
+    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-gray-900 via-emerald-950 to-gray-900">
+      <Canvas
+        camera={{ position: [0, 0, 6], fov: 50 }}
+        gl={{
+          antialias: true,
           alpha: true,
           powerPreference: 'high-performance',
-          precision: 'highp'
         }}
-        dpr={[1, 2]} // Adaptive pixel ratio
+        dpr={[1, 2]}
       >
-        {/* Enhanced lighting setup */}
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[5, 3, 5]} intensity={2} color="#ffffff" castShadow />
-        <pointLight position={[-5, -3, -5]} intensity={1.2} color="#f97316" />
-        <pointLight position={[3, 3, 3]} intensity={0.8} color="#10b981" />
-        <spotLight position={[0, 5, 0]} intensity={0.6} angle={0.6} penumbra={1} color="#34d399" />
-        
-        <Stars 
-          radius={180} 
-          depth={80} 
-          count={9000} 
-          factor={6} 
-          saturation={0} 
-          fade 
-          speed={0.6} 
-        />
-        <ParticleField />
-        
         <Suspense fallback={null}>
-          <Earth />
+          {/* Ambient Light */}
+          <ambientLight intensity={0.4} />
+          
+          {/* Main Directional Light */}
+          <directionalLight
+            position={[5, 5, 5]}
+            intensity={1.2}
+            castShadow
+          />
+          
+          {/* Fill Light */}
+          <directionalLight
+            position={[-5, -3, -5]}
+            intensity={0.5}
+          />
+
+          {/* Rim Light for dramatic effect */}
+          <pointLight position={[0, 5, -5]} intensity={0.8} color="#10b981" />
+
+          {/* Döner Kebab */}
+          <DonerKebab />
+
+          {/* Stars Background */}
+          <Stars
+            radius={100}
+            depth={50}
+            count={5000}
+            factor={4}
+            saturation={0}
+            fade
+            speed={0.5}
+          />
+
+          {/* Camera Controls */}
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            autoRotate={false}
+            minPolarAngle={Math.PI / 3}
+            maxPolarAngle={Math.PI / 1.5}
+          />
         </Suspense>
-        
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.4}
-          minPolarAngle={Math.PI / 3}
-          maxPolarAngle={Math.PI / 1.5}
-          dampingFactor={0.05}
-          rotateSpeed={0.5}
-        />
       </Canvas>
-      
-      {/* Glassmorphism overlay */}
+
+      {/* Overlay Content */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center z-10 px-4 backdrop-blur-sm bg-black/10 rounded-3xl p-12 border border-primary/20">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gradient-green animate-fade-in drop-shadow-2xl">
+        <div className="text-center space-y-4 px-4 max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-bold text-emerald-400 drop-shadow-2xl animate-fade-in">
             Calwer Kebap
           </h1>
-          <p className="text-3xl md:text-5xl text-accent font-bold mb-4 animate-fade-in-delay-1 drop-shadow-lg">
+          <p className="text-3xl md:text-4xl font-semibold text-orange-500 drop-shadow-lg">
             Ultra Premium Lieferservice
           </p>
-          <p className="text-xl md:text-2xl text-muted-foreground animate-fade-in-delay-2 drop-shadow-md">
+          <p className="text-xl md:text-2xl text-gray-300 font-medium">
             Inselgasse 3, 75365 Calw
           </p>
-          <p className="text-lg md:text-xl text-primary mt-4 animate-fade-in-delay-3 glow-green font-semibold">
-            Weltklasse-Qualität • Schnelle Lieferung • 24/7 Service
-          </p>
+          <div className="flex items-center justify-center gap-4 text-emerald-400 text-lg md:text-xl font-medium">
+            <span>Weltklasse-Qualität</span>
+            <span>•</span>
+            <span>Schnelle Lieferung</span>
+            <span>•</span>
+            <span>24/7 Service</span>
+          </div>
         </div>
       </div>
-      
-      {/* Enhanced scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce pointer-events-none">
-        <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2 glow-green backdrop-blur-sm bg-black/20">
-          <div className="w-1 h-3 bg-primary rounded-full animate-pulse shadow-lg shadow-primary/50"></div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none">
+        <div className="w-6 h-10 border-2 border-emerald-400 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-3 bg-emerald-400 rounded-full animate-scroll"></div>
         </div>
       </div>
-      
-      {/* Ambient gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5 pointer-events-none" />
     </div>
   );
 }

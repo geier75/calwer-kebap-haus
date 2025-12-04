@@ -544,3 +544,14 @@
   - [x] Professionelle Food-Photography auf Holztisch mit Serviette
 - [x] Bild in Datenbank für "Menü 3" verknüpft (/images/menu-3.jpg)
 - [x] Auf Website verifiziert
+
+
+## Kindermenü 1 Bild erstellen - FERTIG ✅
+- [x] Produktbild generiert (2x Schüler-Döner + 1x Pommes + 2x Pfirsich Durstlöscher 0,5L)
+  - [x] Zeigt 2x kleine Döner auf weißem Papier mit Fleisch, Salat, Tomaten
+  - [x] 1x goldene Pommes frites in rot-weiß gestreifter Tüte
+  - [x] 2x bunte Pfirsich-Saft-Packungen (0,5L) mit Strohhalmen
+  - [x] Kinderfreundliche Präsentation mit bunten Servietten und Holzbesteck
+  - [x] Professionelle Food-Photography auf Holztisch
+- [x] Bild in Datenbank für "Kindermenü 1" verknüpft (/images/kids-menu-1.jpg)
+- [x] Auf Website verifiziert

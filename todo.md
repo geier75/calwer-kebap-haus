@@ -410,3 +410,18 @@
   - [x] Smooth Animationen
 - [x] ESC & Backdrop-Klick zum Schließen
 - [x] Kontaktinfo im Footer (Tel + Adresse)
+
+## WhatsApp-Integration & UX-Verbesserungen
+- [x] Öffnungszeiten-Widget verstecken beim Scrollen
+  - [x] Auto-Hide beim Runterscrollen (>100px)
+  - [x] Auto-Show beim Hochscrollen (<50px)
+  - [x] Smooth AnimatePresence Transition
+  - [x] Verhindert Überlappung mit Warenkorb-Button
+- [x] WhatsApp-Benachrichtigung für alle Bestellungen (bereits implementiert)
+  - [x] Chatbot-Bestellungen → WhatsApp (notifyOwner)
+  - [x] Checkout-Bestellungen → WhatsApp (notifyOwner)
+  - [x] Bestelldetails formatiert senden
+    - [x] Bestellnummer, Kunde, Telefon
+    - [x] Lieferadresse mit Etage
+    - [x] Produktliste mit Mengen
+    - [x] Gesamtpreis & Zahlungsmethode

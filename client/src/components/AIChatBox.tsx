@@ -247,8 +247,12 @@ export function AIChatBox({
                     }
                   >
                     {message.role === "assistant" && (
-                      <div className="size-8 shrink-0 mt-1 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Sparkles className="size-4 text-primary" />
+                      <div className="size-8 shrink-0 mt-1 rounded-full overflow-hidden border-2 border-green-500/30">
+                        <img 
+                          src="/images/owner-avatar.jpg" 
+                          alt="Calwer Kebaphaus" 
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     )}
 

@@ -318,3 +318,11 @@
 - [x] Hintergrund heller machen (Laden besser sichtbar)
   - [x] Overlay reduziert: 30-40% (vorher 50-60%)
   - [x] Laden-Details deutlich erkennbar
+
+
+## Chatbot-Avatar - Persönliches Foto
+- [x] Persönliches Foto als Chatbot-Avatar verwenden
+- [x] Bild ins Projekt kopieren (owner-avatar.jpg)
+- [x] AIChatBox-Komponente aktualisieren
+- [x] Rundes Avatar-Bild mit grünem Border
+- [x] Sparkles-Icon durch persönliches Foto ersetzt

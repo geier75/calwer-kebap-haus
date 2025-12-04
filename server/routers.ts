@@ -4,7 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, protectedProcedure } from "./_core/trpc";
 import { z } from "zod";
 import { getDb } from "./db";
-import { categories, products } from "../drizzle/schema";
+import { categories, products, orders, orderItems } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 import { invokeLLM } from "./_core/llm";
 import { notifyOwner } from "./_core/notification";
@@ -158,6 +158,133 @@ ${input.notes ? `**Anmerkungen:** ${input.notes}` : ''}
           orderId: Date.now(), // Temporäre Order-ID
           message: "Ihre Bestellung wurde erfolgreich aufgegeben! Sie erhalten in Kürze eine Bestätigung.",
         };
+      }),
+  }),
+
+  orders: router({
+    create: publicProcedure
+      .input(z.object({
+        customerName: z.string(),
+        customerEmail: z.string().optional(),
+        customerPhone: z.string(),
+        deliveryStreet: z.string(),
+        deliveryHouseNumber: z.string(),
+        deliveryFloor: z.string().optional(),
+        deliveryPostalCode: z.string(),
+        deliveryCity: z.string(),
+        deliveryNotes: z.string().optional(),
+        paymentMethod: z.enum(["cash", "paypal"]),
+        items: z.array(z.object({
+          productId: z.number(),
+          quantity: z.number(),
+          priceAtOrder: z.number(),
+          variant: z.string().nullable().optional(),
+        })),
+        totalAmount: z.number(),
+      }))
+      .mutation(async ({ input }) => {
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+
+        // Generate order number
+        const orderNumber = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+
+        // Create order
+        const [order] = await db.insert(orders).values({
+          orderNumber,
+          status: "pending",
+          customerName: input.customerName,
+          customerEmail: input.customerEmail || null,
+          customerPhone: input.customerPhone,
+          deliveryStreet: input.deliveryStreet,
+          deliveryHouseNumber: input.deliveryHouseNumber,
+          deliveryFloor: input.deliveryFloor || null,
+          deliveryPostalCode: input.deliveryPostalCode,
+          deliveryCity: input.deliveryCity,
+          deliveryNotes: input.deliveryNotes || null,
+          subtotal: input.totalAmount,
+          deliveryFee: 0,
+          discount: 0,
+          total: input.totalAmount,
+          paymentMethod: input.paymentMethod,
+          paymentStatus: "pending",
+        });
+
+        const orderId = order.insertId;
+
+        // Create order items
+        for (const item of input.items) {
+          const [product] = await db.select().from(products).where(eq(products.id, item.productId)).limit(1);
+          
+          await db.insert(orderItems).values({
+            orderId: Number(orderId),
+            productId: item.productId,
+            productName: product?.name || "Unknown Product",
+            variant: item.variant || null,
+            quantity: item.quantity,
+            unitPrice: item.priceAtOrder,
+            totalPrice: item.priceAtOrder * item.quantity,
+          });
+        }
+
+        // Send WhatsApp notification
+        const itemsList = input.items.map((item, idx) => 
+          `${idx + 1}. ${item.quantity}x Produkt #${item.productId}${item.variant ? ` (${item.variant})` : ""}`
+        ).join("\n");
+
+        const notificationMessage = `🍕 NEUE BESTELLUNG #${orderNumber}\n\n` +
+          `👤 Kunde: ${input.customerName}\n` +
+          `📞 Telefon: ${input.customerPhone}\n` +
+          `📍 Adresse: ${input.deliveryStreet} ${input.deliveryHouseNumber}, ${input.deliveryPostalCode} ${input.deliveryCity}\n` +
+          (input.deliveryFloor ? `🏢 Etage: ${input.deliveryFloor}\n` : "") +
+          (input.deliveryNotes ? `📝 Hinweise: ${input.deliveryNotes}\n` : "") +
+          `\n📦 Bestellung:\n${itemsList}\n\n` +
+          `💰 Gesamt: ${(input.totalAmount / 100).toFixed(2)} €\n` +
+          `💳 Zahlung: ${input.paymentMethod === "cash" ? "Bar bei Lieferung" : "PayPal"}`;
+
+        await notifyOwner({
+          title: "🍕 Neue Bestellung eingegangen!",
+          content: notificationMessage,
+        });
+
+        return {
+          success: true,
+          orderNumber,
+          orderId: Number(orderId),
+        };
+      }),
+
+    list: protectedProcedure.query(async ({ ctx }) => {
+      const db = await getDb();
+      if (!db) return [];
+      
+      // Only admins can see all orders
+      if (ctx.user.role !== "admin") {
+        throw new Error("Unauthorized");
+      }
+
+      return await db.select().from(orders);
+    }),
+
+    updateStatus: protectedProcedure
+      .input(z.object({
+        orderId: z.number(),
+        status: z.enum(["pending", "confirmed", "preparing", "delivering", "delivered", "cancelled"]),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+
+        // Only admins can update order status
+        if (ctx.user.role !== "admin") {
+          throw new Error("Unauthorized");
+        }
+
+        await db.update(orders)
+          .set({ status: input.status })
+          .where(eq(orders.id, input.orderId));
+
+        return { success: true };
       }),
   }),
 });

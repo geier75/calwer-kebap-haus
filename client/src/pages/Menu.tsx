@@ -8,35 +8,39 @@ import OrderChatbot from "@/components/OrderChatbot";
 import ProductCard from "@/components/ProductCard";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-
-interface CartItem {
-  product: any;
-  quantity: number;
-}
+import { useCart } from "@/contexts/CartContext";
+import CartSidebar from "@/components/CartSidebar";
 
 export default function Menu() {
   const { data: categories, isLoading: categoriesLoading } = trpc.menu.categories.useQuery();
   const { data: products, isLoading: productsLoading } = trpc.menu.products.useQuery();
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-  const [cart, setCart] = useState<CartItem[]>([]);
   const [showVirtualStore, setShowVirtualStore] = useState(false);
+  const { addItem, getTotalItems, setIsOpen } = useCart();
   
   const handleAddToCart = (product: any, quantity: number) => {
-    setCart(prev => {
-      const existing = prev.find(item => item.product.id === product.id);
-      if (existing) {
-        return prev.map(item =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
-      }
-      return [...prev, { product, quantity }];
-    });
+    // Get selected variant price if exists
+    const price = product.hasVariants && product.variants?.[0]
+      ? product.variants[0].price
+      : product.basePrice;
+    
+    const variant = product.hasVariants && product.variants?.[0]
+      ? product.variants[0].size
+      : undefined;
+    
+    for (let i = 0; i < quantity; i++) {
+      addItem({
+        id: product.id,
+        name: product.name,
+        price,
+        imageUrl: product.imageUrl,
+        variant,
+      });
+    }
     toast.success(`${product.name} wurde zum Warenkorb hinzugefügt!`);
   };
   
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = getTotalItems();
 
   if (categoriesLoading || productsLoading) {
     return (
@@ -76,9 +80,18 @@ export default function Menu() {
                 <Store className="mr-2 h-5 w-5" />
                 Virtueller Rundgang
               </Button>
-              <Button size="lg" className="glow-green hover-lift">
+              <Button 
+                size="lg" 
+                className="glow-green hover-lift relative"
+                onClick={() => setIsOpen(true)}
+              >
                 <ShoppingCart className="mr-2 h-5 w-5" />
-                Warenkorb ({totalItems})
+                Warenkorb
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+                    {totalItems}
+                  </span>
+                )}
               </Button>
             </div>
           </div>
@@ -185,6 +198,9 @@ export default function Menu() {
           </div>
         </div>
       </footer>
+      
+      {/* Cart Sidebar */}
+      <CartSidebar />
     </div>
   );
 }

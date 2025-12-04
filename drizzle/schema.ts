@@ -105,6 +105,7 @@ export const orderItems = mysqlTable("orderItems", {
   orderId: int("orderId").notNull(),
   productId: int("productId").notNull(),
   productName: varchar("productName", { length: 200 }).notNull(),
+  variant: varchar("variant", { length: 100 }), // e.g., "26cm", "30cm"
   quantity: int("quantity").notNull(),
   unitPrice: int("unitPrice").notNull(), // in cents
   totalPrice: int("totalPrice").notNull(), // in cents

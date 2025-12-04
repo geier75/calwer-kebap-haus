@@ -25,7 +25,7 @@ function Earth() {
   useEffect(() => {
     const loader = new TextureLoader();
     loader.load(
-      '/images/calw-hd-satellite.jpg',
+      '/images/calw-satellite-hd.png',
       (texture) => {
         // WebGL 2.0 optimizations
         texture.wrapS = THREE.RepeatWrapping;

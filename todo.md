@@ -201,3 +201,11 @@
 - [x] Bestellstatus-Updates (Pending → Preparing → Delivering → Delivered)
 - [x] Tagesstatistiken (Umsatz, Anzahl)
 - [x] Bestellhistorie mit Filter
+
+
+## Visuelle Optimierungen
+- [x] Neue hochauflösende Satellitenkarte auf Erdkugel
+- [x] Restaurant-Marker deutlich sichtbar
+- [x] Virtual Store Darstellung verbessern
+- [x] Laden-Foto in besserer Qualität (16x Anisotropic Filtering)
+- [x] Immersivere 360°-Ansicht (128x128 Geometrie)

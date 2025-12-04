@@ -17,8 +17,15 @@ function StoreEnvironment() {
   useEffect(() => {
     const loader = new THREE.TextureLoader();
     loader.load('/images/store-interior.jpg', (loadedTexture) => {
+      // HD texture optimizations
       loadedTexture.wrapS = THREE.RepeatWrapping;
+      loadedTexture.wrapT = THREE.ClampToEdgeWrapping;
       loadedTexture.repeat.x = -1; // Mirror horizontally for correct orientation
+      loadedTexture.minFilter = THREE.LinearMipmapLinearFilter;
+      loadedTexture.magFilter = THREE.LinearFilter;
+      loadedTexture.anisotropy = 16; // Maximum quality
+      loadedTexture.generateMipmaps = true;
+      loadedTexture.colorSpace = THREE.SRGBColorSpace; // Better color reproduction
       setTexture(loadedTexture);
     });
 
@@ -39,13 +46,15 @@ function StoreEnvironment() {
 
   return (
     <>
-      {/* Panoramic sphere with store interior */}
+      {/* Panoramic sphere with store interior - HD optimized */}
       <mesh ref={meshRef} scale={[-1, 1, 1]}>
-        <sphereGeometry args={[500, 60, 40]} />
+        <sphereGeometry args={[500, 128, 128]} />
         <meshBasicMaterial 
           map={texture} 
           side={THREE.BackSide}
           toneMapped={false}
+          transparent={false}
+          fog={false}
         />
       </mesh>
 

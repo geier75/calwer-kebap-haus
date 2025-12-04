@@ -251,3 +251,9 @@
 - [x] Entferne Backdrop-Blur vom Laden-Foto
 - [x] Laden deutlich erkennbar
 - [x] Behalte Dark Overlay für Text-Lesbarkeit
+
+
+## Doppel-Döner-Rotation
+- [x] Versuch: Komplettes Hintergrund-Bild rotiert (zu viel Bewegung)
+- [ ] Alternative: Nur Spieß-Bereich maskieren und rotieren (komplex)
+- [x] Entscheidung: Nur 3D-Spieß vorne rotieren lassen (cleaner)

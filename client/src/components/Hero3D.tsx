@@ -50,18 +50,15 @@ export default function Hero3D() {
 
         {/* Subtitle */}
         <div className="text-center mb-8">
-          <p className="text-orange-500 text-2xl md:text-3xl font-bold mb-2 tracking-wide drop-shadow-lg">
-            Ultra-Premium Lieferservice
-          </p>
-          <p className="text-white/90 text-lg md:text-xl mb-4 drop-shadow-md">
+          <p className="text-white/90 text-xl md:text-2xl mb-4 drop-shadow-md">
             Inselgasse 3, 75365 Calw
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-green-400 text-sm md:text-base font-medium">
-            <span className="drop-shadow-md">Weltklasse-Qualität</span>
+            <span className="drop-shadow-md">Frisch zubereitet</span>
             <span>•</span>
             <span className="drop-shadow-md">Schnelle Lieferung</span>
             <span>•</span>
-            <span className="drop-shadow-md">24/7 Service</span>
+            <span className="drop-shadow-md">Beste Qualität</span>
           </div>
         </div>
         

@@ -295,3 +295,9 @@
 - [x] CALWER in Grün, KEBAPHAUS in Braun
 - [x] Schwarze Text-Outlines für Lesbarkeit
 - [x] Subtile Overlays statt starker Effekte
+
+
+## Slogan-Anpassung
+- [x] Entferne "Ultra-Premium Lieferservice"
+- [x] Schlichtere, authentischere Beschreibung
+- [x] Neue Tagline: "Frisch zubereitet • Schnelle Lieferung • Beste Qualität"

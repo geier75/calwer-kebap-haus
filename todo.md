@@ -215,3 +215,9 @@
 - [x] Exakte Satellitenkarte mit Restaurant-Marker verwenden
 - [x] Textur-Projektion korrigieren
 - [x] Calw-Region zentral auf Kugel positionieren
+
+
+## Karten-Update - Gezoomte Ansicht
+- [x] Gezoomte Calw-Karte mit Restaurant zentral
+- [x] Orange "H" Marker deutlich sichtbar
+- [x] Umliegende Städte (Hirsau, Alzenberg, Wimberg) erkennbar

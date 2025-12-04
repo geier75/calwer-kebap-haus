@@ -270,3 +270,15 @@
   - [x] Level 5 INTEGRATIV: Personalisierte Empfehlungen, Intent Mapping
   - [x] Level 6 PRESENCE: Spatial Identity, User Presence Tracking
   - [x] Level 7 COGNITIVE FUSION: Thought Anticipation, Decision Co-Processing
+
+
+## Logo-Redesign - Grün-Schwarz-Braun
+- [x] Neues Logo mit Grün-Schwarz-Braun Farbschema
+- [x] Transparenter Hintergrund (Laden-Foto durchscheinen)
+- [x] Graffiti-Style beibehalten
+- [x] Hero3D anpassen für bessere Sichtbarkeit
+- [x] Glow-Effekte auf Grün/Schwarz angepasst
+- [x] CTA-Buttons: Grün (Bestellen) + Braun (Anrufen)
+- [x] Scroll-Indicator: Grün
+- [x] Point Lights: Grün + Braun
+- [x] Grid-Overlay: Grün (15% Opacity)

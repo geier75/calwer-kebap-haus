@@ -36,11 +36,11 @@ export default function Hero3D() {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="relative w-full max-w-5xl px-8">
           <img 
-            src="/images/cyberpunk-logo.png" 
+            src="/images/cyberpunk-logo-green.png" 
             alt="CALWER KEBAPHAUS" 
-            className="w-full h-auto animate-pulse-slow drop-shadow-[0_0_50px_rgba(0,255,200,0.8)]"
+            className="w-full h-auto animate-pulse-slow"
             style={{
-              filter: 'drop-shadow(0 0 30px rgba(0, 255, 200, 0.6)) drop-shadow(0 0 60px rgba(138, 43, 226, 0.4))',
+              filter: 'drop-shadow(0 0 30px rgba(34, 197, 94, 0.8)) drop-shadow(0 0 60px rgba(0, 0, 0, 0.6))',
               animation: 'glow 3s ease-in-out infinite'
             }}
           />
@@ -67,17 +67,17 @@ export default function Hero3D() {
         <div className="flex flex-wrap justify-center gap-4 mt-8">
           <a 
             href="#menu" 
-            className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg 
-                     hover:from-cyan-400 hover:to-blue-500 transform hover:scale-105 transition-all duration-300
-                     shadow-[0_0_20px_rgba(0,255,255,0.5)] hover:shadow-[0_0_30px_rgba(0,255,255,0.8)]"
+            className="px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-lg 
+                     hover:from-green-500 hover:to-green-600 transform hover:scale-105 transition-all duration-300
+                     shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)]"
           >
             🍕 Jetzt bestellen
           </a>
           <a 
             href="tel:07051927587" 
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-lg 
-                     hover:from-purple-500 hover:to-pink-500 transform hover:scale-105 transition-all duration-300
-                     shadow-[0_0_20px_rgba(138,43,226,0.5)] hover:shadow-[0_0_30px_rgba(138,43,226,0.8)]"
+            className="px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-800 text-white font-bold rounded-lg 
+                     hover:from-amber-600 hover:to-amber-700 transform hover:scale-105 transition-all duration-300
+                     shadow-[0_0_20px_rgba(180,83,9,0.5)] hover:shadow-[0_0_30px_rgba(180,83,9,0.8)]"
           >
             📞 Anrufen
           </a>
@@ -86,8 +86,8 @@ export default function Hero3D() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-green-500 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-3 bg-green-500 rounded-full animate-pulse"></div>
         </div>
       </div>
 
@@ -104,8 +104,8 @@ export default function Hero3D() {
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} color="#00ffff" />
-          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff00ff" />
+          <pointLight position={[10, 10, 10]} intensity={0.5} color="#22c55e" />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#78350f" />
           <ParticleField />
           <OrbitControls 
             enableZoom={false} 
@@ -121,8 +121,8 @@ export default function Hero3D() {
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, 0.2) 25%, rgba(0, 255, 255, 0.2) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.2) 75%, rgba(0, 255, 255, 0.2) 76%, transparent 77%, transparent),
-            linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, 0.2) 25%, rgba(0, 255, 255, 0.2) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.2) 75%, rgba(0, 255, 255, 0.2) 76%, transparent 77%, transparent)
+            linear-gradient(0deg, transparent 24%, rgba(34, 197, 94, 0.15) 25%, rgba(34, 197, 94, 0.15) 26%, transparent 27%, transparent 74%, rgba(34, 197, 94, 0.15) 75%, rgba(34, 197, 94, 0.15) 76%, transparent 77%, transparent),
+            linear-gradient(90deg, transparent 24%, rgba(34, 197, 94, 0.15) 25%, rgba(34, 197, 94, 0.15) 26%, transparent 27%, transparent 74%, rgba(34, 197, 94, 0.15) 75%, rgba(34, 197, 94, 0.15) 76%, transparent 77%, transparent)
           `,
           backgroundSize: '50px 50px'
         }}
@@ -131,10 +131,10 @@ export default function Hero3D() {
       <style>{`
         @keyframes glow {
           0%, 100% {
-            filter: drop-shadow(0 0 30px rgba(0, 255, 200, 0.6)) drop-shadow(0 0 60px rgba(138, 43, 226, 0.4));
+            filter: drop-shadow(0 0 30px rgba(34, 197, 94, 0.8)) drop-shadow(0 0 60px rgba(0, 0, 0, 0.6));
           }
           50% {
-            filter: drop-shadow(0 0 50px rgba(0, 255, 200, 0.9)) drop-shadow(0 0 100px rgba(138, 43, 226, 0.7));
+            filter: drop-shadow(0 0 50px rgba(34, 197, 94, 1)) drop-shadow(0 0 100px rgba(0, 0, 0, 0.8));
           }
         }
       `}</style>

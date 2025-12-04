@@ -232,3 +232,10 @@
 - [x] Glow-Effekt für Grill-Atmosphäre
 - [x] Point Lights für Grill-Beleuchtung
 - [x] Orange/Red Glow für Wärme-Effekt
+
+
+## Laden-Foto als Hintergrund
+- [x] Ersetze Sternenfeld mit echtem Laden-Foto
+- [x] Blur-Effekt für Tiefenschärfe (backdrop-blur-sm)
+- [x] Döner-Spieß im Vordergrund
+- [x] Overlay für bessere Text-Lesbarkeit (black/60-70)

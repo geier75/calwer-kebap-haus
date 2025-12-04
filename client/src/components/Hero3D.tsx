@@ -114,7 +114,17 @@ function createEarthTexture() {
 
 export default function Hero3D() {
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-b from-gray-900 via-emerald-950 to-gray-900">
+    <div 
+      className="relative w-full h-screen overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/store-interior.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-sm" />
       <Canvas
         camera={{ position: [0, 0, 6], fov: 50 }}
         gl={{
@@ -147,16 +157,7 @@ export default function Hero3D() {
           {/* Döner Kebab */}
           <DonerKebab />
 
-          {/* Stars Background */}
-          <Stars
-            radius={100}
-            depth={50}
-            count={5000}
-            factor={4}
-            saturation={0}
-            fade
-            speed={0.5}
-          />
+          {/* No stars - store background instead */}
 
           {/* Camera Controls */}
           <OrbitControls

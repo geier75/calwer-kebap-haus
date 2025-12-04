@@ -432,3 +432,25 @@
   - [x] Komponente aus Menu.tsx entfernt
   - [x] Rechts unten jetzt frei
 - [ ] Button später im Checkout als Extra-Option einbauen ("Nachricht an Koch")
+
+## Telefon-Gespräch-Erlebnis für Chatbot
+- [x] Spracheingabe (Speech-to-Text)
+  - [x] Mikrofon-Button im Chatbot (Mic Icon)
+  - [x] Audio aufnehmen (MediaRecorder API)
+  - [x] Upload zu S3 (/api/upload-audio)
+  - [x] Whisper API Transkription (/api/transcribe)
+  - [x] In Text umwandeln (de-DE)
+  - [x] An Chatbot senden (automatisch)
+- [x] Sprachausgabe (Text-to-Speech)
+  - [x] Web Speech API (SpeechSynthesis)
+  - [x] Chatbot-Antworten vorlesen (de-DE)
+  - [x] Automatisch abspielen nach Antwort
+  - [x] Markdown-Formatierung entfernen für saubere Aussprache
+  - [x] Lautstärke-Button zum An/Ausschalten
+- [x] Telefon-UI
+  - [x] Pulsierende Animation beim Sprechen (isRecording)
+  - [x] Wellenanimation beim Hören (isSpeaking)
+  - [x] Status-Text: "🎤 Hört zu..." / "🔊 Spricht..." / "Online"
+  - [x] Mikrofon-Button mit Pulse-Animation
+  - [x] Visuelles Feedback (Farben, Animationen)
+  - [x] Lautsprecher-Icon (Volume2/VolumeX)

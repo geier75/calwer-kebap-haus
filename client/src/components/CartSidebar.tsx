@@ -143,6 +143,28 @@ export default function CartSidebar() {
             {/* Footer */}
             {items.length > 0 && (
               <div className="p-6 border-t border-border glossy-card space-y-4">
+                {/* Delivery Info Banner */}
+                <div 
+                  className="p-4 rounded-lg border-2 border-primary/30 space-y-2"
+                  style={{
+                    background: 'rgba(34, 197, 94, 0.1)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)'
+                  }}
+                >
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Mindestbestellwert:</span>
+                    <span className="font-semibold text-primary">10,00 €</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Liefergebühr:</span>
+                    <span className="font-semibold text-primary">2,00 €</span>
+                  </div>
+                  <div className="pt-2 border-t border-primary/20 text-xs text-center text-green-400">
+                    ✨ Ab 20€ versandkostenfrei!
+                  </div>
+                </div>
+
                 {/* Total */}
                 <div className="flex justify-between items-center text-xl font-bold">
                   <span>Gesamtsumme:</span>

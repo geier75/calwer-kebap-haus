@@ -6,6 +6,8 @@ import { useState } from "react";
 import Hero3D from "@/components/Hero3D";
 import OrderChatbot from "@/components/OrderChatbot";
 import ProductCard from "@/components/ProductCard";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import OpeningHoursWidget from "@/components/OpeningHoursWidget";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
@@ -127,7 +129,19 @@ export default function Menu() {
       </div>
 
       {/* Products Grid */}
-      <main className="container py-16">
+      <main className="container py-16 relative">
+        {/* Dining Area Background */}
+        <div 
+          className="fixed inset-0 -z-10"
+          style={{
+            backgroundImage: 'url(/images/dining-area.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed'
+          }}
+        />
+        <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           initial={{ opacity: 0 }}
@@ -147,6 +161,12 @@ export default function Menu() {
 
       {/* KI Chatbot */}
       <OrderChatbot />
+
+      {/* WhatsApp Direct Button */}
+      <WhatsAppButton />
+
+      {/* Opening Hours Widget */}
+      <OpeningHoursWidget />
 
 
 

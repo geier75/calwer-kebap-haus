@@ -373,3 +373,27 @@
 - [x] Hellere, professionellere Atmosphäre
 - [x] Menü-Boards deutlich sichtbar
 - [x] Getränkekühlschränke im Fokus
+
+## Speisekarten-Seite Hintergrund
+- [ ] Essbereich-Foto als Hintergrund hinzufügen
+- [ ] Menü-Seite finden und aktualisieren
+- [ ] Hintergrund-Bild integrieren
+
+## Premium-Features für Perfektion
+- [x] WhatsApp Direkt-Button (floating, rechts unten)
+  - [x] Glassmorphism-Design mit Grün
+  - [x] MessageCircle Icon
+  - [x] "WhatsApp Bestellung" Text
+  - [x] Direkt-Link zu WhatsApp mit vorgefertigter Nachricht
+- [x] Öffnungszeiten-Widget mit Live-Status
+  - [x] Top-right Position (fixed)
+  - [x] Live-Status-Check (10:00 - 22:00)
+  - [x] Grün (🟢 GEÖFFNET bis 22:00) / Rot (🔴 GESCHLOSSEN)
+  - [x] Pulsierender Status-Punkt
+  - [x] Clock Icon
+- [x] Liefergebühr-Banner im Warenkorb
+  - [x] Mindestbestellwert: 10,00 €
+  - [x] Liefergebühr: 2,00 €
+  - [x] Versandkostenfrei ab 20€ Hinweis
+  - [x] Glassmorphism-Design
+- [x] Alle Features getestet

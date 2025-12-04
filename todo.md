@@ -169,3 +169,16 @@
 ## Erdkugel-Textur Update
 - [x] Satelliten-Ansicht von Calw als Textur verwenden
 - [x] Restaurant-Marker auf Karte sichtbar
+
+
+## Erdkugel-Optimierung
+- [x] Karte auf Restaurant-Position zentrieren
+- [x] Zoom-Level erhöhen für bessere Sichtbarkeit
+- [x] Calwer Kebap Restaurant deutlich erkennbar machen
+- [x] Textur-Mapping und Rotation anpassen
+- [x] WebGL 2.0 High-Performance Rendering
+- [x] 4K Textur-Auflösung mit Anisotropic Filtering
+- [x] GPU-beschleunigte Animationen (60 FPS)
+- [x] Glassmorphism UI mit Blur-Effekten
+- [x] Additive Blending für Glow-Effekte
+- [x] Adaptive Pixel Ratio für alle Geräte

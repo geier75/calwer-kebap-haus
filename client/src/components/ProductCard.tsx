@@ -39,10 +39,13 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
     product.variants.some(v => v.name.startsWith('ohne') || v.name.startsWith('mit'));
 
   const handleMenuConfigComplete = (config: any) => {
+    // Determine item type (Döner or Yufka) based on product name
+    const itemName = product.name.toLowerCase().includes('yufka') ? 'Yufka' : 'Döner';
+    
     // Format menu configuration for cart
     const menuExtras = [
-      `Döner 1: ${config.doner1.sauce}${config.doner1.extras.length > 0 ? ', ' + config.doner1.extras.join(', ') : ''}`,
-      `Döner 2: ${config.doner2.sauce}${config.doner2.extras.length > 0 ? ', ' + config.doner2.extras.join(', ') : ''}`,
+      `${itemName} 1: ${config.item1.sauce}${config.item1.extras.length > 0 ? ', ' + config.item1.extras.join(', ') : ''}`,
+      `${itemName} 2: ${config.item2.sauce}${config.item2.extras.length > 0 ? ', ' + config.item2.extras.join(', ') : ''}`,
       `Pommes: ${config.pommesSauce}`,
       `Getränk: ${config.drink}`
     ];

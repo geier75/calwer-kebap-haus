@@ -13,19 +13,19 @@ interface MenuConfigDialogProps {
   menuName: string;
 }
 
-interface DonerConfig {
+interface ItemConfig {
   extras: string[];
   sauce: string;
 }
 
 interface MenuConfig {
-  doner1: DonerConfig;
-  doner2: DonerConfig;
+  item1: ItemConfig;
+  item2: ItemConfig;
   pommesSauce: string;
   drink: string;
 }
 
-const DONER_EXTRAS = [
+const ITEM_EXTRAS = [
   "ohne Zwiebeln",
   "ohne Rotkohl",
   "ohne Eisbergsalat",
@@ -55,14 +55,18 @@ const DRINKS_125L = [
 export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuConfigDialogProps) {
   const [step, setStep] = useState(1);
   const [config, setConfig] = useState<MenuConfig>({
-    doner1: { extras: [], sauce: "" },
-    doner2: { extras: [], sauce: "" },
+    item1: { extras: [], sauce: "" },
+    item2: { extras: [], sauce: "" },
     pommesSauce: "",
     drink: ""
   });
 
-  const handleDonerExtrasChange = (donerNum: 1 | 2, extra: string, checked: boolean) => {
-    const key = donerNum === 1 ? "doner1" : "doner2";
+  // Determine item type (Döner or Yufka) based on menu name
+  const isYufkaMenu = menuName.toLowerCase().includes("yufka");
+  const itemName = isYufkaMenu ? "Yufka" : "Döner";
+
+  const handleItemExtrasChange = (itemNum: 1 | 2, extra: string, checked: boolean) => {
+    const key = itemNum === 1 ? "item1" : "item2";
     setConfig(prev => ({
       ...prev,
       [key]: {
@@ -74,8 +78,8 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
     }));
   };
 
-  const handleDonerSauceChange = (donerNum: 1 | 2, sauce: string) => {
-    const key = donerNum === 1 ? "doner1" : "doner2";
+  const handleItemSauceChange = (itemNum: 1 | 2, sauce: string) => {
+    const key = itemNum === 1 ? "item1" : "item2";
     setConfig(prev => ({
       ...prev,
       [key]: { ...prev[key], sauce }
@@ -96,8 +100,8 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
     // Reset
     setStep(1);
     setConfig({
-      doner1: { extras: [], sauce: "" },
-      doner2: { extras: [], sauce: "" },
+      item1: { extras: [], sauce: "" },
+      item2: { extras: [], sauce: "" },
       pommesSauce: "",
       drink: ""
     });
@@ -106,9 +110,9 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
   const canProceed = () => {
     switch (step) {
       case 1:
-        return config.doner1.sauce !== "";
+        return config.item1.sauce !== "";
       case 2:
-        return config.doner2.sauce !== "";
+        return config.item2.sauce !== "";
       case 3:
         return config.pommesSauce !== "";
       case 4:
@@ -128,21 +132,21 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {/* Döner 1 */}
+          {/* Item 1 */}
           {step === 1 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Döner 1 konfigurieren</h3>
+              <h3 className="text-lg font-semibold">{itemName} 1 konfigurieren</h3>
               
               <div className="space-y-3">
                 <Label className="text-base font-semibold">Sauce wählen (Pflicht)</Label>
                 <RadioGroup 
-                  value={config.doner1.sauce} 
-                  onValueChange={(sauce) => handleDonerSauceChange(1, sauce)}
+                  value={config.item1.sauce} 
+                  onValueChange={(sauce) => handleItemSauceChange(1, sauce)}
                 >
                   {SAUCES.map(sauce => (
                     <div key={sauce} className="flex items-center space-x-2">
-                      <RadioGroupItem value={sauce} id={`d1-sauce-${sauce}`} />
-                      <Label htmlFor={`d1-sauce-${sauce}`} className="cursor-pointer">
+                      <RadioGroupItem value={sauce} id={`i1-sauce-${sauce}`} />
+                      <Label htmlFor={`i1-sauce-${sauce}`} className="cursor-pointer">
                         {sauce}
                       </Label>
                     </div>
@@ -152,16 +156,16 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
 
               <div className="space-y-3">
                 <Label className="text-base font-semibold">Extras (Optional)</Label>
-                {DONER_EXTRAS.map(extra => (
+                {ITEM_EXTRAS.map(extra => (
                   <div key={extra} className="flex items-center space-x-2">
                     <Checkbox
-                      id={`d1-${extra}`}
-                      checked={config.doner1.extras.includes(extra)}
+                      id={`i1-${extra}`}
+                      checked={config.item1.extras.includes(extra)}
                       onCheckedChange={(checked) => 
-                        handleDonerExtrasChange(1, extra, checked as boolean)
+                        handleItemExtrasChange(1, extra, checked as boolean)
                       }
                     />
-                    <Label htmlFor={`d1-${extra}`} className="cursor-pointer">
+                    <Label htmlFor={`i1-${extra}`} className="cursor-pointer">
                       {extra}
                     </Label>
                   </div>
@@ -170,21 +174,21 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
             </div>
           )}
 
-          {/* Döner 2 */}
+          {/* Item 2 */}
           {step === 2 && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Döner 2 konfigurieren</h3>
+              <h3 className="text-lg font-semibold">{itemName} 2 konfigurieren</h3>
               
               <div className="space-y-3">
                 <Label className="text-base font-semibold">Sauce wählen (Pflicht)</Label>
                 <RadioGroup 
-                  value={config.doner2.sauce} 
-                  onValueChange={(sauce) => handleDonerSauceChange(2, sauce)}
+                  value={config.item2.sauce} 
+                  onValueChange={(sauce) => handleItemSauceChange(2, sauce)}
                 >
                   {SAUCES.map(sauce => (
                     <div key={sauce} className="flex items-center space-x-2">
-                      <RadioGroupItem value={sauce} id={`d2-sauce-${sauce}`} />
-                      <Label htmlFor={`d2-sauce-${sauce}`} className="cursor-pointer">
+                      <RadioGroupItem value={sauce} id={`i2-sauce-${sauce}`} />
+                      <Label htmlFor={`i2-sauce-${sauce}`} className="cursor-pointer">
                         {sauce}
                       </Label>
                     </div>
@@ -194,16 +198,16 @@ export function MenuConfigDialog({ open, onClose, onComplete, menuName }: MenuCo
 
               <div className="space-y-3">
                 <Label className="text-base font-semibold">Extras (Optional)</Label>
-                {DONER_EXTRAS.map(extra => (
+                {ITEM_EXTRAS.map(extra => (
                   <div key={extra} className="flex items-center space-x-2">
                     <Checkbox
-                      id={`d2-${extra}`}
-                      checked={config.doner2.extras.includes(extra)}
+                      id={`i2-${extra}`}
+                      checked={config.item2.extras.includes(extra)}
                       onCheckedChange={(checked) => 
-                        handleDonerExtrasChange(2, extra, checked as boolean)
+                        handleItemExtrasChange(2, extra, checked as boolean)
                       }
                     />
-                    <Label htmlFor={`d2-${extra}`} className="cursor-pointer">
+                    <Label htmlFor={`i2-${extra}`} className="cursor-pointer">
                       {extra}
                     </Label>
                   </div>

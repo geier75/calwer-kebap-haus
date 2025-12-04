@@ -504,3 +504,22 @@
 - [x] Generiertes Menü-Bild gefunden (2x Döner + Pommes + Coca-Cola)
 - [x] Bild-Pfad in Datenbank für "Menü 1" aktualisiert (/images/menu-1.jpg)
 - [x] Auf Website verifiziert - Bild wird korrekt angezeigt
+
+
+## Yufka-Menü hinzufügen - FERTIG ✅
+- [x] Yufka-Menü Bild kopieren und vorbereiten
+  - [x] Bild von Upload kopiert nach /images/yufka-menu.jpg
+  - [x] Zeigt 2x Yufka in Alufolie + Pommes + Coca-Cola + Saucen
+- [x] Yufka-Menü in Datenbank erstellt (24,00€)
+  - [x] Name: Yufka-Menü
+  - [x] Preis: 24,00 €
+  - [x] Beschreibung: 2x Yufka + 1x große Pommes + 1x alkoholfreies Getränk (1,25l) nach Wahl
+  - [x] Bild verlinkt
+- [x] MenuConfigDialog für Yufka-Menü erweitert
+  - [x] Dynamische Erkennung (Döner oder Yufka basierend auf Produktname)
+  - [x] Yufka 1 konfigurieren (Sauce + Extras)
+  - [x] Yufka 2 konfigurieren (Sauce + Extras)
+  - [x] Pommes-Sauce (Ketchup oder Mayo)
+  - [x] Getränk-Auswahl (1,25L)
+- [x] ProductCard aktualisiert für dynamische Item-Namen
+- [x] Auf Website verifiziert - Yufka-Menü wird korrekt angezeigt

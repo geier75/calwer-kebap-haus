@@ -40,7 +40,12 @@ export const appRouter = router({
             .where(eq(products.categoryId, input.categoryId));
         }
         
-        return await db.select().from(products);
+        const allProducts = await db.select().from(products);
+        // Parse variants JSON string to array
+        return allProducts.map(p => ({
+          ...p,
+          variants: p.variants ? JSON.parse(p.variants as string) : null
+        }));
       }),
   }),
 

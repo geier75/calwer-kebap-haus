@@ -1,0 +1,1 @@
+ALTER TABLE `orderItems` DROP COLUMN `extras`;

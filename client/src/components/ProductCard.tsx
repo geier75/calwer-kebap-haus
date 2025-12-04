@@ -18,7 +18,7 @@ interface Product {
   imageUrl: string | null;
   categoryId: number;
   hasVariants?: boolean;
-  variants?: Array<{size: string; price: number}>;
+  variants?: Array<{name: string; price: number}>;
 }
 
 interface ProductCardProps {
@@ -153,29 +153,62 @@ export default function ProductCard({ product, index, onAddToCart }: ProductCard
               </div>
             )}
             
-            {/* Size Selector (for pizzas) */}
+            {/* Size Selector (for pizzas) or Extras (for döner) */}
             {product.hasVariants && product.variants && product.variants.length > 0 && (
               <div className="space-y-2">
-                <label className="text-sm font-medium">Größe wählen</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {product.variants.map((variant, idx) => (
-                    <Button
-                      key={idx}
-                      variant={selectedVariant === idx ? "default" : "outline"}
-                      className={`h-16 text-lg font-bold ${
-                        selectedVariant === idx ? 'glow-green' : ''
-                      }`}
-                      onClick={() => setSelectedVariant(idx)}
-                    >
-                      <div className="text-center">
-                        <div>{variant.size}</div>
-                        <div className="text-sm font-normal">
-                          {(variant.price / 100).toFixed(2)} €
-                        </div>
-                      </div>
-                    </Button>
-                  ))}
-                </div>
+                {/* Check if this is a size variant (has 'cm' in name) or extras */}
+                {product.variants[0].name.includes('Ø') ? (
+                  // Size selector for pizzas
+                  <>
+                    <label className="text-sm font-medium">Größe wählen</label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {product.variants.map((variant, idx) => (
+                        <Button
+                          key={idx}
+                          variant={selectedVariant === idx ? "default" : "outline"}
+                          className={`h-16 text-lg font-bold ${
+                            selectedVariant === idx ? 'glow-green' : ''
+                          }`}
+                          onClick={() => setSelectedVariant(idx)}
+                        >
+                          <div className="text-center">
+                            <div>{variant.name}</div>
+                            <div className="text-sm font-normal">
+                              {(variant.price / 100).toFixed(2)} €
+                            </div>
+                          </div>
+                        </Button>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  // Extras checkboxes for döner
+                  <>
+                    <label className="text-sm font-medium">Extras wählen</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {product.variants.map((extra, idx) => (
+                        <label
+                          key={idx}
+                          className="flex items-center gap-2 p-2 border rounded cursor-pointer hover:bg-accent/10"
+                        >
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4"
+                            defaultChecked={extra.price === 0}
+                          />
+                          <span className="text-sm">
+                            {extra.name}
+                            {extra.price > 0 && (
+                              <span className="text-xs text-muted-foreground ml-1">
+                                (+{(extra.price / 100).toFixed(2)} €)
+                              </span>
+                            )}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             )}
             

@@ -432,3 +432,18 @@
   - [x] Komponente aus Menu.tsx entfernt
   - [x] Rechts unten jetzt frei
 - [ ] Button später im Checkout als Extra-Option einbauen ("Nachricht an Koch")
+
+## Lieferando 1:1 Implementierung - FERTIG
+- [x] Offizielle Website calwer-pizza.de gescraped
+- [x] Komplette Speisekarte mit allen Kategorien geladen
+  - [x] 11 Kategorien (Menüs, Best of Month, Pizza, Falafel, Teiggerichte, Döner, Calzone, Pommes, Salate, Saucen, Getränke)
+  - [x] 50+ Produkte mit exakten Preisen
+  - [x] Alle Beschreibungen und Zutaten
+- [x] Döner-Extras-System implementiert
+  - [x] ohne Zwiebeln, ohne Rotkohl, ohne Eisbergsalat, ohne Peperoni, ohne Tomaten, ohne Mais
+  - [x] mit Schafskäse (+1,00€), mit Käse (+0,50€)
+- [x] Pizza-Größenauswahl implementiert
+  - [x] Ø 26cm und Ø 30cm mit unterschiedlichen Preisen
+- [x] Saucen / Dips verfügbar
+  - [x] Ketchup (0,50€), Mayonnaise (0,50€), Cocktailsauce (1,00€), Joghurtsauce (1,00€), Scharfe Sauce (1,00€)
+- [x] Speisekarte getestet und funktioniert

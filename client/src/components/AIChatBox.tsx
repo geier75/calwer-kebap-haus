@@ -247,7 +247,7 @@ export function AIChatBox({
                     }
                   >
                     {message.role === "assistant" && (
-                      <div className="size-8 shrink-0 mt-1 rounded-full overflow-hidden border-2 border-green-500/30">
+                      <div className="size-8 shrink-0 mt-1 rounded-full overflow-hidden">
                         <img 
                           src="/images/owner-avatar.jpg" 
                           alt="Calwer Kebaphaus" 

@@ -326,3 +326,13 @@
 - [x] AIChatBox-Komponente aktualisieren
 - [x] Rundes Avatar-Bild mit grünem Border
 - [x] Sparkles-Icon durch persönliches Foto ersetzt
+
+
+## Glass-Effekt & Avatar-Korrektur
+- [x] Namen "CALWER KEBAPHAUS" durchsichtig machen (Glassmorphism)
+- [x] Nur Silber-Metall Umrandung (keine Farbfüllung)
+  - [x] color: transparent
+  - [x] WebkitTextStroke: 3px #c0c0c0 (Silber)
+  - [x] Silber-Glow-Effekte
+- [x] Chatbot-Avatar: Grünen Border entfernen
+- [x] Nur Foto ohne farbigen Kreis (border-2 border-green-500/30 entfernt)

@@ -18,16 +18,14 @@ export default function Hero3D() {
         <div className="text-center mb-8">
           <h1 className="text-7xl md:text-9xl font-black mb-2" style={{
             fontFamily: '"Montserrat", "Arial Black", sans-serif',
-            background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextStroke: '3px #c0c0c0',
             textShadow: `
-              0 0 40px rgba(34, 197, 94, 0.6),
-              0 0 80px rgba(34, 197, 94, 0.4),
-              0 8px 16px rgba(0, 0, 0, 0.8)
+              0 0 20px rgba(192, 192, 192, 0.8),
+              0 0 40px rgba(255, 255, 255, 0.6),
+              0 4px 8px rgba(0, 0, 0, 0.9)
             `,
-            filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 30px rgba(34, 197, 94, 0.5))',
+            filter: 'drop-shadow(0 0 15px rgba(192, 192, 192, 0.7))',
             letterSpacing: '0.02em',
             fontWeight: 900
           }}>
@@ -35,16 +33,14 @@ export default function Hero3D() {
           </h1>
           <h2 className="text-6xl md:text-8xl font-black" style={{
             fontFamily: '"Montserrat", "Arial Black", sans-serif',
-            background: 'linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextStroke: '3px #c0c0c0',
             textShadow: `
-              0 0 40px rgba(146, 64, 14, 0.6),
-              0 0 80px rgba(146, 64, 14, 0.4),
-              0 8px 16px rgba(0, 0, 0, 0.8)
+              0 0 20px rgba(192, 192, 192, 0.8),
+              0 0 40px rgba(255, 255, 255, 0.6),
+              0 4px 8px rgba(0, 0, 0, 0.9)
             `,
-            filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 30px rgba(146, 64, 14, 0.5))',
+            filter: 'drop-shadow(0 0 15px rgba(192, 192, 192, 0.7))',
             letterSpacing: '0.02em',
             fontWeight: 900
           }}>

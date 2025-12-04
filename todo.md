@@ -282,3 +282,16 @@
 - [x] Scroll-Indicator: Grün
 - [x] Point Lights: Grün + Braun
 - [x] Grid-Overlay: Grün (15% Opacity)
+
+
+## Kebap-Laden-Redesign - Klassisch & Authentisch
+- [x] Entferne Graffiti-Logo
+- [x] Klassische, saubere Schrift für Namen (Bebas Neue)
+- [x] Keine karierten Transparenz-Felder
+- [x] Laden-Hintergrund komplett sichtbar
+- [x] Warme, einladende Atmosphäre
+- [x] Grün-Schwarz-Braun Farben beibehalten
+- [x] Entferne 3D-Partikel und Grid-Overlay
+- [x] CALWER in Grün, KEBAPHAUS in Braun
+- [x] Schwarze Text-Outlines für Lesbarkeit
+- [x] Subtile Overlays statt starker Effekte

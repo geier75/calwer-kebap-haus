@@ -642,3 +642,4 @@
 - [x] KRITISCH: Salate werden nicht im Menü angezeigt obwohl in DB vorhanden
 - [x] Nizza-Salat-Bild ohne Eier neu generieren (nur Thunfisch, Salat, Tomaten, Gurken, Zwiebeln)
 - [x] SalatConfigDialog öffnet sich nicht - Dressing-Auswahl fehlt
+- [x] KRITISCH: Salate erscheinen bei Alle aber nicht bei Salate-Kategorie - categoryId falsch

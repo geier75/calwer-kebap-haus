@@ -1,0 +1,28 @@
+{
+  "query": "SELECT id, name, slug, categoryId FROM products WHERE slug LIKE 'salat-%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, categoryId FROM products WHERE slug LIKE 'salat-%'",
+  "rows": [
+    {
+      "id": "210001",
+      "name": "Salat Nizza",
+      "slug": "salat-nizza",
+      "categoryId": "7"
+    },
+    {
+      "id": "210002",
+      "name": "Gemischter Salat",
+      "slug": "salat-gemischter",
+      "categoryId": "7"
+    },
+    {
+      "id": "210003",
+      "name": "Hirtensalat",
+      "slug": "salat-hirten",
+      "categoryId": "7"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tcategoryId\n210001\tSalat Nizza\tsalat-nizza\t7\n210002\tGemischter Salat\tsalat-gemischter\t7\n210003\tHirtensalat\tsalat-hirten\t7\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

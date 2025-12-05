@@ -1,0 +1,25 @@
+{
+  "query": "SELECT p.name, p.categoryId, c.name as category_name \nFROM products p \nLEFT JOIN categories c ON p.categoryId = c.id \nWHERE p.slug LIKE 'salat-%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT p.name, p.categoryId, c.name as category_name \nFROM products p \nLEFT JOIN categories c ON p.categoryId = c.id \nWHERE p.slug LIKE 'salat-%'",
+  "rows": [
+    {
+      "name": "Salat Nizza",
+      "categoryId": "30040",
+      "category_name": "Salate"
+    },
+    {
+      "name": "Gemischter Salat",
+      "categoryId": "30040",
+      "category_name": "Salate"
+    },
+    {
+      "name": "Hirtensalat",
+      "categoryId": "30040",
+      "category_name": "Salate"
+    }
+  ],
+  "messages": [],
+  "stdout": "name\tcategoryId\tcategory_name\nSalat Nizza\t30040\tSalate\nGemischter Salat\t30040\tSalate\nHirtensalat\t30040\tSalate\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

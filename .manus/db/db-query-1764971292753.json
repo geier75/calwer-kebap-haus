@@ -1,0 +1,28 @@
+{
+  "query": "SELECT \n  (SELECT id FROM categories WHERE slug = 'salate') as kategorie_id,\n  p.id, p.name, p.categoryId as produkt_categoryId\nFROM products p\nWHERE p.slug LIKE 'salat-%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT \n  (SELECT id FROM categories WHERE slug = 'salate') as kategorie_id,\n  p.id, p.name, p.categoryId as produkt_categoryId\nFROM products p\nWHERE p.slug LIKE 'salat-%'",
+  "rows": [
+    {
+      "kategorie_id": "30040",
+      "id": "210001",
+      "name": "Salat Nizza",
+      "produkt_categoryId": "7"
+    },
+    {
+      "kategorie_id": "30040",
+      "id": "210002",
+      "name": "Gemischter Salat",
+      "produkt_categoryId": "7"
+    },
+    {
+      "kategorie_id": "30040",
+      "id": "210003",
+      "name": "Hirtensalat",
+      "produkt_categoryId": "7"
+    }
+  ],
+  "messages": [],
+  "stdout": "kategorie_id\tid\tname\tprodukt_categoryId\n30040\t210001\tSalat Nizza\t7\n30040\t210002\tGemischter Salat\t7\n30040\t210003\tHirtensalat\t7\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

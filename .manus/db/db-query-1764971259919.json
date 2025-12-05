@@ -1,0 +1,76 @@
+{
+  "query": "SELECT id, name, slug, sortOrder FROM categories ORDER BY sortOrder",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, sortOrder FROM categories ORDER BY sortOrder",
+  "rows": [
+    {
+      "id": "30032",
+      "name": "Menüs",
+      "slug": "menues",
+      "sortOrder": "1"
+    },
+    {
+      "id": "30033",
+      "name": "Best of the Month",
+      "slug": "best-of-month",
+      "sortOrder": "2"
+    },
+    {
+      "id": "30034",
+      "name": "Pizza",
+      "slug": "pizza",
+      "sortOrder": "3"
+    },
+    {
+      "id": "30035",
+      "name": "Falafel",
+      "slug": "falafel",
+      "sortOrder": "4"
+    },
+    {
+      "id": "30036",
+      "name": "Lahmacun",
+      "slug": "lahmacun",
+      "sortOrder": "5"
+    },
+    {
+      "id": "30037",
+      "name": "Döner",
+      "slug": "doener",
+      "sortOrder": "6"
+    },
+    {
+      "id": "30038",
+      "name": "Calzone",
+      "slug": "calzone",
+      "sortOrder": "7"
+    },
+    {
+      "id": "30039",
+      "name": "Pide",
+      "slug": "pide",
+      "sortOrder": "8"
+    },
+    {
+      "id": "30040",
+      "name": "Salate",
+      "slug": "salate",
+      "sortOrder": "9"
+    },
+    {
+      "id": "30041",
+      "name": "Saucen / Dips",
+      "slug": "saucen",
+      "sortOrder": "10"
+    },
+    {
+      "id": "30042",
+      "name": "Alkoholfreie Getränke",
+      "slug": "getraenke",
+      "sortOrder": "11"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tsortOrder\n30032\tMenüs\tmenues\t1\n30033\tBest of the Month\tbest-of-month\t2\n30034\tPizza\tpizza\t3\n30035\tFalafel\tfalafel\t4\n30036\tLahmacun\tlahmacun\t5\n30037\tDöner\tdoener\t6\n30038\tCalzone\tcalzone\t7\n30039\tPide\tpide\t8\n30040\tSalate\tsalate\t9\n30041\tSaucen / Dips\tsaucen\t10\n30042\tAlkoholfreie Getränke\tgetraenke\t11\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

@@ -1,0 +1,54 @@
+{
+  "query": "SELECT id, name FROM categories ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name FROM categories ORDER BY id;",
+  "rows": [
+    {
+      "id": "30032",
+      "name": "Menüs"
+    },
+    {
+      "id": "30033",
+      "name": "Best of the Month"
+    },
+    {
+      "id": "30034",
+      "name": "Pizza"
+    },
+    {
+      "id": "30035",
+      "name": "Falafel"
+    },
+    {
+      "id": "30036",
+      "name": "Teiggerichte"
+    },
+    {
+      "id": "30037",
+      "name": "Döner"
+    },
+    {
+      "id": "30038",
+      "name": "Calzone"
+    },
+    {
+      "id": "30039",
+      "name": "Pommes"
+    },
+    {
+      "id": "30040",
+      "name": "Salate"
+    },
+    {
+      "id": "30041",
+      "name": "Saucen / Dips"
+    },
+    {
+      "id": "30042",
+      "name": "Alkoholfreie Getränke"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\n30032\tMenüs\n30033\tBest of the Month\n30034\tPizza\n30035\tFalafel\n30036\tTeiggerichte\n30037\tDöner\n30038\tCalzone\n30039\tPommes\n30040\tSalate\n30041\tSaucen / Dips\n30042\tAlkoholfreie Getränke\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

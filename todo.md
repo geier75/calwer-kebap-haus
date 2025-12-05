@@ -639,3 +639,6 @@
 - [x] SalatConfigDialog mit Pflicht-Dressing-Auswahl implementieren (4 Optionen)
 - [x] KRITISCH: Salate werden nicht in Salate-Kategorie angezeigt - Datenbank-Problem
 - [x] Neues Bild für Salat Nizza generieren (besseres Styling)
+- [x] KRITISCH: Salate werden nicht im Menü angezeigt obwohl in DB vorhanden
+- [x] Nizza-Salat-Bild ohne Eier neu generieren (nur Thunfisch, Salat, Tomaten, Gurken, Zwiebeln)
+- [x] SalatConfigDialog öffnet sich nicht - Dressing-Auswahl fehlt

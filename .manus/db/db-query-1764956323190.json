@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, name, slug, basePrice FROM products WHERE categoryId = 30032 AND name LIKE '%Menü%' ORDER BY sortOrder;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, basePrice FROM products WHERE categoryId = 30032 AND name LIKE '%Menü%' ORDER BY sortOrder;",
+  "rows": [
+    {
+      "id": "30184",
+      "name": "Menü 1 - Döner",
+      "slug": "menue-1-doener",
+      "basePrice": "1950"
+    },
+    {
+      "id": "30185",
+      "name": "Menü 2 - Pizza",
+      "slug": "menue-2-pizza",
+      "basePrice": "3000"
+    },
+    {
+      "id": "30186",
+      "name": "Menü 3 - Pizza",
+      "slug": "menue-3-pizza",
+      "basePrice": "1500"
+    },
+    {
+      "id": "30187",
+      "name": "Kindermenü 1",
+      "slug": "kindermenue-1",
+      "basePrice": "1500"
+    },
+    {
+      "id": "60001",
+      "name": "Yufka-Menü",
+      "slug": "yufka-menu",
+      "basePrice": "2400"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tbasePrice\n30184\tMenü 1 - Döner\tmenue-1-doener\t1950\n30185\tMenü 2 - Pizza\tmenue-2-pizza\t3000\n30186\tMenü 3 - Pizza\tmenue-3-pizza\t1500\n30187\tKindermenü 1\tkindermenue-1\t1500\n60001\tYufka-Menü\tyufka-menu\t2400\n",
+  "stderr": "",
+  "execution_time_ms": 95
+}

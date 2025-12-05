@@ -131,7 +131,12 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
     if (isMenu) {
       setShowMenuConfig(true);
     } else {
-      onAddToCart(product, quantity, selectedExtras, selectedVariant);
+      // Create modified product with total price (base + extras)
+      const productWithTotalPrice = {
+        ...product,
+        basePrice: getCurrentPrice()
+      };
+      onAddToCart(productWithTotalPrice, quantity, selectedExtras, selectedVariant);
     }
     
     setTimeout(() => {

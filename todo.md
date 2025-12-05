@@ -638,3 +638,4 @@
 - [x] Salat-Produktbilder generieren (3 Salate: Nizza, Gemischter Salat, Hirtensalat)
 - [x] SalatConfigDialog mit Pflicht-Dressing-Auswahl implementieren (4 Optionen)
 - [x] KRITISCH: Salate werden nicht in Salate-Kategorie angezeigt - Datenbank-Problem
+- [x] Neues Bild für Salat Nizza generieren (besseres Styling)

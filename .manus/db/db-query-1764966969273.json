@@ -1,0 +1,310 @@
+{
+  "query": "SELECT id, name, slug, categoryId FROM products ORDER BY categoryId, sortOrder LIMIT 50",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, categoryId FROM products ORDER BY categoryId, sortOrder LIMIT 50",
+  "rows": [
+    {
+      "id": "30184",
+      "name": "Menü 1 - Döner",
+      "slug": "menue-1-doener",
+      "categoryId": "30032"
+    },
+    {
+      "id": "30185",
+      "name": "Menü 2 - Pizza",
+      "slug": "menue-2-pizza",
+      "categoryId": "30032"
+    },
+    {
+      "id": "30186",
+      "name": "Menü 3 - Pizza",
+      "slug": "menue-3-pizza",
+      "categoryId": "30032"
+    },
+    {
+      "id": "30187",
+      "name": "Kindermenü 1",
+      "slug": "kindermenue-1",
+      "categoryId": "30032"
+    },
+    {
+      "id": "60001",
+      "name": "Yufka-Menü",
+      "slug": "yufka-menu",
+      "categoryId": "30032"
+    },
+    {
+      "id": "30198",
+      "name": "Pizza Margherita",
+      "slug": "pizza-margherita",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30199",
+      "name": "Pizza Truthahn",
+      "slug": "pizza-truthahn",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30200",
+      "name": "Pizza Putenkeule",
+      "slug": "pizza-putenkeule",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30201",
+      "name": "Pizza Truthahn-Salami",
+      "slug": "pizza-truthahn-salami",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30202",
+      "name": "Pizza Funghi",
+      "slug": "pizza-funghi",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30203",
+      "name": "Pizza Sucuk",
+      "slug": "pizza-sucuk",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30204",
+      "name": "Pizza Quattro Stagioni",
+      "slug": "pizza-quattro-stagioni",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30205",
+      "name": "Pizza Milano",
+      "slug": "pizza-milano",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30206",
+      "name": "Pizza Tonno",
+      "slug": "pizza-tonno",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30207",
+      "name": "Pizza Hawaii",
+      "slug": "pizza-hawaii",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30208",
+      "name": "Pizza Amore",
+      "slug": "pizza-amore",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30209",
+      "name": "Pizza Vier Jahreszeiten",
+      "slug": "pizza-vier-jahreszeiten",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30210",
+      "name": "Pizza Mozzarella",
+      "slug": "pizza-mozzarella",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30211",
+      "name": "Pizza Döner",
+      "slug": "pizza-doener",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30212",
+      "name": "Pizza Calwer (scharf)",
+      "slug": "pizza-calwer",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30213",
+      "name": "Pizza Wunderbar",
+      "slug": "pizza-wunderbar",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30214",
+      "name": "Pizza Vegetarisch",
+      "slug": "pizza-vegetarisch",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30215",
+      "name": "Pizza Diavolo",
+      "slug": "pizza-diavolo",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30216",
+      "name": "Pizza Al Capone",
+      "slug": "pizza-al-capone",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30217",
+      "name": "Pizza Sardegna",
+      "slug": "pizza-sardegna",
+      "categoryId": "30034"
+    },
+    {
+      "id": "30218",
+      "name": "Pizza Special",
+      "slug": "pizza-special",
+      "categoryId": "30034"
+    },
+    {
+      "id": "90001",
+      "name": "Falafel im Fladenbrot",
+      "slug": "falafel-fladenbrot",
+      "categoryId": "30035"
+    },
+    {
+      "id": "90002",
+      "name": "Falafel im Yufka",
+      "slug": "falafel-yufka",
+      "categoryId": "30035"
+    },
+    {
+      "id": "90003",
+      "name": "Falafel-Teller",
+      "slug": "falafel-teller",
+      "categoryId": "30035"
+    },
+    {
+      "id": "120001",
+      "name": "Lahmacun Klassisch",
+      "slug": "lahmacun-klassisch",
+      "categoryId": "30036"
+    },
+    {
+      "id": "120002",
+      "name": "Lahmacun mit Salat",
+      "slug": "lahmacun-salat",
+      "categoryId": "30036"
+    },
+    {
+      "id": "120003",
+      "name": "Lahmacun mit Dönerfleisch",
+      "slug": "lahmacun-doenerfleisch",
+      "categoryId": "30036"
+    },
+    {
+      "id": "120004",
+      "name": "Lahmacun mit Käse und Dönerfleisch",
+      "slug": "lahmacun-kaese-doenerfleisch",
+      "categoryId": "30036"
+    },
+    {
+      "id": "30188",
+      "name": "Jumbo Döner",
+      "slug": "jumbo-doener",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30189",
+      "name": "Schüler Döner",
+      "slug": "schueler-doener",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30190",
+      "name": "Döner",
+      "slug": "doener",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30191",
+      "name": "Döner vegetarisch",
+      "slug": "doener-vegetarisch",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30192",
+      "name": "Yufka vegetarisch mit Salat",
+      "slug": "yufka-vegetarisch",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30193",
+      "name": "Yufka Döner mit Salat",
+      "slug": "yufka-doener",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30194",
+      "name": "Döner Teller",
+      "slug": "doener-teller",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30195",
+      "name": "Döner Box mit Pommes und Dönerfleisch",
+      "slug": "doener-box-pommes",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30196",
+      "name": "Döner Box nur mit Fleisch",
+      "slug": "doener-box-fleisch",
+      "categoryId": "30037"
+    },
+    {
+      "id": "30197",
+      "name": "Sucuk Brot",
+      "slug": "sucuk-brot",
+      "categoryId": "30037"
+    },
+    {
+      "id": "150002",
+      "name": "Calzone Calwer",
+      "slug": "calzone-calwer",
+      "categoryId": "30038"
+    },
+    {
+      "id": "150003",
+      "name": "Calzone Super",
+      "slug": "calzone-super",
+      "categoryId": "30038"
+    },
+    {
+      "id": "150004",
+      "name": "Vegetarische Calzone",
+      "slug": "vegetarische-calzone",
+      "categoryId": "30038"
+    },
+    {
+      "id": "150005",
+      "name": "Calzone Italia Mozzarella",
+      "slug": "calzone-italia-mozzarella",
+      "categoryId": "30038"
+    },
+    {
+      "id": "180001",
+      "name": "Pide mit Käse",
+      "slug": "pide-mit-kaese",
+      "categoryId": "30039"
+    },
+    {
+      "id": "180002",
+      "name": "Pide mit Spinat und Käse",
+      "slug": "pide-mit-spinat-kaese",
+      "categoryId": "30039"
+    },
+    {
+      "id": "180003",
+      "name": "Pide mit Hackfleisch",
+      "slug": "pide-mit-hackfleisch",
+      "categoryId": "30039"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tcategoryId\n30184\tMenü 1 - Döner\tmenue-1-doener\t30032\n30185\tMenü 2 - Pizza\tmenue-2-pizza\t30032\n30186\tMenü 3 - Pizza\tmenue-3-pizza\t30032\n30187\tKindermenü 1\tkindermenue-1\t30032\n60001\tYufka-Menü\tyufka-menu\t30032\n30198\tPizza Margherita\tpizza-margherita\t30034\n30199\tPizza Truthahn\tpizza-truthahn\t30034\n30200\tPizza Putenkeule\tpizza-putenkeule\t30034\n30201\tPizza Truthahn-Salami\tpizza-truthahn-salami\t30034\n30202\tPizza Funghi\tpizza-funghi\t30034\n30203\tPizza Sucuk\tpizza-sucuk\t30034\n30204\tPizza Quattro Stagioni\tpizza-quattro-stagioni\t30034\n30205\tPizza Milano\tpizza-milano\t30034\n30206\tPizza Tonno\tpizza-tonno\t30034\n30207\tPizza Hawaii\tpizza-hawaii\t30034\n30208\tPizza Amore\tpizza-amore\t30034\n30209\tPizza Vier Jahreszeiten\tpizza-vier-jahreszeiten\t30034\n30210\tPizza Mozzarella\tpizza-mozzarella\t30034\n30211\tPizza Döner\tpizza-doener\t30034\n30212\tPizza Calwer (scharf)\tpizza-calwer\t30034\n30213\tPizza Wunderbar\tpizza-wunderbar\t30034\n30214\tPizza Vegetarisch\tpizza-vegetarisch\t30034\n30215\tPizza Diavolo\tpizza-diavolo\t30034\n30216\tPizza Al Capone\tpizza-al-capone\t30034\n30217\tPizza Sardegna\tpizza-sardegna\t30034\n30218\tPizza Special\tpizza-special\t30034\n90001\tFalafel im Fladenbrot\tfalafel-fladenbrot\t30035\n90002\tFalafel im Yufka\tfalafel-yufka\t30035\n90003\tFalafel-Teller\tfalafel-teller\t30035\n120001\tLahmacun Klassisch\tlahmacun-klassisch\t30036\n120002\tLahmacun mit Salat\tlahmacun-salat\t30036\n120003\tLahmacun mit Dönerfleisch\tlahmacun-doenerfleisch\t30036\n120004\tLahmacun mit Käse und Dönerfleisch\tlahmacun-kaese-doenerfleisch\t30036\n30188\tJumbo Döner\tjumbo-doener\t30037\n30189\tSchüler Döner\tschueler-doener\t30037\n30190\tDöner\tdoener\t30037\n30191\tDöner vegetarisch\tdoener-vegetarisch\t30037\n30192\tYufka vegetarisch mit Salat\tyufka-vegetarisch\t30037\n30193\tYufka Döner mit Salat\tyufka-doener\t30037\n30194\tDöner Teller\tdoener-teller\t30037\n30195\tDöner Box mit Pommes und Dönerfleisch\tdoener-box-pommes\t30037\n30196\tDöner Box nur mit Fleisch\tdoener-box-fleisch\t30037\n30197\tSucuk Brot\tsucuk-brot\t30037\n150002\tCalzone Calwer\tcalzone-calwer\t30038\n150003\tCalzone Super\tcalzone-super\t30038\n150004\tVegetarische Calzone\tvegetarische-calzone\t30038\n150005\tCalzone Italia Mozzarella\tcalzone-italia-mozzarella\t30038\n180001\tPide mit Käse\tpide-mit-kaese\t30039\n180002\tPide mit Spinat und Käse\tpide-mit-spinat-kaese\t30039\n180003\tPide mit Hackfleisch\tpide-mit-hackfleisch\t30039\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

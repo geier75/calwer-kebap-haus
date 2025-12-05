@@ -637,3 +637,4 @@
 - [x] KRITISCH: Extras fehlen in Checkout-Bestellübersicht - Küche sieht nicht was Kunde bestellt hat
 - [x] Salat-Produktbilder generieren (3 Salate: Nizza, Gemischter Salat, Hirtensalat)
 - [x] SalatConfigDialog mit Pflicht-Dressing-Auswahl implementieren (4 Optionen)
+- [x] KRITISCH: Salate werden nicht in Salate-Kategorie angezeigt - Datenbank-Problem

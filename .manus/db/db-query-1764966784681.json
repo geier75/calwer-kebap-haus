@@ -1,0 +1,24 @@
+{
+  "query": "SELECT * FROM categories WHERE name LIKE '%Salat%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT * FROM categories WHERE name LIKE '%Salat%'",
+  "rows": [
+    {
+      "id": "30040",
+      "name": "Salate",
+      "nameEn": "NULL",
+      "nameTr": "NULL",
+      "nameAr": "NULL",
+      "slug": "salate",
+      "description": "NULL",
+      "imageUrl": "NULL",
+      "sortOrder": "9",
+      "isActive": "1",
+      "createdAt": "2025-12-04 18:48:41",
+      "updatedAt": "2025-12-04 18:48:41"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tnameEn\tnameTr\tnameAr\tslug\tdescription\timageUrl\tsortOrder\tisActive\tcreatedAt\tupdatedAt\n30040\tSalate\tNULL\tNULL\tNULL\tsalate\tNULL\tNULL\t9\t1\t2025-12-04 18:48:41\t2025-12-04 18:48:41\n",
+  "stderr": "",
+  "execution_time_ms": 237
+}

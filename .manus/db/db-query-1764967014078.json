@@ -1,0 +1,34 @@
+{
+  "query": "SELECT id, name, slug, basePrice, hasVariants, imageUrl FROM products WHERE categoryId = 7",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, basePrice, hasVariants, imageUrl FROM products WHERE categoryId = 7",
+  "rows": [
+    {
+      "id": "210001",
+      "name": "Salat Nizza",
+      "slug": "salat-nizza",
+      "basePrice": "700",
+      "hasVariants": "1",
+      "imageUrl": "/salat-nizza.jpg"
+    },
+    {
+      "id": "210002",
+      "name": "Gemischter Salat",
+      "slug": "salat-gemischter",
+      "basePrice": "700",
+      "hasVariants": "1",
+      "imageUrl": "/gemischter-salat.jpg"
+    },
+    {
+      "id": "210003",
+      "name": "Hirtensalat",
+      "slug": "salat-hirten",
+      "basePrice": "800",
+      "hasVariants": "1",
+      "imageUrl": "/hirtensalat.jpg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tbasePrice\thasVariants\timageUrl\n210001\tSalat Nizza\tsalat-nizza\t700\t1\t/salat-nizza.jpg\n210002\tGemischter Salat\tsalat-gemischter\t700\t1\t/gemischter-salat.jpg\n210003\tHirtensalat\tsalat-hirten\t800\t1\t/hirtensalat.jpg\n",
+  "stderr": "",
+  "execution_time_ms": 54
+}

@@ -42,10 +42,22 @@ export const appRouter = router({
         
         const allProducts = await db.select().from(products);
         // Parse variants JSON string to array
-        return allProducts.map(p => ({
-          ...p,
-          variants: p.variants ? JSON.parse(p.variants as string) : null
-        }));
+        return allProducts.map(p => {
+          let parsedVariants = null;
+          if (p.variants) {
+            try {
+              parsedVariants = typeof p.variants === 'string' 
+                ? JSON.parse(p.variants) 
+                : p.variants;
+            } catch (e) {
+              console.error('Failed to parse variants for product:', p.name, e);
+            }
+          }
+          return {
+            ...p,
+            variants: parsedVariants
+          };
+        });
       }),
   }),
 

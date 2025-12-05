@@ -599,3 +599,37 @@
 - [x] Extras-Preis zum Menü-Basispreis addiert
 - [x] Korrekten Gesamtpreis an Warenkorb übergeben (productWithExtrasPrice)
 - [x] Browser-Test mit verschiedenen Extras-Kombinationen bereit
+
+
+## Pizza-Einzelprodukt-Konfigurator + Größenauswahl - FERTIG ✅
+- [x] PizzaConfigDialog erstellt für Einzelpizzas
+  - [x] Schritt 1: Größe wählen (26cm/30cm/32cm/40cm/Party 60x40cm)
+  - [x] Schritt 2: Extras wählen (20 Optionen mit Preisen)
+- [x] ProductCard erweitert um Pizza-Produkte zu erkennen (slug.startsWith('pizza-'))
+- [x] Pizza-Konfigurator für alle Pizza-Produkte aktiviert
+- [x] Preisberechnung implementiert: Größenpreis + Extras-Preis
+- [x] Professionelle Pizza-Bilder generiert (5 Größen):
+  - [x] 26cm - normale Pizza auf weißem Teller mit Dampf
+  - [x] 30cm - große Pizza auf Holzbrett mit Käse-Pull
+  - [x] 32cm - extra große Pizza mit saftigem Belag
+  - [x] 40cm - riesige Familien-Pizza auf extra großem Brett
+  - [x] Party 60x40cm - rechteckige Party-Pizza mit 4 Belag-Sektionen
+- [x] Datenbank aktualisiert: 21 Pizzen mit je 5 Größenvarianten
+- [ ] Browser-Test: Kompletten Pizza-Bestellablauf testen
+
+
+## Pizza-Dialog React-Fehler beheben - FERTIG ✅
+- [x] PizzaConfigDialog Rendering-Fehler gefixt (removeChild Error)
+  - [x] Conditional rendering durch display:none ersetzt
+  - [x] DOM-Elemente bleiben im Tree, werden nur versteckt
+- [x] Schritt-Übergang von Größe zu Extras stabilisiert
+- [x] Getestet ohne Fehler
+
+## Spezifische Pizza-Bilder generieren - FERTIG ✅
+- [x] 21 individuelle Pizza-Bilder mit korrekten Zutaten generiert
+- [x] Alle Pizzen mit passenden Belägen:
+  - [x] Margherita, Tonno, Hawaii, Funghi, Vegetarisch
+  - [x] Milano, Quattro Stagioni, Döner, Sucuk, Diavolo
+  - [x] Wunderbar, Special, 4 Jahreszeiten, Calwer, al Capone
+  - [x] Sardegna, Mozzarella, Amore, Truthahn, Putenkeule, Truthahn-Salami
+- [x] Datenbank mit spezifischen Bildern aktualisiert (imageUrl)

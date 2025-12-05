@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { Checkbox } from './ui/checkbox';
 import { MenuConfigDialog } from './MenuConfigDialog';
+import { PizzaConfigDialog } from './PizzaConfigDialog';
 
 interface Product {
   id: number;
@@ -27,6 +28,7 @@ interface ProductCardProps {
 export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
   const [showDialog, setShowDialog] = useState(false);
   const [showMenuConfig, setShowMenuConfig] = useState(false);
+  const [showPizzaConfig, setShowPizzaConfig] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
@@ -170,13 +172,15 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
         transition={{ delay: index * 0.03, type: "spring", stiffness: 120, damping: 15 }}
         whileHover={{ y: -12, scale: 1.02 }}
         className="glossy-card rounded-3xl overflow-hidden hover-lift group relative cursor-pointer"
-        onClick={() => {
-          if (isMenu) {
-            setShowMenuConfig(true);
-          } else {
-            setShowDialog(true);
-          }
-        }}
+      onClick={() => {
+        if (isMenu) {
+          setShowMenuConfig(true);
+        } else if (product.slug.startsWith('pizza-') && product.hasVariants) {
+          setShowPizzaConfig(true);
+        } else {
+          setShowDialog(true);
+        }
+      }}
       >
         {/* Premium Badge */}
         <div className="absolute top-4 right-4 z-10 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-bold glow-green flex items-center gap-1">
@@ -220,6 +224,8 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
                 e.stopPropagation();
                 if (isMenu) {
                   setShowMenuConfig(true);
+                } else if (product.slug.startsWith('pizza-') && product.hasVariants) {
+                  setShowPizzaConfig(true);
                 } else {
                   setShowDialog(true);
                 }
@@ -400,6 +406,48 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
         onComplete={handleMenuConfigComplete}
         menuName={product.name}
       />
+
+      {/* Pizza Configuration Dialog */}
+      {product.hasVariants && product.variants && (
+        <PizzaConfigDialog
+          open={showPizzaConfig}
+          onOpenChange={setShowPizzaConfig}
+          pizzaName={product.name}
+          sizes={product.variants.map(v => ({ name: v.name, price: v.price }))}
+          onComplete={(config) => {
+            // Extract price from extras
+            const extractPrice = (extraText: string): number => {
+              const match = extraText.match(/\+(\d+),(\d+)/);
+              if (match) {
+                return parseInt(match[1]) * 100 + parseInt(match[2]);
+              }
+              return 0;
+            };
+            
+            // Calculate extras price
+            const extrasPrice = config.extras.reduce((sum, extra) => {
+              return sum + extractPrice(extra);
+            }, 0);
+            
+            // Total price = size price + extras price
+            const totalPrice = config.sizePrice + extrasPrice;
+            
+            // Format extras for display
+            const extrasDisplay = config.extras.length > 0 
+              ? [`Größe: ${config.size}`, ...config.extras]
+              : [`Größe: ${config.size}`];
+            
+            // Create modified product with correct price
+            const productWithPrice = {
+              ...product,
+              basePrice: totalPrice
+            };
+            
+            onAddToCart(productWithPrice, 1, extrasDisplay, 0);
+            setShowPizzaConfig(false);
+          }}
+        />
+      )}
     </>
   );
 }

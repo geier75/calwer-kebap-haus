@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, name, slug, variants FROM products WHERE slug = 'doener' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, variants FROM products WHERE slug = 'doener' LIMIT 1;",
+  "rows": [
+    {
+      "id": "30190",
+      "name": "Döner",
+      "slug": "doener",
+      "variants": "\"[{\\\"name\\\":\\\"ohne Zwiebeln\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Rotkraut\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Eisbergsalat\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Peperoni\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Tomaten\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Mais\\\",\\\"price\\\":0},{\\\"name\\\":\\\"mit Schafskäse\\\",\\\"price\\\":100},{\\\"name\\\":\\\"mit Käse\\\",\\\"price\\\":50}]\""
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tvariants\n30190\tDöner\tdoener\t\"[{\\\"name\\\":\\\"ohne Zwiebeln\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Rotkraut\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Eisbergsalat\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Peperoni\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Tomaten\\\",\\\"price\\\":0},{\\\"name\\\":\\\"ohne Mais\\\",\\\"price\\\":0},{\\\"name\\\":\\\"mit Schafskäse\\\",\\\"price\\\":100},{\\\"name\\\":\\\"mit Käse\\\",\\\"price\\\":50}]\"\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

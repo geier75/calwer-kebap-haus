@@ -1,0 +1,80 @@
+{
+  "query": "SELECT id, name, slug, basePrice, imageUrl FROM products WHERE categoryId = 30037 AND name NOT LIKE '%Menü%' ORDER BY sortOrder LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, basePrice, imageUrl FROM products WHERE categoryId = 30037 AND name NOT LIKE '%Menü%' ORDER BY sortOrder LIMIT 20;",
+  "rows": [
+    {
+      "id": "30188",
+      "name": "Jumbo Döner",
+      "slug": "jumbo-doener",
+      "basePrice": "1100",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30189",
+      "name": "Schüler Döner",
+      "slug": "schueler-doener",
+      "basePrice": "700",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30190",
+      "name": "Döner",
+      "slug": "doener",
+      "basePrice": "900",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30191",
+      "name": "Döner vegetarisch",
+      "slug": "doener-vegetarisch",
+      "basePrice": "700",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30192",
+      "name": "Yufka vegetarisch mit Salat",
+      "slug": "yufka-vegetarisch",
+      "basePrice": "800",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30193",
+      "name": "Yufka Döner mit Salat",
+      "slug": "yufka-doener",
+      "basePrice": "1000",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30194",
+      "name": "Döner Teller",
+      "slug": "doener-teller",
+      "basePrice": "1200",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30195",
+      "name": "Döner Box mit Pommes und Dönerfleisch",
+      "slug": "doener-box-pommes",
+      "basePrice": "800",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30196",
+      "name": "Döner Box nur mit Fleisch",
+      "slug": "doener-box-fleisch",
+      "basePrice": "900",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    },
+    {
+      "id": "30197",
+      "name": "Sucuk Brot",
+      "slug": "sucuk-brot",
+      "basePrice": "800",
+      "imageUrl": "/images/placeholder-doner.jpg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tbasePrice\timageUrl\n30188\tJumbo Döner\tjumbo-doener\t1100\t/images/placeholder-doner.jpg\n30189\tSchüler Döner\tschueler-doener\t700\t/images/placeholder-doner.jpg\n30190\tDöner\tdoener\t900\t/images/placeholder-doner.jpg\n30191\tDöner vegetarisch\tdoener-vegetarisch\t700\t/images/placeholder-doner.jpg\n30192\tYufka vegetarisch mit Salat\tyufka-vegetarisch\t800\t/images/placeholder-doner.jpg\n30193\tYufka Döner mit Salat\tyufka-doener\t1000\t/images/placeholder-doner.jpg\n30194\tDöner Teller\tdoener-teller\t1200\t/images/placeholder-doner.jpg\n30195\tDöner Box mit Pommes und Dönerfleisch\tdoener-box-pommes\t800\t/images/placeholder-doner.jpg\n30196\tDöner Box nur mit Fleisch\tdoener-box-fleisch\t900\t/images/placeholder-doner.jpg\n30197\tSucuk Brot\tsucuk-brot\t800\t/images/placeholder-doner.jpg\n",
+  "stderr": "",
+  "execution_time_ms": 230
+}

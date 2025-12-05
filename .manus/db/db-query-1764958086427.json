@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE products SET imageUrl = '/images/jumbo-doener.jpg' WHERE slug = 'jumbo-doener';\nUPDATE products SET imageUrl = '/images/doener.jpg' WHERE slug = 'doener';\nUPDATE products SET imageUrl = '/images/doener-vegetarisch.jpg' WHERE slug = 'doener-vegetarisch';\nUPDATE products SET imageUrl = '/images/yufka-vegetarisch.jpg' WHERE slug = 'yufka-vegetarisch';\nUPDATE products SET imageUrl = '/images/yufka-doener.jpg' WHERE slug = 'yufka-doener';\nUPDATE products SET imageUrl = '/images/doener-teller.jpg' WHERE slug = 'doener-teller';\nUPDATE products SET imageUrl = '/images/doener-box-pommes.jpg' WHERE slug = 'doener-box-pommes';\nUPDATE products SET imageUrl = '/images/doener-box-fleisch.jpg' WHERE slug = 'doener-box-fleisch';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute UPDATE products SET imageUrl = '/images/jumbo-doener.jpg' WHERE slug = 'jumbo-doener';\nUPDATE products SET imageUrl = '/images/doener.jpg' WHERE slug = 'doener';\nUPDATE products SET imageUrl = '/images/doener-vegetarisch.jpg' WHERE slug = 'doener-vegetarisch';\nUPDATE products SET imageUrl = '/images/yufka-vegetarisch.jpg' WHERE slug = 'yufka-vegetarisch';\nUPDATE products SET imageUrl = '/images/yufka-doener.jpg' WHERE slug = 'yufka-doener';\nUPDATE products SET imageUrl = '/images/doener-teller.jpg' WHERE slug = 'doener-teller';\nUPDATE products SET imageUrl = '/images/doener-box-pommes.jpg' WHERE slug = 'doener-box-pommes';\nUPDATE products SET imageUrl = '/images/doener-box-fleisch.jpg' WHERE slug = 'doener-box-fleisch';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 108
+}

@@ -555,3 +555,14 @@
   - [x] Professionelle Food-Photography auf Holztisch
 - [x] Bild in Datenbank für "Kindermenü 1" verknüpft (/images/kids-menu-1.jpg)
 - [x] Auf Website verifiziert
+
+
+## Menü 1 Konfigurator testen und verifizieren - FERTIG ✅
+- [x] Browser-Test: Menü 1 anklicken
+- [x] Problem gefunden: Produktdetail-Modal öffnet sich statt Konfigurator
+- [x] Ursache: Slug-Check war falsch ("menu-" statt "menue-")
+- [x] Fix: ProductCard isMenu-Check korrigiert (includes 'menue-' || includes 'menu')
+- [x] Konfigurator öffnet sich jetzt direkt beim Klick auf Menü-Produkte
+- [x] Extras verfügbar: ohne Zwiebeln, ohne Rotkohl, ohne Eisbergsalat, ohne Peperoni, ohne Tomaten, ohne Mais, mit Käse, mit Schafskäse
+- [x] Saucen-Auswahl: Ketchup, Mayo, Cocktail, Joghurt, Scharf
+- [x] Kompletter 4-Schritt-Flow funktioniert

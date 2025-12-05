@@ -33,7 +33,7 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
   const [showPoints, setShowPoints] = useState(false);
   const [points, setPoints] = useState(0);
 
-  const isMenu = product.slug.startsWith('menu-');
+  const isMenu = product.slug.includes('menue-') || product.slug.includes('menu');
 
   const hasExtras = product.hasVariants && product.variants && product.variants.length > 0 && 
     product.variants.some(v => v.name.startsWith('ohne') || v.name.startsWith('mit'));
@@ -113,7 +113,13 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
         transition={{ delay: index * 0.03, type: "spring", stiffness: 120, damping: 15 }}
         whileHover={{ y: -12, scale: 1.02 }}
         className="glossy-card rounded-3xl overflow-hidden hover-lift group relative cursor-pointer"
-        onClick={() => setShowDialog(true)}
+        onClick={() => {
+          if (isMenu) {
+            setShowMenuConfig(true);
+          } else {
+            setShowDialog(true);
+          }
+        }}
       >
         {/* Premium Badge */}
         <div className="absolute top-4 right-4 z-10 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-bold glow-green flex items-center gap-1">
@@ -155,7 +161,11 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
               className="glossy-button bg-primary hover:bg-primary/90 text-primary-foreground glow-green"
               onClick={(e) => {
                 e.stopPropagation();
-                setShowDialog(true);
+                if (isMenu) {
+                  setShowMenuConfig(true);
+                } else {
+                  setShowDialog(true);
+                }
               }}
             >
               <Plus className="mr-1 h-4 w-4" />

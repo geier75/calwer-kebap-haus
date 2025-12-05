@@ -44,7 +44,7 @@ export function SalatConfigDialog({ open, onOpenChange, salatName, onComplete }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto glossy-card border-primary/20">
+      <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto glossy-card border-primary/20">
         <DialogHeader>
           <DialogTitle className="text-3xl font-bold text-primary glow-green flex items-center gap-2">
             <Salad className="w-8 h-8" />
@@ -52,7 +52,7 @@ export function SalatConfigDialog({ open, onOpenChange, salatName, onComplete }:
           </DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-6 py-4">
+        <div className="space-y-6 py-6">
           {/* Info Box */}
           <div className="bg-accent/10 rounded-lg p-4 border border-primary/20">
             <p className="text-sm text-muted-foreground">
@@ -61,7 +61,7 @@ export function SalatConfigDialog({ open, onOpenChange, salatName, onComplete }:
           </div>
 
           {/* Dressing Selection - PFLICHTFELD */}
-          <div className="space-y-4">
+          <div className="space-y-4 bg-primary/5 rounded-lg p-6 border-2 border-primary/30">
             <div className="flex items-center gap-2">
               <h3 className="text-xl font-bold">Ihr Dressing wählen</h3>
               <span className="text-red-500 text-sm font-semibold">(Pflichtfeld)</span>

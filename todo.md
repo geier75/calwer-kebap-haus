@@ -643,3 +643,4 @@
 - [x] Nizza-Salat-Bild ohne Eier neu generieren (nur Thunfisch, Salat, Tomaten, Gurken, Zwiebeln)
 - [x] SalatConfigDialog öffnet sich nicht - Dressing-Auswahl fehlt
 - [x] KRITISCH: Salate erscheinen bei Alle aber nicht bei Salate-Kategorie - categoryId falsch
+- [x] KRITISCH: SalatConfigDialog zeigt keine Dressing-Auswahl - nur Menge sichtbar

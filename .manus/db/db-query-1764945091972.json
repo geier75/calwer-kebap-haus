@@ -1,0 +1,25 @@
+{
+  "query": "SELECT id, name, categoryId FROM products WHERE name LIKE '%Falafel%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, categoryId FROM products WHERE name LIKE '%Falafel%';",
+  "rows": [
+    {
+      "id": "90001",
+      "name": "Falafel im Fladenbrot",
+      "categoryId": "6"
+    },
+    {
+      "id": "90002",
+      "name": "Falafel im Yufka",
+      "categoryId": "6"
+    },
+    {
+      "id": "90003",
+      "name": "Falafel-Teller",
+      "categoryId": "6"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategoryId\n90001\tFalafel im Fladenbrot\t6\n90002\tFalafel im Yufka\t6\n90003\tFalafel-Teller\t6\n",
+  "stderr": "",
+  "execution_time_ms": 182
+}

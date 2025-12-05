@@ -12,7 +12,7 @@ interface CalzoneConfigDialogProps {
 }
 
 const CALZONE_EXTRAS = [
-  { name: "mit Knoblauch", price: 0 },
+  { name: "mit Knoblauch", price: 100 },
   { name: "mit Oliven", price: 100 },
   { name: "mit Thunfisch", price: 100 },
   { name: "mit Sardellen", price: 100 },

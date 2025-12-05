@@ -7,6 +7,7 @@ import { Checkbox } from './ui/checkbox';
 import { MenuConfigDialog } from './MenuConfigDialog';
 import { PizzaConfigDialog } from './PizzaConfigDialog';
 import { CalzoneConfigDialog } from './CalzoneConfigDialog';
+import { PideConfigDialog } from './PideConfigDialog';
 
 interface Product {
   id: number;
@@ -31,6 +32,7 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
   const [showMenuConfig, setShowMenuConfig] = useState(false);
   const [showPizzaConfig, setShowPizzaConfig] = useState(false);
   const [showCalzoneConfig, setShowCalzoneConfig] = useState(false);
+  const [showPideConfig, setShowPideConfig] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
@@ -235,6 +237,8 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
                   setShowPizzaConfig(true);
                 } else if (product.slug.startsWith('calzone-') || product.slug === 'vegetarische-calzone') {
                   setShowCalzoneConfig(true);
+                } else if (product.slug.startsWith('pide-')) {
+                  setShowPideConfig(true);
                 } else {
                   setShowDialog(true);
                 }
@@ -494,6 +498,45 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
           
           onAddToCart(productWithPrice, 1, extrasDisplay, 0);
           setShowCalzoneConfig(false);
+        }}
+      />
+
+      {/* Pide Configuration Dialog */}
+      <PideConfigDialog
+        open={showPideConfig}
+        onOpenChange={setShowPideConfig}
+        pideName={product.name}
+        onComplete={(config) => {
+          // Extract price from extras
+          const extractPrice = (extraText: string): number => {
+            const match = extraText.match(/\+(\d+),(\d+)/);
+            if (match) {
+              return parseInt(match[1]) * 100 + parseInt(match[2]);
+            }
+            return 0;
+          };
+          
+          // Calculate extras price
+          const extrasPrice = config.extras.reduce((sum, extra) => {
+            return sum + extractPrice(extra);
+          }, 0);
+          
+          // Total price = base price + extras price
+          const totalPrice = product.basePrice + extrasPrice;
+          
+          // Format extras for display
+          const extrasDisplay = config.extras.length > 0 
+            ? config.extras
+            : [];
+          
+          // Create modified product with correct price
+          const productWithPrice = {
+            ...product,
+            basePrice: totalPrice
+          };
+          
+          onAddToCart(productWithPrice, 1, extrasDisplay, 0);
+          setShowPideConfig(false);
         }}
       />
     </>

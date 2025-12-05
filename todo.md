@@ -633,3 +633,4 @@
   - [x] Wunderbar, Special, 4 Jahreszeiten, Calwer, al Capone
   - [x] Sardegna, Mozzarella, Amore, Truthahn, Putenkeule, Truthahn-Salami
 - [x] Datenbank mit spezifischen Bildern aktualisiert (imageUrl)
+- [x] Pide-Extras-Konfigurator implementieren (PideConfigDialog ähnlich wie CalzoneConfigDialog)

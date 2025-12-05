@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, name, slug, hasVariants FROM products WHERE slug LIKE 'pide-%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug, hasVariants FROM products WHERE slug LIKE 'pide-%'",
+  "rows": [
+    {
+      "id": "180001",
+      "name": "Pide mit Käse",
+      "slug": "pide-mit-kaese",
+      "hasVariants": "1"
+    },
+    {
+      "id": "180002",
+      "name": "Pide mit Spinat und Käse",
+      "slug": "pide-mit-spinat-kaese",
+      "hasVariants": "1"
+    },
+    {
+      "id": "180003",
+      "name": "Pide mit Hackfleisch",
+      "slug": "pide-mit-hackfleisch",
+      "hasVariants": "1"
+    },
+    {
+      "id": "180004",
+      "name": "Pide mit Dönerfleisch",
+      "slug": "pide-mit-doenerfleisch",
+      "hasVariants": "1"
+    },
+    {
+      "id": "180005",
+      "name": "Pide mit Sucuk",
+      "slug": "pide-mit-sucuk",
+      "hasVariants": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\thasVariants\n180001\tPide mit Käse\tpide-mit-kaese\t1\n180002\tPide mit Spinat und Käse\tpide-mit-spinat-kaese\t1\n180003\tPide mit Hackfleisch\tpide-mit-hackfleisch\t1\n180004\tPide mit Dönerfleisch\tpide-mit-doenerfleisch\t1\n180005\tPide mit Sucuk\tpide-mit-sucuk\t1\n",
+  "stderr": "",
+  "execution_time_ms": 64
+}

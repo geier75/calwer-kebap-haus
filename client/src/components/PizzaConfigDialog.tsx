@@ -75,10 +75,20 @@ export function PizzaConfigDialog({ open, onOpenChange, pizzaName, sizes, onComp
 
   const handleComplete = () => {
     if (selectedSize) {
+      // Format extras with price information
+      const formattedExtras = selectedExtras.map(extraName => {
+        const extra = PIZZA_EXTRAS.find(e => e.name === extraName);
+        if (extra && extra.price > 0) {
+          const priceStr = (extra.price / 100).toFixed(2).replace('.', ',');
+          return `${extraName} (+${priceStr}€)`;
+        }
+        return extraName;
+      });
+      
       onComplete({
         size: selectedSize,
         sizePrice: selectedSizePrice,
-        extras: selectedExtras
+        extras: formattedExtras
       });
       // Reset state
       setStep(1);

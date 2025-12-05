@@ -8,6 +8,7 @@ import { MenuConfigDialog } from './MenuConfigDialog';
 import { PizzaConfigDialog } from './PizzaConfigDialog';
 import { CalzoneConfigDialog } from './CalzoneConfigDialog';
 import { PideConfigDialog } from './PideConfigDialog';
+import { SalatConfigDialog } from './SalatConfigDialog';
 
 interface Product {
   id: number;
@@ -33,6 +34,7 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
   const [showPizzaConfig, setShowPizzaConfig] = useState(false);
   const [showCalzoneConfig, setShowCalzoneConfig] = useState(false);
   const [showPideConfig, setShowPideConfig] = useState(false);
+  const [showSalatConfig, setShowSalatConfig] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
@@ -239,6 +241,8 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
                   setShowCalzoneConfig(true);
                 } else if (product.slug.startsWith('pide-')) {
                   setShowPideConfig(true);
+                } else if (product.slug.startsWith('salat-')) {
+                  setShowSalatConfig(true);
                 } else {
                   setShowDialog(true);
                 }
@@ -537,6 +541,21 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
           
           onAddToCart(productWithPrice, 1, extrasDisplay, 0);
           setShowPideConfig(false);
+        }}
+      />
+
+      {/* Salat Configuration Dialog */}
+      <SalatConfigDialog
+        open={showSalatConfig}
+        onOpenChange={setShowSalatConfig}
+        salatName={product.name}
+        onComplete={(config) => {
+          // Dressing wird als Extra angezeigt
+          const extrasDisplay = [config.dressing];
+          
+          // Preis bleibt gleich - Dressing ist inklusive
+          onAddToCart(product, 1, extrasDisplay, 0);
+          setShowSalatConfig(false);
         }}
       />
     </>

@@ -635,3 +635,5 @@
 - [x] Datenbank mit spezifischen Bildern aktualisiert (imageUrl)
 - [x] Pide-Extras-Konfigurator implementieren (PideConfigDialog ähnlich wie CalzoneConfigDialog)
 - [x] KRITISCH: Extras fehlen in Checkout-Bestellübersicht - Küche sieht nicht was Kunde bestellt hat
+- [x] Salat-Produktbilder generieren (3 Salate: Nizza, Gemischter Salat, Hirtensalat)
+- [x] SalatConfigDialog mit Pflicht-Dressing-Auswahl implementieren (4 Optionen)

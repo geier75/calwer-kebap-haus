@@ -634,3 +634,4 @@
   - [x] Sardegna, Mozzarella, Amore, Truthahn, Putenkeule, Truthahn-Salami
 - [x] Datenbank mit spezifischen Bildern aktualisiert (imageUrl)
 - [x] Pide-Extras-Konfigurator implementieren (PideConfigDialog ähnlich wie CalzoneConfigDialog)
+- [x] KRITISCH: Extras fehlen in Checkout-Bestellübersicht - Küche sieht nicht was Kunde bestellt hat

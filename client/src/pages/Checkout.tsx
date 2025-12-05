@@ -103,6 +103,7 @@ export default function Checkout() {
       quantity: item.quantity,
       priceAtOrder: item.price,
       variant: item.variant || null,
+      extras: item.extras || undefined,
     }));
 
     createOrderMutation.mutate({
@@ -409,6 +410,16 @@ export default function Checkout() {
                         <p className="font-semibold">{item.name}</p>
                         {item.variant && (
                           <p className="text-sm text-muted-foreground">Größe: {item.variant}</p>
+                        )}
+                        {item.extras && item.extras.length > 0 && (
+                          <div className="text-sm text-muted-foreground mt-1">
+                            <p className="font-medium">Extras:</p>
+                            <ul className="list-disc list-inside ml-2">
+                              {item.extras.map((extra, idx) => (
+                                <li key={idx}>{extra}</li>
+                              ))}
+                            </ul>
+                          </div>
                         )}
                         <p className="text-sm text-muted-foreground">Menge: {item.quantity}</p>
                       </div>

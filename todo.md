@@ -645,3 +645,5 @@
 - [x] KRITISCH: Salate erscheinen bei Alle aber nicht bei Salate-Kategorie - categoryId falsch
 - [x] KRITISCH: SalatConfigDialog zeigt keine Dressing-Auswahl - nur Menge sichtbar
 - [x] Kategorie-Name von 'Saucen / Saucen' zu 'Snacks / Saucen' ändern
+- [ ] Pommes-Produkte hinzufügen (Kleine Pommes 4€, Große Pommes - Preis noch festlegen)
+- [ ] Professionelle Produktbilder für alle Snacks / Saucen Produkte generieren

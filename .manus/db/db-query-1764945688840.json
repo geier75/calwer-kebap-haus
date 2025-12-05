@@ -1,0 +1,25 @@
+{
+  "query": "SELECT id, name, categoryId FROM products WHERE categoryId = 30035 LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, categoryId FROM products WHERE categoryId = 30035 LIMIT 10;",
+  "rows": [
+    {
+      "id": "90001",
+      "name": "Falafel im Fladenbrot",
+      "categoryId": "30035"
+    },
+    {
+      "id": "90002",
+      "name": "Falafel im Yufka",
+      "categoryId": "30035"
+    },
+    {
+      "id": "90003",
+      "name": "Falafel-Teller",
+      "categoryId": "30035"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategoryId\n90001\tFalafel im Fladenbrot\t30035\n90002\tFalafel im Yufka\t30035\n90003\tFalafel-Teller\t30035\n",
+  "stderr": "",
+  "execution_time_ms": 56
+}

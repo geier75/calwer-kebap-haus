@@ -1,0 +1,16 @@
+{
+  "query": "SELECT c.id, c.name, c.slug, \n(SELECT COUNT(*) FROM products p WHERE p.categoryId = c.id) as product_count\nFROM categories c\nWHERE c.slug = 'falafel' OR c.name = 'Falafel';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT c.id, c.name, c.slug, \n(SELECT COUNT(*) FROM products p WHERE p.categoryId = c.id) as product_count\nFROM categories c\nWHERE c.slug = 'falafel' OR c.name = 'Falafel';",
+  "rows": [
+    {
+      "id": "30035",
+      "name": "Falafel",
+      "slug": "falafel",
+      "product_count": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\tproduct_count\n30035\tFalafel\tfalafel\t0\n",
+  "stderr": "",
+  "execution_time_ms": 55
+}

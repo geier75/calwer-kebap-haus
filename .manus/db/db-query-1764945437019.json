@@ -1,0 +1,76 @@
+{
+  "query": "SELECT c.id as category_id, c.name as category_name, c.slug, COUNT(p.id) as product_count\nFROM categories c\nLEFT JOIN products p ON c.id = p.categoryId\nGROUP BY c.id, c.name, c.slug\nORDER BY c.id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT c.id as category_id, c.name as category_name, c.slug, COUNT(p.id) as product_count\nFROM categories c\nLEFT JOIN products p ON c.id = p.categoryId\nGROUP BY c.id, c.name, c.slug\nORDER BY c.id;",
+  "rows": [
+    {
+      "category_id": "30032",
+      "category_name": "Menüs",
+      "slug": "menues",
+      "product_count": "5"
+    },
+    {
+      "category_id": "30033",
+      "category_name": "Best of the Month",
+      "slug": "best-of-month",
+      "product_count": "0"
+    },
+    {
+      "category_id": "30034",
+      "category_name": "Pizza",
+      "slug": "pizza",
+      "product_count": "21"
+    },
+    {
+      "category_id": "30035",
+      "category_name": "Falafel",
+      "slug": "falafel",
+      "product_count": "0"
+    },
+    {
+      "category_id": "30036",
+      "category_name": "Teiggerichte",
+      "slug": "teiggerichte",
+      "product_count": "0"
+    },
+    {
+      "category_id": "30037",
+      "category_name": "Döner",
+      "slug": "doener",
+      "product_count": "10"
+    },
+    {
+      "category_id": "30038",
+      "category_name": "Calzone",
+      "slug": "calzone",
+      "product_count": "0"
+    },
+    {
+      "category_id": "30039",
+      "category_name": "Pommes",
+      "slug": "pommes",
+      "product_count": "0"
+    },
+    {
+      "category_id": "30040",
+      "category_name": "Salate",
+      "slug": "salate",
+      "product_count": "0"
+    },
+    {
+      "category_id": "30041",
+      "category_name": "Saucen / Dips",
+      "slug": "saucen",
+      "product_count": "5"
+    },
+    {
+      "category_id": "30042",
+      "category_name": "Alkoholfreie Getränke",
+      "slug": "getraenke",
+      "product_count": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "category_id\tcategory_name\tslug\tproduct_count\n30032\tMenüs\tmenues\t5\n30033\tBest of the Month\tbest-of-month\t0\n30034\tPizza\tpizza\t21\n30035\tFalafel\tfalafel\t0\n30036\tTeiggerichte\tteiggerichte\t0\n30037\tDöner\tdoener\t10\n30038\tCalzone\tcalzone\t0\n30039\tPommes\tpommes\t0\n30040\tSalate\tsalate\t0\n30041\tSaucen / Dips\tsaucen\t5\n30042\tAlkoholfreie Getränke\tgetraenke\t0\n",
+  "stderr": "",
+  "execution_time_ms": 58
+}

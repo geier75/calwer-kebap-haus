@@ -1,0 +1,28 @@
+{
+  "query": "SELECT p.id, p.name, p.categoryId, c.name as category_name \nFROM products p\nLEFT JOIN categories c ON p.categoryId = c.id\nWHERE p.slug IN ('falafel-fladenbrot', 'falafel-yufka', 'falafel-teller');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT p.id, p.name, p.categoryId, c.name as category_name \nFROM products p\nLEFT JOIN categories c ON p.categoryId = c.id\nWHERE p.slug IN ('falafel-fladenbrot', 'falafel-yufka', 'falafel-teller');",
+  "rows": [
+    {
+      "id": "90001",
+      "name": "Falafel im Fladenbrot",
+      "categoryId": "7",
+      "category_name": "NULL"
+    },
+    {
+      "id": "90002",
+      "name": "Falafel im Yufka",
+      "categoryId": "7",
+      "category_name": "NULL"
+    },
+    {
+      "id": "90003",
+      "name": "Falafel-Teller",
+      "categoryId": "7",
+      "category_name": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tcategoryId\tcategory_name\n90001\tFalafel im Fladenbrot\t7\tNULL\n90002\tFalafel im Yufka\t7\tNULL\n90003\tFalafel-Teller\t7\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 64
+}

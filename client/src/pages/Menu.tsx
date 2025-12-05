@@ -21,22 +21,13 @@ export default function Menu() {
   const { addItem, getTotalItems, setIsOpen } = useCart();
   
   const handleAddToCart = (product: any, quantity: number, selectedExtras?: string[], selectedVariantIndex?: number) => {
-    // Get selected variant price if exists
-    const price = selectedVariantIndex !== undefined && product.hasVariants && product.variants?.[selectedVariantIndex]
-      ? product.variants[selectedVariantIndex].price
-      : product.basePrice;
+    // Use product.basePrice directly - it already contains the correct total price
+    // (calculated by ProductCard for pizzas with size + extras, or menu items with extras)
+    const totalPrice = product.basePrice;
     
     const variant = selectedVariantIndex !== undefined && product.hasVariants && product.variants?.[selectedVariantIndex]
       ? product.variants[selectedVariantIndex].name
       : undefined;
-    
-    // Calculate extras price
-    const extrasPrice = selectedExtras?.reduce((sum, extraName) => {
-      const extra = product.variants?.find((v: any) => v.name === extraName);
-      return sum + (extra?.price || 0);
-    }, 0) || 0;
-    
-    const totalPrice = price + extrasPrice;
     
     for (let i = 0; i < quantity; i++) {
       addItem({

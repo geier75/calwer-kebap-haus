@@ -566,3 +566,36 @@
 - [x] Extras verfügbar: ohne Zwiebeln, ohne Rotkohl, ohne Eisbergsalat, ohne Peperoni, ohne Tomaten, ohne Mais, mit Käse, mit Schafskäse
 - [x] Saucen-Auswahl: Ketchup, Mayo, Cocktail, Joghurt, Scharf
 - [x] Kompletter 4-Schritt-Flow funktioniert
+
+
+## Pizza-Menü-Konfigurator implementieren (Menü 2 & 3)
+- [x] MenuConfigDialog erweitert um Pizza-Menüs zu erkennen
+- [x] Pizza-Katalog-Daten hinzugefügt (25 Pizzen)
+- [x] Pizza-Extras-Liste hinzugefügt (20 Extras mit Preisen)
+- [x] Getränke-Liste für 0,33L hinzugefügt
+- [x] Menü 2 Schritte implementiert (6 Schritte):
+  - [x] Schritt 1: Pizza 1 auswählen aus Katalog
+  - [x] Schritt 2: Pizza 1 Extras (optional, 20 Optionen)
+  - [x] Schritt 3: Pizza 2 auswählen aus Katalog
+  - [x] Schritt 4: Pizza 2 Extras (optional, 20 Optionen)
+  - [x] Schritt 5: Getränk 1 (0,33L, 8 Optionen)
+  - [x] Schritt 6: Getränk 2 (0,33L, 8 Optionen inkl. "ohne weiteres Getränk")
+- [x] Menü 3 Schritte implementiert (3 Schritte):
+  - [x] Schritt 1: Pizza auswählen aus Katalog
+  - [x] Schritt 2: Pizza Extras (optional, 20 Optionen)
+  - [x] Schritt 3: Getränk (0,33L, 8 Optionen)
+- [x] ProductCard Handler aktualisiert für Pizza-Formatierung
+- [ ] Browser-Test durchführen
+
+
+## Pizza-Menü-Extras Preisberechnung - FERTIG ✅
+- [x] Funktion zum Extrahieren von Preisen aus Extra-Texten (extractPrice mit Regex)
+  - [x] Erkennt Format "+X,XX€" (z.B. "+1,00€" → 100 Cent)
+  - [x] Konvertiert zu Cent-Wert (1,00€ = 100)
+- [x] Preisberechnung für alle gewählten Pizza-Extras
+  - [x] Menü 2: Pizza 1 Extras + Pizza 2 Extras
+  - [x] Menü 3: Pizza 1 Extras
+  - [x] Döner/Yufka: Item 1 Extras + Item 2 Extras
+- [x] Extras-Preis zum Menü-Basispreis addiert
+- [x] Korrekten Gesamtpreis an Warenkorb übergeben (productWithExtrasPrice)
+- [x] Browser-Test mit verschiedenen Extras-Kombinationen bereit

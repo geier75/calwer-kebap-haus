@@ -39,17 +39,74 @@ export function ProductCard({ product, index, onAddToCart }: ProductCardProps) {
     product.variants.some(v => v.name.startsWith('ohne') || v.name.startsWith('mit'));
 
   const handleMenuConfigComplete = (config: any) => {
-    // Determine item type (Döner or Yufka) based on product name
-    const itemName = product.name.toLowerCase().includes('yufka') ? 'Yufka' : 'Döner';
+    const isPizzaMenu = product.name.toLowerCase().includes('pizza');
+    const isMenu3 = product.name.toLowerCase().includes('menü 3');
     
-    // Format menu configuration for cart
-    const menuExtras = [
-      `${itemName} 1: ${config.item1.sauce}${config.item1.extras.length > 0 ? ', ' + config.item1.extras.join(', ') : ''}`,
-      `${itemName} 2: ${config.item2.sauce}${config.item2.extras.length > 0 ? ', ' + config.item2.extras.join(', ') : ''}`,
-      `Pommes: ${config.pommesSauce}`,
-      `Getränk: ${config.drink}`
-    ];
-    onAddToCart(product, 1, menuExtras, 0);
+    let menuExtras: string[];
+    let extrasPrice = 0;
+    
+    // Helper function to extract price from extra text
+    const extractPrice = (extraText: string): number => {
+      const match = extraText.match(/\+(\d+),(\d+)/);
+      if (match) {
+        return parseInt(match[1]) * 100 + parseInt(match[2]);
+      }
+      return 0;
+    };
+    
+    if (isPizzaMenu) {
+      // Pizza menu formatting
+      if (isMenu3) {
+        // Menü 3: 1 Pizza + Extras + 1 Drink
+        menuExtras = [
+          `Pizza: ${config.pizza1.pizzaName}${config.pizza1.extras.length > 0 ? ' (' + config.pizza1.extras.join(', ') + ')' : ''}`,
+          `Getränk: ${config.drink1}`
+        ];
+        // Calculate extras price for pizza 1
+        extrasPrice = config.pizza1.extras.reduce((sum: number, extra: string) => {
+          return sum + extractPrice(extra);
+        }, 0);
+      } else {
+        // Menü 2: 2 Pizzas + Extras + 2 Drinks
+        menuExtras = [
+          `Pizza 1: ${config.pizza1.pizzaName}${config.pizza1.extras.length > 0 ? ' (' + config.pizza1.extras.join(', ') + ')' : ''}`,
+          `Pizza 2: ${config.pizza2.pizzaName}${config.pizza2.extras.length > 0 ? ' (' + config.pizza2.extras.join(', ') + ')' : ''}`,
+          `Getränk 1: ${config.drink1}`,
+          `Getränk 2: ${config.drink2}`
+        ];
+        // Calculate extras price for both pizzas
+        extrasPrice = config.pizza1.extras.reduce((sum: number, extra: string) => {
+          return sum + extractPrice(extra);
+        }, 0);
+        extrasPrice += config.pizza2.extras.reduce((sum: number, extra: string) => {
+          return sum + extractPrice(extra);
+        }, 0);
+      }
+    } else {
+      // Döner/Yufka menu formatting
+      const itemName = product.name.toLowerCase().includes('yufka') ? 'Yufka' : 'Döner';
+      menuExtras = [
+        `${itemName} 1: ${config.item1.sauce}${config.item1.extras.length > 0 ? ', ' + config.item1.extras.join(', ') : ''}`,
+        `${itemName} 2: ${config.item2.sauce}${config.item2.extras.length > 0 ? ', ' + config.item2.extras.join(', ') : ''}`,
+        `Pommes: ${config.pommesSauce}`,
+        `Getränk: ${config.drink}`
+      ];
+      // Calculate extras price for döner/yufka (mit Käse, mit Schafskäse)
+      extrasPrice = config.item1.extras.reduce((sum: number, extra: string) => {
+        return sum + extractPrice(extra);
+      }, 0);
+      extrasPrice += config.item2.extras.reduce((sum: number, extra: string) => {
+        return sum + extractPrice(extra);
+      }, 0);
+    }
+    
+    // Create a modified product with adjusted price
+    const productWithExtrasPrice = {
+      ...product,
+      basePrice: product.basePrice + extrasPrice
+    };
+    
+    onAddToCart(productWithExtrasPrice, 1, menuExtras, 0);
   };
 
   const handleAddToCart = () => {

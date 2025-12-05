@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE products SET imageUrl = '/images/schueler-doener.jpg' WHERE slug = 'schueler-doener';\nUPDATE products SET imageUrl = '/images/doener.jpg' WHERE slug = 'doener';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute UPDATE products SET imageUrl = '/images/schueler-doener.jpg' WHERE slug = 'schueler-doener';\nUPDATE products SET imageUrl = '/images/doener.jpg' WHERE slug = 'doener';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 98
+}

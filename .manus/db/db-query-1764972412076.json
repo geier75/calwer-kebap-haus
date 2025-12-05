@@ -1,0 +1,65 @@
+{
+  "query": "SELECT id, name, slug FROM categories ORDER BY sortOrder",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 22Rpum9L9sZxinw.3c3b08241dc8 --database co5PUNqXK8tudZyuUEyQHS --execute SELECT id, name, slug FROM categories ORDER BY sortOrder",
+  "rows": [
+    {
+      "id": "30032",
+      "name": "Menüs",
+      "slug": "menues"
+    },
+    {
+      "id": "30033",
+      "name": "Best of the Month",
+      "slug": "best-of-month"
+    },
+    {
+      "id": "30034",
+      "name": "Pizza",
+      "slug": "pizza"
+    },
+    {
+      "id": "30035",
+      "name": "Falafel",
+      "slug": "falafel"
+    },
+    {
+      "id": "30036",
+      "name": "Lahmacun",
+      "slug": "lahmacun"
+    },
+    {
+      "id": "30037",
+      "name": "Döner",
+      "slug": "doener"
+    },
+    {
+      "id": "30038",
+      "name": "Calzone",
+      "slug": "calzone"
+    },
+    {
+      "id": "30039",
+      "name": "Pide",
+      "slug": "pide"
+    },
+    {
+      "id": "30040",
+      "name": "Salate",
+      "slug": "salate"
+    },
+    {
+      "id": "30041",
+      "name": "Saucen / Dips",
+      "slug": "saucen"
+    },
+    {
+      "id": "30042",
+      "name": "Alkoholfreie Getränke",
+      "slug": "getraenke"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tslug\n30032\tMenüs\tmenues\n30033\tBest of the Month\tbest-of-month\n30034\tPizza\tpizza\n30035\tFalafel\tfalafel\n30036\tLahmacun\tlahmacun\n30037\tDöner\tdoener\n30038\tCalzone\tcalzone\n30039\tPide\tpide\n30040\tSalate\tsalate\n30041\tSaucen / Dips\tsaucen\n30042\tAlkoholfreie Getränke\tgetraenke\n",
+  "stderr": "",
+  "execution_time_ms": 155
+}

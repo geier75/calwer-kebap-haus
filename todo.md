@@ -644,3 +644,4 @@
 - [x] SalatConfigDialog öffnet sich nicht - Dressing-Auswahl fehlt
 - [x] KRITISCH: Salate erscheinen bei Alle aber nicht bei Salate-Kategorie - categoryId falsch
 - [x] KRITISCH: SalatConfigDialog zeigt keine Dressing-Auswahl - nur Menge sichtbar
+- [x] Kategorie-Name von 'Saucen / Saucen' zu 'Snacks / Saucen' ändern
